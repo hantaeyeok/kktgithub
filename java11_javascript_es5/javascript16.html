@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 데이터 추가</title>
+    <style>
+    .wrap { clear:both; width:650px; margin:20px auto; }    
+    #res_btn { display:block; width:100px; text-align: center; line-height:28px;  margin:5px auto;  }
+    .fr tr, .fr td, .fr th { line-height: 28px; }
+    #res td, #res th { border-bottom:2px solid #333; }
+    #res th { border-top: 2px solid #333;  }
+    #res th:first-child { width:180px; }
+    #res th:last-child, #res td:last-child { width:180px; text-align: center;  }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <form action="" name="frm1">
+            <table width="650" class="fr">
+                <tbody>
+                    <tr>
+                        <th>이름</th>
+                        <td><input type="text" size="20" name="irum" id="irum" value="아무개"></td>
+                        <th>국어</th>
+                        <td><input type="text" size="20" name="kor" id="kor" value="0"></td>
+                    </tr>
+                    <tr>
+                        <th>영어</th>
+                        <td><input type="text" size="20" name="eng" id="eng" value="0"></td>
+                        <th>수학</th>
+                        <td><input type="text" size="20" name="mat" id="mat" value="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" id="res_btn">추가</button>
+        </form>
+        <hr>
+        <table id="res" width="650">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>국어</th>
+                    <th>영어</th>
+                    <th>수학</th>
+                    <th>총점</th>
+                    <th>평균</th>
+                </tr>
+            </thead>
+            <tbody id="ins_data">
+
+            </tbody>
+        </table>
+        <script>
+        var btn = document.getElementById("res_btn");
+        var kor = document.getElementById("kor");
+        var eng = document.getElementById("eng");
+        var mat = document.getElementById("mat");
+        var ins_data = document.getElementById("ins_data");
+        var res = "";
+        var tot = 0;
+        var avg = 0.0;
+        var name;
+        btn.addEventListener("click", function(){
+            res = ins_data.innerHTML;
+            name = document.getElementById("irum").value;
+            tot = parseInt(kor.value) + parseInt(eng.value) + parseInt(mat.value);
+            avg = tot / 3.0;
+            res += "<tr><td>"+name+"</td><td>"+kor.value+"</td><td>"+eng.value+"</td><td>"+mat.value+"</td><td>"+tot+"</td><td>"+avg+"</td></tr>";
+            ins_data.innerHTML = res;
+        });
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭</title>
+    <style>
+        * { margin: 0; padding: 0; }    
+    body { width: 100%; overflow-x:hidden; }
+    ul { list-style: none; }
+    a { text-decoration: none; }
+    .wrap { min-height:250px; }
+    .blank { width: 100%; clear: both; min-height:150px; }
+    .title { padding-top: 2rem; padding-bottom: 0.5rem; text-align: center; }
+    .lst { list-style:disc; margin-left: 20px; padding-left: 5px; }
+    .lst li { padding-top: 10px; padding-bottom: 5px; }
+    .lst a { color:#333; }
+    .clr-fix { clear:both; }
+    .clr-fix:after { content:""; display:block; width: 100%; clear:both; 
+    padding-bottom: 16px; }    
+
+    #tab1 {  position:relative; width: 600px; height: 350px; 
+    clear:both; margin: 10px auto; }
+    #tab1 li label { position:absolute; top:10px; z-index:20;
+        display:inline-block; cursor:pointer;
+        width:120px; height:38px; line-height: 38px; 
+        text-align: center; color:#fff; background-color:#333; }
+    #tab1 li.item1 label { left: 0; }    
+    #tab1 li.item2 label { left: 120px; }
+    #tab1 li.item3 label { left: 240px; }
+    #tab1 li.item4 label { left: 360px; }
+    #tab1 li .tab_ra:checked + label { background-color: deepskyblue; }
+    .tab_con { display:none; position:absolute; top:48px; left: 0; }
+    .tab_ra { display:none; }
+    .tab_ra:checked ~ .tab_con { display:block; }
+
+    .ra_item { display:none; }
+    .tab_con_box { display:none; }
+    #ra1:checked ~ .tab_con_wrap #tab_con_box1 { display:block; }
+    #ra2:checked ~ .tab_con_wrap #tab_con_box2 { display:block; }
+    #ra3:checked ~ .tab_con_wrap #tab_con_box3 { display:block; }
+
+    #tab2 { position:relative; width: 600px; height: 350px; 
+    clear:both; margin: 10px auto;  }
+    .btn_box .ra_btn { display:inline-block; width: 120px; 
+    height: 40px; line-height: 40px; text-align: center; background-color:#333;
+    color:#fff; border-radius:10px 10px 0px 0px; }
+    #ra1:checked ~ .btn_box label:first-child { background-color: deepskyblue; }
+    #ra2:checked ~ .btn_box label:nth-child(2) { background-color: deepskyblue; }
+    #ra3:checked ~ .btn_box label:last-child { background-color: deepskyblue; }
+
+    #tab0 { position:relative; width: 600px; height: 350px; 
+    clear:both; margin: 10px auto;  }
+    .tb_btn { display: inline-block; width: 120px; height: 40px; 
+        text-align: center; line-height: 40px; color:#fff;
+        background-color: #333; }
+    .tb_box { display:none; }
+    .tb_box:target { display:block; }
+
+    #tab3 { position:relative; width: 600px; height: 350px; 
+    clear:both; margin: 10px auto;  }
+    .t_btn { display: inline-block; width: 120px; height: 40px; 
+        text-align: center; line-height: 40px; color:#fff;
+        background-color: #333; outline: none; border:none; 
+        cursor:pointer; }
+    .t_con_box { display:none; }   
+    </style>
+</head>
+<body>
+    <h1 class="title">탭</h1>
+    <hr>
+    <h2 class="title">탭0</h2>
+    <div class="wrap">
+        <nav id="tab0">
+            <div class="tb_wrap">
+                <div class="btn_box">
+                    <a href="#tb1" class="tb_btn">아이템1</a>
+                    <a href="#tb2" class="tb_btn">아이템2</a>
+                    <a href="#tb3" class="tb_btn">아이템3</a>
+                </div>
+                <div class="tb_con_wrap">
+                    <div class="tb_box" id="tb1">
+                        <img src="https://placehold.it/600x300/693" alt="탭이미지">
+                    </div>
+                    <div class="tb_box" id="tb2">
+                        <img src="https://placehold.it/600x300/333" alt="탭이미지">
+                    </div>
+                    <div class="tb_box" id="tb3">
+                        <img src="https://placehold.it/600x300/936" alt="탭이미지">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <h2 class="title">탭1</h2>
+    <div class="wrap clr-fix">
+        <ul id="tab1">
+            <li class="item1">
+                <input type="radio" class="tab_ra" name="tab1" id="tab_ra1" checked>
+                <label for="tab_ra1" class="tab_btn">아이템1</label>
+                <div class="tab_con">
+                    <img src="https://placehold.it/600x300/333" alt="탭이미지">
+                </div>
+            </li>
+            <li class="item2">
+                <input type="radio" class="tab_ra" name="tab1" id="tab_ra2">
+                <label for="tab_ra2" class="tab_btn">아이템2</label>
+                <div class="tab_con">
+                    <img src="https://placehold.it/600x300/369" alt="탭이미지">
+                </div>
+            </li>
+            <li class="item3">
+                <input type="radio" class="tab_ra" name="tab1" id="tab_ra3">
+                <label for="tab_ra3" class="tab_btn">아이템3</label>
+                <div class="tab_con">
+                    <img src="https://placehold.it/600x300/936" alt="탭이미지">
+                </div>
+            </li>
+            <li class="item4">
+                <input type="radio" class="tab_ra" name="tab1" id="tab_ra4">
+                <label for="tab_ra4" class="tab_btn">아이템4</label>
+                <div class="tab_con">
+                    <img src="https://placehold.it/600x300/693" alt="탭이미지">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <h2 class="title">탭2</h2>
+    <div class="wrap">
+        <nav id="tab2">
+            <div class="tb_wrap">
+                <input type="radio" class="ra_item" name="tb_ra2" id="ra1" checked>
+                <input type="radio" class="ra_item" name="tb_ra2" id="ra2">
+                <input type="radio" class="ra_item" name="tb_ra2" id="ra3">
+                <div class="btn_box">
+                    <label for="ra1" class="ra_btn">아이템1</label>
+                    <label for="ra2" class="ra_btn">아이템2</label>
+                    <label for="ra3" class="ra_btn">아이템3</label>
+                </div>
+                <div class="tab_con_wrap">
+                    <div class="tab_con_box" id="tab_con_box1">
+                        <img src="https://placehold.it/600x300/693" alt="탭이미지">
+                    </div>
+                    <div class="tab_con_box" id="tab_con_box2">
+                        <img src="https://placehold.it/600x300/333" alt="탭이미지">
+                    </div>
+                    <div class="tab_con_box" id="tab_con_box3">
+                        <img src="https://placehold.it/600x300/936" alt="탭이미지">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <h2 class="title">탭3</h2>
+    <div class="wrap">
+        <nav id="tab3">
+            <div class="t_wrap">
+                <div class="bt_box">
+                    <button type="button" class="t_btn" id="btn1" onclick="tab('1')">아이템1</button>
+                    <button type="button" class="t_btn" id="btn2" onclick="tab('2')">아이템2</button>
+                    <button type="button" class="t_btn" id="btn3" onclick="tab('3')">아이템3</button>
+                </div>
+                <div class="t_con_wrap">
+                    <div class="t_con_box" id="tbox1">
+                        <img src="https://placehold.it/600x300/693" alt="탭이미지">
+                    </div>
+                    <div class="t_con_box" id="tbox2">
+                        <img src="https://placehold.it/600x300/333" alt="탭이미지">
+                    </div>
+                    <div class="t_con_box" id="tbox3">
+                        <img src="https://placehold.it/600x300/936" alt="탭이미지">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");    
+    var btn3 = document.getElementById("btn3");
+    var tbox1 = document.getElementById("tbox1");
+    var tbox2 = document.getElementById("tbox2");
+    var tbox3 = document.getElementById("tbox3");
+    tab("btn1");
+    function tab(btn) {
+        if(btn=="1"){
+            tbox1.style.display = "block";
+            tbox2.style.display = "none";
+            tbox3.style.display = "none";
+            btn1.style.backgroundColor = "deepskyblue";
+            btn2.style.backgroundColor = "#333";
+            btn3.style.backgroundColor = "#333";
+        } else if(btn=="2") {
+            tbox1.style.display = "none";
+            tbox2.style.display = "block";
+            tbox3.style.display = "none";
+            btn1.style.backgroundColor = "#333";
+            btn2.style.backgroundColor = "deepskyblue";
+            btn3.style.backgroundColor = "#333";
+        } else if(btn=="3"){
+            tbox1.style.display = "none";
+            tbox2.style.display = "none";
+            tbox3.style.display = "block";
+            btn1.style.backgroundColor = "#333";
+            btn2.style.backgroundColor = "#333";
+            btn3.style.backgroundColor = "deepskyblue";
+        } else {
+            tbox1.style.display = "block";
+            tbox2.style.display = "none";
+            tbox3.style.display = "none";
+            btn1.style.backgroundColor = "deepskyblue";
+            btn2.style.backgroundColor = "#333";
+            btn3.style.backgroundColor = "#333";
+        }
+    }
+    </script>
+</body>
+</html>

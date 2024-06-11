@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  
+  <title>Result Data</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <style>
+  * { 
+    margin: 0; 
+    padding: 0; 
+  }
+  body { 
+    font: 14px/1.4 Palatino, Serif; 
+  }
+  
+  /* 
+  Generic Styling, for Desktops/Laptops 
+  */
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #9B9B9B; 
+    text-align: left; 
+  }
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead tr { position: absolute;top: -9999px;left: -9999px;}
+    tr { border: 1px solid #9B9B9B; }
+    td { border: none;border-bottom: 1px solid #9B9B9B; position: relative;padding-left: 50%; }
+    
+    td:before { position: absolute;top: 6px;left: 6px;width: 45%; padding-right: 10px; white-space: nowrap;}
+    
+    /*
+    Label the data
+    */
+td:nth-of-type(1):before { content: "BOOKID"; }
+td:nth-of-type(2):before { content: "BOOKKIND"; }
+td:nth-of-type(3):before { content: "BOOKTITLE"; }
+td:nth-of-type(4):before { content: "BOOKPRICE"; }
+td:nth-of-type(5):before { content: "BOOKCOUNT"; }
+td:nth-of-type(6):before { content: "AUTHOR"; }
+td:nth-of-type(7):before { content: "PUBCOM"; }
+td:nth-of-type(8):before { content: "PUBDATE"; }
+  }
+  
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 480px) {
+    body { 
+      padding: 0; 
+      margin: 0; 
+      width: 320px; }
+    }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    body { 
+      width: 495px; 
+    }
+  }
+  
+  </style>
+  <!--<![endif]-->
+<script type="text/javascript">
+
+function search(){
+  
+  var s = document.getElementById('search').value;
+
+  rows = document.getElementById('data').getElementsByTagName('TR');
+  for(var i=0;i<rows.length;i++){
+    if ( rows[i].textContent.indexOf(s)>0  || s.length==0 ) {
+	  rows[i].style.display ='';
+    } else {
+      rows[i].style.display ='none';
+    }
+  }
+}
+
+
+var timer;
+function delayedSearch() {
+	clearTimeout(timer);
+	console.log('delay-ing')
+    timer = setTimeout(function () {
+		console.log('delay-running')
+		search();
+    }, 500);
+  }</script>
+</head>
+
+<body>
+<div><input type="text" size="30" maxlength="1000" value="" id="search" onkeyup="delayedSearch();" /><input type="button" value="Go" onclick="lsearch();"/> </div>
+<table><thead><tr>	<th>BOOKID</th>
+	<th>BOOKKIND</th>
+	<th>BOOKTITLE</th>
+	<th>BOOKPRICE</th>
+	<th>BOOKCOUNT</th>
+	<th>AUTHOR</th>
+	<th>PUBCOM</th>
+	<th>PUBDATE</th>
+</tr></thead>
+<tbody id="data">
+
+	<tr>
+<td align="right">1</td>
+<td>IT</td>
+<td>이것이 자바다</td>
+<td align="right">30000</td>
+<td align="right">10</td>
+<td>신용권</td>
+<td>한빛미디어</td>
+<td>21/08/20 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">2</td>
+<td>IT</td>
+<td>자바웹개발워크북</td>
+<td align="right">31500</td>
+<td align="right">19</td>
+<td>구멍가게코딩단</td>
+<td>남가람북스</td>
+<td>22/08/04 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">3</td>
+<td>NV</td>
+<td>하얼빈</td>
+<td align="right">14400</td>
+<td align="right">15</td>
+<td>김훈</td>
+<td>문학동네</td>
+<td>22/08/03 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">4</td>
+<td>NV</td>
+<td>불편한편의점</td>
+<td align="right">12600</td>
+<td align="right">10</td>
+<td>김호연</td>
+<td>나무옆의자</td>
+<td>22/08/10 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">5</td>
+<td>DV</td>
+<td>역행자</td>
+<td align="right">15750</td>
+<td align="right">8</td>
+<td>자청</td>
+<td>웅진출판</td>
+<td>22/05/30 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">6</td>
+<td>DV</td>
+<td>자소서바이블</td>
+<td align="right">18000</td>
+<td align="right">15</td>
+<td>이형</td>
+<td>엔알디</td>
+<td>22/08/25 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">7</td>
+<td>HC</td>
+<td>벌거벗은한국사</td>
+<td align="right">17500</td>
+<td align="right">10</td>
+<td>tvn</td>
+<td>프런트페이지</td>
+<td>22/08/22 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">8</td>
+<td>HC</td>
+<td>난중일기</td>
+<td align="right">14000</td>
+<td align="right">30</td>
+<td>이순신</td>
+<td>스타북스</td>
+<td>22/07/27 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">9</td>
+<td>TC</td>
+<td>진짜쓰는실무엑셀</td>
+<td align="right">20000</td>
+<td align="right">10</td>
+<td>전진권</td>
+<td>제이펍</td>
+<td>22/02/15 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">10</td>
+<td>TC</td>
+<td>빅데이터인공지능</td>
+<td align="right">25000</td>
+<td align="right">15</td>
+<td>박해선</td>
+<td>한빛미디어</td>
+<td>20/12/21 00:00:00.000000000</td>
+	</tr>
+	<tr>
+<td align="right">11</td>
+<td>IT</td>
+<td>스프링프레임워크</td>
+<td align="right">38000</td>
+<td align="right">8</td>
+<td>김기태</td>
+<td>정복사</td>
+<td>22/09/10 00:00:00.000000000</td>
+	</tr>
+</tbody></table><!-- SQL:
+select BOOKID BOOKID, BOOKKIND BOOKKIND, BOOKTITLE BOOKTITLE, BOOKPRICE BOOKPRICE, BOOKCOUNT BOOKCOUNT, AUTHOR AUTHOR, PUBCOM PUBCOM, PUBDATE PUBDATE from (select * from "SYSTEM"."BOOK")--></body></html>

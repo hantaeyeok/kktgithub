@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배치와 관련된 속성 실습</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+    * { margin: 0; padding: 0; }
+    body, html { width:100%; overflow-x:hidden; }
+    ul { list-style:none; }
+    a { text-decoration: none; color:#333; }
+
+    .wrap { width: 100%; }
+    #gnb { width: 1200px; margin: 15px auto; }
+    /* clear-fix */
+    #gnb:after { content:""; display:block; width: 100%; clear:both; } 
+    .logo { display:block; width: 90px; height: 90px; 
+        background-color: gold; color:navy; font-size:20px; 
+        text-align:center; line-height: 90px; border-radius:46px; 
+        float:left; margin-left: 105px; overflow:hidden; }
+    .logo img { display:block; width: 100%; height:auto; }    
+    .menu { width:450px; margin-top:29px; }
+    .menu.item1 { float:left; }
+    .menu.item2 { float:right; }
+    .menu li { float:left; width: 150px; background-color:deepskyblue; 
+    line-height: 32px; text-align:center;  }
+    .menu li:hover { background-color: deeppink; }
+    .menu li a { display:block; color:#fff;  }
+
+    #vs { width: 100%; height: 300px; overflow:hidden; position:relative; }
+    #vs img { display:block; width: 100%; height:auto; }
+    .tit_box { position:absolute; top:50px; left:50%; width: 1200px; 
+        height: 150px; margin-left: -600px; z-index:2; }
+    .vs_more { display:block; width: 120px; height: 36px; 
+        line-height: 36px; border:3px solid deepskyblue;
+    position:absolute; bottom:50px; right:20%; z-index:3; 
+    text-align: center; border-radius:22px; color:deepskyblue}
+
+    .page { clear:both; width: 100vw; min-height:100vh; }
+    .page:after { content:""; display:block; width: 100%; clear:both; }
+    .page_title { text-align: center; padding-top: 2rem; }
+    .thumb_lst_box { clear:both; width: 1200px; margin:10px auto; }
+    .thumb_lst { clear:both; width: 100%; }
+    .thumb_lst li { float:left; margin: 20px 50px; width: 300px; 
+        height: 400px; overflow:hidden; box-sizing:border-box;
+     border-radius:10px 10px 0px 0px; box-shadow:0px 0px 40px #666; }
+    .thumb_lst li a { display:block; }
+    .thumb_lst li a img { display:block; width: 100%; height:auto; }
+    .thumb_lst li a span { display:block; padding-left:14px; padding-top: 14px; }
+    .thumb_lst li a .item_tit { width: 250px; font-weight: 700; 
+        font-size:18px; white-space:nowrap;  text-overflow: ellipsis;
+        overflow:hidden;   }
+    .thumb_lst li a .item_com { font-weight: 300; font-size: 14px; }
+
+    #page2 { background-color:#ececec; }
+    .pos_box { clear:both; width:1200px; margin: 10px auto;
+         position:relative; }
+    .pos_box article { width:200px; height: 200px; line-height: 200px; 
+        text-align: center; border:1px dotted #333; 
+        border-radius:101px; position:absolute; }
+    article.art1 { background-color:gold; top:100px; left: 100px; z-index:6; }    
+    article.art2 { background-color:deeppink; top:200px; left:200px; z-index:2; }    
+    article.art3 { background-color:deepskyblue; top:300px; left:300px; z-index:3; }
+    article.art4 { background-color:navy; color:#fff; top:200px; left:450px; z-index:4; }
+    article.art5 { background-color:orangered; color:#fff; top:100px; left:550px;
+         z-index:5; }
+    
+    #quick { width: 200px; height: 200px; background-color:orangered; 
+    border-radius:20px 20px 0px 0px; position:fixed; top:100px; 
+    right:40px; z-index:9999; }
+    #quick ul { clear:both; }
+    #quick ul li { text-align: center; line-height: 40px; }
+    #quick ul li.q_tit { font-weight: 800; font-size:30px; line-height: 65px; }
+    #quick ul li a { color:#fff; }
+
+    .tb_wrap { clear:both; width: 1200px; margin: 10px auto; padding-bottom: 20px; 
+    margin-bottom: 20px; }
+    .tb_wrap:after { content:""; display:block; width: 100%; clear:both; }
+    .table { display:table; border-collapse: collapse; width:960px; 
+        margin:10px auto; }
+    .table tr { display:table-row; }
+    .table td, .table th { display:table-cell; font-size:16px; }
+    .table td { line-height: 32px; border-bottom:1px solid #333; }
+    .table td:first-child, .table td:last-child { text-align:center; }
+    .table th { line-height: 36px; background-color:#333; color:#fff; }
+    .table td:nth-child(2) { width:800px; }
+    .table a.n_tit { display:block; width: 760px; padding: 0 20px; 
+        white-space:nowrap; text-overflow: ellipsis; overflow:hidden; 
+        font-weight: bold; }
+    .table a.n_tit:hover { text-decoration: underline; color:deepskyblue; }    
+    .url { width: 960px; padding: 24px; word-break:break-all; margin:15px auto; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">배치와 관련된 속성 실습</h1>
+    <hr>
+    <!-- div.wrap>nav#gnb>a.logo{로고타입}+(ul.menu>li*5>a{메뉴$}) -->
+    <div class="wrap">
+        <header id="hd">
+            <nav id="gnb">
+                <ul class="menu item1">
+                    <li><a href="">메뉴1</a></li>
+                    <li><a href="">메뉴2</a></li>
+                    <li><a href="">메뉴3</a></li>
+                </ul>
+                <a href="" class="logo">로고타입</a>
+                <ul class="menu item2">
+                    <li><a href="">메뉴4</a></li>
+                    <li><a href="">메뉴5</a></li>
+                    <li><a href="">메뉴6</a></li>
+                </ul>
+            </nav>
+        </header>
+        <figure id="vs">
+            <div class="tit_box">
+                <h2 class="vs_tit">배너 제목</h2>
+                <p class="vs_com">배너 설명</p>
+            </div>
+            <a href="" class="vs_more">더보기</a>
+            <img src="https://via.placeholder.com/1800x300/ff6600" alt="비주얼배너">
+        </figure>
+        <!-- section.page#page$*3>h2.page_title{페이지제목$} -->
+        <section class="page" id="page1">
+            <h2 class="page_title">페이지제목1</h2>
+            <!-- div.thumb_lst_box>ul.thumb_lst>li*8>a>img[src=https://via.placeholder.com/300x200]+span.item_tit{항목 제목$}+span.item_com{항목 설명$} -->
+            <div class="thumb_lst_box">
+                <ul class="thumb_lst">
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목1</span><span class="item_com">항목 설명1</span></a></li>
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목2 항목 제목2 항목 제목2 항목 제목2 항목 제목2 항목 제목2 항목 제목2 항목 제목2 항목 제목2 항목 제목2</span><span class="item_com">항목 설명2</span></a></li>
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목3</span><span class="item_com">항목 설명3</span></a></li>
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목4</span><span class="item_com">항목 설명4</span></a></li>
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목5</span><span class="item_com">항목 설명5</span></a></li>
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목6</span><span class="item_com">항목 설명6</span></a></li>
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목7</span><span class="item_com">항목 설명7</span></a></li>
+                    <li><a href=""><img src="https://via.placeholder.com/300x200" alt=""><span class="item_tit">항목 제목8</span><span class="item_com">항목 설명8</span></a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="page" id="page2">
+            <h2 class="page_title">페이지제목2</h2>
+            <!-- div.pos_box>article.art${아트박스}*5 -->
+            <div class="pos_box">
+                <article class="art1">아트박스1</article>
+                <article class="art2">아트박스2</article>
+                <article class="art3">아트박스3</article>
+                <article class="art4">아트박스4</article>
+                <article class="art5">아트박스5</article>
+            </div>
+        </section>
+        <section class="page" id="page3">
+            <h2 class="page_title">페이지제목3</h2>
+            <div class="tb_wrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>연번</th>
+                            <th>제목</th>
+                            <th>작성일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td><a href="" class="n_tit">게시글 10 게시글 10 게시글 10 게시글 10 게시글 10 게시글 10 게시글 10 게시글 10게시글 10 게시글 10 게시글 10 게시글 10게시글 10 게시글 10 게시글 10 게시글 10 게시글 10 게시글 10 게시글 10 게시글 10</a></td>
+                            <td>2024-04-20</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td><a href="" class="n_tit">게시글 9 게시글 9 게시글 9 게시글 9게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9 게시글 9</a></td>
+                            <td>2024-04-19</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><a href="" class="n_tit">게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8 게시글 8게시글 8 게시글 8 게시글 8 게시글 8</a></td>
+                            <td>2024-04-18</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><a href="" class="n_tit">게시글 7</a></td>
+                            <td>2024-04-17</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><a href="" class="n_tit">게시글 6</a></td>
+                            <td>2024-04-16</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><a href="" class="n_tit">게시글 5</a></td>
+                            <td>2024-04-14</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><a href="" class="n_tit">게시글 4</a></td>
+                            <td>2024-04-13</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><a href="" class="n_tit">게시글 3</a></td>
+                            <td>2024-04-12</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><a href="" class="n_tit">게시글 2</a></td>
+                            <td>2024-04-11</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><a href="" class="n_tit">게시글 1</a></td>
+                            <td>2024-04-10</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <p class="url">참고 사이트 : https://www.google.com/search?sca_esv=9f7259ab7855135b&sca_upv=1&sxsrf=ACQVn09DBvh7zBoZ4BV5qAdG2-6YJTu6lQ:1713501274636&q=%EC%8A%A4%ED%83%80%EC%9D%BC+%EC%8B%9C%ED%8A%B8&uds=AMwkrPs4mDHqV7QfY9nYaKRHgvE9__cw8VT3m8fgcJaXYRXSjh5tsYSYw5oxC3evxMMozqSQZzNRBM_O4vi6fudnQvd1PFEHL-lTjTiynF3ICJ0xp74BRzw3oAl2nYWHj5RyRdO0JBLz4wB6oXwZDB37w12VuOfYEomlAQLM8vZsuTCuF-neKjpcvKgrrzPwyNS-SELtaCrtrbH0-ROnT_vKt9Al3Cq0t1MQChDMUTxxTeyO9_sRYoybrlQggsa0HMS8icw3BbMByS6dPPlYq3cU2g-QRfWUOA&udm=2&prmd=isvnbmz&sa=X&sqi=2&ved=2ahUKEwiUya_Wuc2FAxWcklYBHegCBvEQtKgLegQIDxAB&biw=1536&bih=762&dpr=1.25#vhid=Xf6puKPawnSU6M&vssid=mosaic</p>
+            </div>
+        </section>
+    </div>
+    <!-- nav#quick>ul>li*4>a{메뉴$} -->
+    <nav id="quick">
+        <ul>
+            <li><span class="q_tit">QUICK</span></li>
+            <li><a href="">메뉴1</a></li>
+            <li><a href="">메뉴2</a></li>
+            <li><a href="">메뉴3</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

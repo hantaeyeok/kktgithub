@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 08</title>
+</head>
+<body>
+    <h1>데이터형 객체</h1>
+    <p>자바스크립트의 데이터형 객체는 데이터를 저장하거나 변환, 변형, 전달을 
+        목적으로 만든 내장 객체를 의미하며, 그 데이터가 어떠한 타입의 데이터냐에
+    따라 사용하는 객체가 달라집니다.`</p>
+    <p>Number, Math, Date, String, Array, Audio, Video, File,.. 등이 있으며,
+        정적 객체도 있고, 동적 객체(new 키워드로 생성)도 있고, 혼합형태도 있습니다.
+    </p>
+    <hr>
+    <script>
+    var x = 456789.1234;
+    var y = 12345.6789;
+    var z = 0x2C;   //16진수
+    var z1 = 0b1011110;  //2진수
+    var z2 = 0o4512; //8진수
+
+    //Number 객체 관련 메소드
+    document.write("<h3>2진수로 변환</h3>");
+    document.write("<p>"+x.toString(2)+"</p>");
+    document.write("<p>"+y.toString(2)+"</p>");
+    document.write("<p>"+z.toString(2)+"</p>");
+    document.write("<h3>8진수로 변환</h3>");
+    document.write("<p>"+x.toString(8)+"</p>");
+    document.write("<p>"+y.toString(8)+"</p>");
+    document.write("<p>"+z.toString(8)+"</p>");
+    document.write("<h3>16진수로 변환</h3>");
+    document.write("<p>"+x.toString(16)+"</p>");
+    document.write("<p>"+y.toString(16)+"</p>");
+    document.write("<p>"+z.toString(16)+"</p>");
+    document.write("<h3>10진수로 변환</h3>");
+    document.write("<p>"+x.toString(10)+"</p>");
+    document.write("<p>"+y.toString(10)+"</p>");
+    document.write("<p>"+z.toString(10)+"</p>");
+
+    var a = "kim";
+    var b = "1234";
+    var c = 0;
+    var d = 50;
+    var e;
+    var f = "12.54";
+    var o = "12.34";
+    var k = "13 + 15 / 20 + d";
+    document.write("<h3>Number.메소드() 형태의 정적 메소드</h3>");
+    document.write("<p>b / d : "+(b/d)+" : "+Number.isInteger(b/d) + "</p>");
+    document.write("<p>a / d : "+(a/d)+" : "+Number.isNaN(a/d)+"</p>");
+    document.write("<p>c / d : "+(c/d)+"</p>");
+    document.write("<p>d / c : "+(d/c)+" : "+Number.isFinite(d/c)+"</p>");
+    document.write("<p>e / d : "+(e/d)+" : "+isNaN(e/d)+"</p>");
+    g = Number.parseInt(b);
+    document.write("<p>"+(typeof b)+", b 숫자로 변환"+g+" : "+(typeof g)+"</p>");
+    h = Number.parseFloat(f);
+    document.write("<p>"+(typeof f)+", f 숫자로 변환"+h+" : "+(typeof h)+"</p>");
+    i = Number(f);
+    document.write("<p>"+(typeof f)+", f 숫자로 변환"+i+" : "+(typeof i)+"</p>");
+    j = eval(f);
+    document.write("<p>"+(typeof f)+", f 숫자로 변환"+j+" : "+(typeof j)+"</p>");
+    l = Number(k);
+    document.write("<p>"+(typeof k)+", k 변환"+l+" : "+(typeof l)+"</p>");
+    m = eval(k);
+    document.write("<p>"+(typeof k)+", k 변환"+m+" : "+(typeof m)+"</p>");
+
+    //Math 객체 관련 메소드 - 반드시 앞에 Math가 붙여야 함
+    var arr1 = [20, 80, 90, 70, 100, 10, 15];
+    document.write("<h3>Math 객체 관련 메소드</h3>");
+    document.write("<p> 최소값 : "+Math.min(20, 80, 90, 70, 100, 10, 15)+"</p>");
+    document.write("<p> 최대값 : "+Math.max(20, 80, 90, 70, 100, 10, 15)+"</p>");
+    document.write("<p> 임의의 수 : "+Math.random()+"</p>");
+    var n = Number(f);
+    var p = Number(o);
+    document.write("<p> 반올림1 : "+Math.round(n)+"</p>");
+    document.write("<p> 반올림2 : "+Math.round(p)+"</p>");
+    document.write("<p> 올림1 : "+Math.ceil(n)+"</p>");
+    document.write("<p> 올림2 : "+Math.ceil(p)+"</p>");
+    document.write("<p> 내림1 : "+Math.floor(n)+"</p>");
+    document.write("<p> 내림2 : "+Math.floor(p)+"</p>");
+    document.write("<p> sin 30도 : "+Math.sin(30)+"</p>");
+    document.write("<p> cos 30도 : "+Math.cos(30)+"</p>");
+    document.write("<p> tan 30도 : "+Math.tan(30)+"</p>");
+    document.write("<p> -236의 절대값 : "+Math.abs(-236)+"</p>");
+    document.write("<p> 루트(제곱근) 81의 값 : "+Math.sqrt(81)+"</p>");
+    document.write("<p> 81의 세제곱근의 값 : "+Math.cbrt(81)+"</p>");
+    document.write("<p> 9의 4승 값 : "+Math.pow(9,4)+"</p>");
+
+    //Date 객체 관련 메소드 - 생성형 객체
+    date1 = new Date();    //오늘 날짜
+    document.write("<h3>Date 객체 관련 메소드</h3>");
+    document.write("<p>오늘 날짜 : "+date1+"</p>");
+    document.write("<p>연도 : "+date1.getFullYear()+"</p>");
+    document.write("<p>월 : "+(date1.getMonth()+1)+"</p>");  //0~11
+    w = ["일","월","화","수","목","금","토"];
+    document.write("<p>요일번호 : "+(date1.getDay())+", 요일 : "
+    +w[date1.getDay()]+"</p>");  //0~6
+    document.write("<p>일 : "+(date1.getDate())+"</p>");  
+    document.write("<p>시 : "+(date1.getHours())+"</p>"); 
+    document.write("<p>분 : "+(date1.getMinutes())+"</p>");
+    document.write("<p>초 : "+(date1.getSeconds())+"</p>");
+    </script>
+    <h2>타이머 객체</h2>
+    <div id="cal"></div>
+    <div id="clock"></div>
+    <div id="status"></div>
+    <button type="button" id="btn1">멈춤</button>
+    <script>
+    //타이머 객체
+    function abc() {
+        date2 = new Date();
+        var today = ""+date2.getFullYear() + "-" + (date2.getMonth()+1) + "-" + date2.getDate() + "("+w[date1.getDay()]+")";
+        var now = ""+date2.getHours()+":"+date2.getMinutes()+":"+date2.getSeconds();
+        var cal = document.getElementById("cal");
+        var clock = document.getElementById("clock");
+        cal.innerHTML = "<p>오늘 날짜 : "+today+"</p>";  
+        clock.innerHTML ="<p>현재 시각 : "+now+"</p>";
+    }
+    var intv = setInterval(function(){ abc(); }, 1000);
+    var btn1 = document.getElementById("btn1");
+    var sw = true;
+    btn1.addEventListener("click", function(){
+        if(sw) {        //스위칭 기법
+            clearInterval(intv);
+            btn1.innerText = "출발";
+        } else {
+            intv = setInterval(function(){ abc(); }, 1000);
+            btn1.innerText = "멈춤";
+        }
+        sw = !sw;
+    });
+    function bcd() {
+        document.getElementById("status").innerHTML = "타임아웃";
+    }
+    setTimeout(function(){ bcd(); }, 2000); 
+    </script>
+
+    <script>
+    var arr1 = [];  //빈 배열
+    var arr2 = new Array();
+    var arr3;
+    document.write("<br>배열 확인1 : "+Array.isArray(arr1));
+    document.write("<br>배열 확인2 : "+Array.isArray(arr2));
+    document.write("<br>배열 확인3 : "+Array.isArray(arr3));
+    arr3 = 60;
+    document.write("<br>값 확인 : "+arr3);
+    arr3 = new Array();
+    document.write("<br>값 확인 : "+arr3);
+    arr1 = [90, 100, 70, 80];
+    document.write("<br>값 확인 : "+arr1);
+    arr3 = "KimGiTae";
+    arr4 = Array.from(arr3);    //배열로 변환
+    document.write("<br>타입 확인1 : "+(typeof arr3)+", "+arr3);
+    document.write("<br>타입 확인2 : "+(typeof arr4)+", "+arr4);
+    arr5 = Array.of(arr4);  //배열 -> 다른 구조의 배열 
+    document.write("<br>타입 확인3 : "+(typeof arr5)+", "+arr5);
+    //마지막 요소 추가
+    arr1.push(60);
+    document.write("<br>요소 추가 : "+(typeof arr1)+", "+arr1);
+    //마지막 요소 제거
+    arr1.pop();
+    document.write("<br>요소 제거 : "+(typeof arr1)+", "+arr1);
+    //처음 요소로 추가
+    arr1.unshift(60);
+    document.write("<br>요소 추가 : "+(typeof arr1)+", "+arr1);
+    //처음 요소 제거
+    arr1.shift();
+    document.write("<br>요소 제거 : "+(typeof arr1)+", "+arr1);
+    //오름차순정렬
+    arr1.sort();
+    document.write("<br>오름차순 정렬 : "+(typeof arr1)+", "+arr1);
+    //오름차순정렬
+    arr1.reverse();
+    document.write("<br>뒤집기 : "+(typeof arr1)+", "+arr1);
+    //요소변경
+    var arr6 = arr1.splice(1, 2, 80, 40);
+    document.write("<br>요소변경 : "+(typeof arr1)+", "+arr1);
+    //잘라오기
+    var arr7 = arr1.slice(1, 3);
+    document.write("<br>요소 잘라내기 : "+(typeof arr7)+", "+arr7);    
+    </script>
+</body>
+</html>

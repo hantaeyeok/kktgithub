@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 03</title>
+</head>
+<body>
+    <h1>자바스크립트 연산문</h1>
+    <hr>
+    <h2>산술(사칙) 연산, 비교 연산, 논리 연산, 기타 연산</h2>
+    <div id="display"></div>
+    <div class="form_wrap">
+        <fieldset>
+            <label for="num1">숫자1</label> : 
+            <input type="number" size="5" min="1" max="500" id="num1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <label for="num2">숫자2</label> : 
+            <input type="number" size="5" min="1" max="500" id="num2" required>
+        </fieldset>
+        <fieldset>
+            <button type="button" id="btn1" onclick="f1('1')">+</button>
+            <button type="button" id="btn2" onclick="f1('2')">-</button>
+            <button type="button" id="btn3" onclick="f1('3')">*</button>
+            <button type="button" id="btn4" onclick="f1('4')">/</button>
+            <button type="button" id="btn5" onclick="f1('5')">나머지</button>
+        </fieldset>
+    </div>
+    <script>
+    function f1(lit){
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        var display = document.getElementById("display");
+
+        if(num1=="" || parseInt(num1)==0){
+            alert("숫자1 의 입력칸이 비어있거나 0이 입력되었습니다.");
+            document.getElementById("num1").focus();
+            return false;
+        }
+        num1 = parseInt(num1);
+
+        if(num2=="" || parseInt(num2)==0){
+            alert("숫자2 의 입력칸이 비어있거나 0이 입력되었습니다.");
+            document.getElementById("num2").focus();
+            return false;
+        }
+        num2 = parseInt(num2);
+        if(lit=='1'){
+            display.innerHTML = num1 + num2;
+        } else if(lit=='2'){
+            display.innerHTML = num1 - num2;
+        } else if(lit=='3'){
+            display.innerHTML = num1 * num2;
+        } else if(lit=='4'){
+            display.innerHTML = num1 / num2;
+        } else if(lit=='5'){
+            display.innerHTML = num1 % num2;    
+        } else {
+            display.innerHTML = "<strong style='color:red'>연산오류<strong>";
+        }
+    }    
+
+    //자바스크립트는 초기화 또는 대입되는 값에 따라 타입이 결정된다.
+    var name1 = "김기태";   //문자열 초기화 -> string
+    var su1 = 20;       //숫자 초기화 -> int
+    var comp1 = true;   //논리값 초기화 -> bool
+    var fl1 = 3.14; //실수 초기화 -> float
+
+    var name2 = "유정환";
+    var su2 = 12;
+    var comp2 = false;
+    var fl2 = 36.5;
+
+    console.log("더하기");
+    console.log(name1+name2);
+    console.log(su1+su2);
+    console.log(comp1+comp2);
+    console.log(fl1+fl2);
+    console.log("빼기");
+    console.log(name1-name2);
+    console.log(su1-su2);
+    console.log(comp1-comp2);
+    console.log(fl1-fl2);
+    console.log("곱하기");
+    console.log(name1*name2);
+    console.log(su1*su2);
+    console.log(comp1*comp2);
+    console.log(fl1*fl2);
+    console.log("나누기");
+    console.log(name1/name2);
+    console.log(su1/su2);
+    console.log(comp1/comp2);
+    console.log(fl1/fl2);
+    console.log("나머지");
+    console.log(su1%su2);
+    </script>
+    <hr>
+    <div id="result"></div>
+    <script>
+    var x=200, y=300, z=100;    
+    var result = document.getElementById("result");
+    var str;
+    //대입 연산자
+    str = "<h2>대입 연산자</h2>";    x+=3;
+    str = str + "<br>x+=3 결과 : "+x;    x-=4;
+    str = str + "<br>x-=4 결과 : "+x;    x*=2;
+    str = str + "<br>x*=2 결과 : "+x;    x/=3;
+    str = str + "<br>x/=3 결과 : "+x;    x%=29;
+    str = str + "<br>x%=29 결과 : "+x;
+
+    x=200;  y=200;
+
+    //증감 연산자
+    str = str + "<hr><h2>증감 연산자</h2>";    x++;
+    str = str + "<br>x++ 결과 : "+x;    ++y;
+    str = str + "<br>++y 결과 : "+y;    x--;
+    str = str + "<br>x-- 결과 : "+x;    --y;
+    str = str + "<br>--y 결과 : "+y;
+    
+    //비교 연산자
+    str = str + "<hr><h2>비교 연산자</h2>";
+    str = str + "<br>x>y : "+(x>y);    
+    str = str + "<br>x<y : "+(x<y);    
+    str = str + "<br>x>=y : "+(x>=y);
+    str = str + "<br>x<=y : "+(x<=y);
+    str = str + "<br>x==y : "+(x==y);
+    str = str + "<br>x!=y : "+(x!=y);
+    str = str + "<br>x===y : "+(x===y); //타입과 값이 모두 일치
+    str = str + "<br>x!==y : "+(x!==y); //타입 또는 값이 다르면 
+
+    //논리 연산자
+    str = str + "<hr><h2>논리 연산자</h2>";
+    str = str + "<br> x>y && y==200 : "+(x>y && y==200);
+    str = str + "<br> x>y || y==200 : "+(x>y || y==200);
+    str = str + "<br> (!(x>y))"+(!(x>y));
+
+    //비트 연산자
+    str = str + "<hr><h2>비트 연산자</h2>";
+    str = str + "<br> x & y : "+(x & y);    //2진수 and  1011 & 1110 => 1010
+    str = str + "<br> x | y : "+(x | y);    //2진수 or  1011 | 1110 => 1111
+    str = str + "<br> x ^ y : "+(x ^ y);    //2진수 xor 1011 ^ 1110 => 0101
+    str = str + "<br> y >> 2 : "+(y >> 2);  // /2   right shift 1011 => 101 => 10
+    str = str + "<br> y << 2 : "+(y << 2);  // *2   left shift 1011 => 10110 => 101100
+
+    //삼항 연산자
+    var b = false;
+    var a = (x>y) ? x : y;
+    str = str + "<hr><h2>삼항 연산자</h2>";
+    str = str + "<br>(x>y) ? x : y => "+a;
+    str = str + "<hr><h2>타입 연산자</h2>";
+    str = str + "<br>typeof '김기태' => "+(typeof "김기태");
+    str = str + "<br>typeof a => "+(typeof a);
+    str = str + "<br>typeof 6.28 => "+(typeof 6.28);
+    str = str + "<br>typeof false => "+(typeof b);
+
+    result.innerHTML = result.innerHTML + str;
+    </script>
+</body>
+</html>

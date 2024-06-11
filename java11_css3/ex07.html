@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기타 CSS 속성 연습</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+    * { margin: 0; padding: 0; }
+    body, html { width:100%; overflow-x:hidden; }
+    ul { list-style:none; }
+    a { text-decoration: none; color:#333; }
+
+    .wrap { width:100%; }
+    .wrap ul { width:1200px; margin:14px auto; }
+    .wrap ul li { margin-left: 30px; }
+    .wrap .lst1 { list-style: circle; }
+    .wrap .lst2 { list-style: square; }
+    .wrap .lst3 { list-style: georgian; }
+    .wrap .lst4 { list-style: hebrew; }
+    .wrap .lst5 { list-style: decimal; }
+    .wrap .lst6 { list-style: armenian; }
+    .wrap .lst7 { list-style: circle; }
+    .wrap .lst8 { list-style: upper-alpha; }
+    .wrap .lst9 { list-style: lower-greek; }
+    .wrap .lst10 { list-style: upper-latin; }
+    .wrap .lst11 { list-style: lower-roman; }
+    .wrap .lst12 { list-style: square inside url(https://www.w3schools.com/cssref/sqpurple.gif); }
+
+    .box { width: 100px; height: 100px; float:left; margin: 15px; border:2px solid #333;
+    background-color:gold; text-align: center; }
+    .box.item1 { cursor:default; }
+    .box.item2 { cursor:alias }
+    .box.item3 { cursor:all-scroll }
+    .box.item4 { cursor:auto }
+    .box.item5 { cursor:cell }
+    .box.item6 { cursor:col-resize }
+    .box.item7 { cursor:context-menu }
+    .box.item8 { cursor:crosshair }
+    .box.item9 { cursor:copy }
+    .box.item10 { cursor:e-resize }
+    .box.item11 { cursor:ew-resize }
+    .box.item12 { cursor:grab }
+    .box.item13 { cursor:grabbing }
+    .box.item14 { cursor:help }
+    .box.item15 { cursor:move }
+    .box.item16 { cursor:n-resize }
+    .box.item17 { cursor:ne-resize }
+    .box.item18 { cursor:nesw-resize }
+    .box.item19 { cursor:ns-resize }
+    .box.item20 { cursor:nw-resize }
+    .box.item21 { cursor:nwse-resize }
+    .box.item22 { cursor:no-drop }
+    .box.item23 { cursor: none}
+    .box.item24 { cursor:not-allowed }
+    .box.item25 { cursor:pointer }
+    .box.item26 { cursor:progress }
+    .box.item27 { cursor:row-resize }
+    .box.item28 { cursor:s-resize }
+    .box.item29 { cursor:se-resize }
+    .box.item20 { cursor:e-resize }
+    .box.item21 { cursor:ew-resize }
+    .box.item32 { cursor: sw-resize}
+    .box.item33 { cursor:text }
+    .box.item34 { cursor:vertical-text }
+    .box.item35 { cursor:w-resize }
+    .box.item36 { cursor:wait }
+    .box.item37 { cursor:zoom-in }
+    .box.item38 { cursor:zoom-out }
+    .box.item39 { cursor: url(https://www.w3schools.com/cssref/myBall.cur), auto; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">기타 CSS 속성 연습</h1>
+    <div class="wrap">
+        <ul class="lst1">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst2">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst3">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst4">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst5">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst6">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst7">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst8">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst9">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst10">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst11">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+        <ul class="lst12">
+            <li><span>목록1</span></li>
+            <li><span>목록2</span></li>
+            <li><span>목록3</span></li>
+            <li><span>목록4</span></li>
+        </ul>
+        <hr>
+    </div>
+
+    <div class="wrap">
+        <ul class="cur_lst">
+            <li class="box item1">default</li>
+            <li class="box item2">alias</li>
+            <li class="box item3">all-scroll</li>
+            <li class="box item4">auto</li>
+            <li class="box item5">cell</li>
+            <li class="box item6">col-resize</li>
+            <li class="box item7">context-menu</li>
+            <li class="box item8">crosshair</li>
+            <li class="box item9">copy</li>
+            <li class="box item10">e-resize</li>
+            <li class="box item11">ew-resize</li>
+            <li class="box item12">grab</li>
+            <li class="box item13">grabbing</li>
+            <li class="box item14">help</li>
+            <li class="box item15">move</li>
+            <li class="box item16">n-resize</li>
+            <li class="box item17">ne-resize</li>
+            <li class="box item18">nesw-resize</li>
+            <li class="box item19">ns-resize</li>
+            <li class="box item20">nw-resize</li>
+            <li class="box item21">nwse-resize</li>
+            <li class="box item22">no-drop</li>
+            <li class="box item23">none</li>
+            <li class="box item24">not-allowed</li>
+            <li class="box item25">pointer</li>
+            <li class="box item26">progress</li>
+            <li class="box item27">row-resize</li>
+            <li class="box item28">s-resize</li>
+            <li class="box item29">se-resize</li>
+            <li class="box item30">e-resize</li>
+            <li class="box item31">ew-resize</li>
+            <li class="box item32">sw-resize</li>
+            <li class="box item33">text</li>
+            <li class="box item34">vertical-text</li>
+            <li class="box item35">w-resize</li>
+            <li class="box item36">wait</li>
+            <li class="box item37">zoom-in</li>
+            <li class="box item38">zoom-out</li>
+            <li class="box item39">url</li>
+        </ul> 
+    </div>
+</body>
+</html>

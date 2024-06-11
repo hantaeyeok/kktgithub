@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습 07</title>
+</head>
+<body>
+    <h1>미디어 관련 요소</h1>
+    <hr>
+    <h2>외부 창 요소</h2>
+    <h3>유튜브 창 띄우기</h3>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/KNexS61fjus" title="LE SSERAFIM (르세라핌) &#39;Smart&#39; OFFICIAL MV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <hr>
+    <h3>이미지 창 띄우기</h3>
+    <iframe width="600" height="400" src="lesserafim.webp" frameborder="0" scrolling="no"></iframe>
+    <hr>
+    <h3>특정 사이트 띄우기</h3>
+    <iframe width="600" height="400" src="https://www.daum.net"></iframe>
+    <p>iframe 요소 : 중간 프레임 요소로 src는 필수 속성임</p>
+    <hr>
+    <h2>이미지 삽입하기</h2>
+    <img src="lesserafim.webp" alt="르세라핌" >
+    <p>img 요소 : src, alt 는 필수 속성임 반드시 해당 속성의 값이 존재해야함</p>
+    <hr>
+    <h2>오디오 삽입하기</h2>
+    <!-- <audio src="audio01.mp3" controls muted autoplay loop></audio> -->
+    <audio controls loop>
+        <source type="audio/mp3" src="audio01.mp3"/>
+        <source type="audio/ogg" src="audio01.ogg"/>
+        <source type="audio/wav" src="audio01.wav"/>
+    </audio>
+    <hr>
+    <h2>비디오 삽입하기</h2>
+    <!-- <video src="movie01.mp4" controls autoplay muted loop></video> -->
+    <!-- <video src="movie01.mp4" poster="lesserafim.webp" controls loop></video> -->
+    <video poster="lesserafim.webp" controls loop>
+        <source src="movie01.mp4" type="video/mp4" />
+        <source src="movie01.ogv" type="video/ogg" />
+        <source src="movie01.webm" type="video/webm" />
+    </video>
+</body>
+</html>

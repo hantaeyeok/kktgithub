@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color</title>
+    <style>
+    .table tr td { height:40px; padding-left:18px; }
+    .table tr td:first-child { width:100px;  }
+    #indianred td:first-child { background-color:hsl(0, 53%, 58%); }
+    #darksalmon td:first-child { background-color:darksalmon;}
+    #lightcoral td:first-child { background-color:hsl(0, 79%, 72%); }
+    #salmon td:first-child { background-color:salmon; }
+    #orangered td:first-child { background-color:orangered; }
+    #red td:first-child { background-color:red; }
+    #crimson td:first-child { background-color:crimson; }
+    #firebrick td:first-child { background-color: firebrick; }
+    #darkred td:first-child { background-color:darkred;}
+    #mediumvioletred td:first-child { background-color:mediumvioletred;}
+    #pink td:first-child { background-color:pink;}
+    #lightpink td:first-child { background-color:lightpink;}
+    #hotpink td:first-child { background-color:hotpink;}
+    #deeppink td:first-child { background-color:deeppink;}
+    #palevioletred td:first-child { background-color:palevioletred;}
+    #darkkhaki td:first-child { background-color:darkkhaki;}
+    #khaki td:first-child { background-color:khaki;}
+    #palegoldenrod td:first-child { background-color:#eee8aa;}
+    #lightgoldenrodyellow td:first-child { background-color:lightgoldenrodyellow;}
+    #lightyellow td:first-child { background-color:lightyellow;}
+    #lemonchiffon td:first-child { background-color:lemonchiffon;}
+    #yellow td:first-child { background-color:yellow;}
+    #gold td:first-child { background-color:gold;}
+    #papayawhip td:first-child { background-color:papayawhip;}
+    #moccasin td:first-child { background-color:moccasin;}
+    #peachpuff td:first-child { background-color:peachpuff;}
+    #cyan td:first-child { background-color:cyan;}
+    #aqua td:first-child { background-color:aqua;}
+    #aquamarine td:first-child { background-color:aquamarine;}
+    #turquoise td:first-child { background-color:turquoise;}
+    #mediumturquoise td:first-child { background-color:mediumturquoise;}
+    #darkturquoise td:first-child { background-color:darkturquoise;}
+    #cadetblue td:first-child { background-color:cadetblue;}
+    #slategray td:first-child { background-color:slategray;}
+    #lightcyan td:first-child { background-color:lightcyan;}
+    #paleturquoise td:first-child { background-color:paleturquoise;}
+    #powderblue td:first-child { background-color:powderblue;}
+    #lightsteelblue td:first-child { background-color:lightsteelblue;}
+    #steelblue td:first-child { background-color:steelblue;}
+    #lightblue td:first-child { background-color:lightblue;}
+    #skyblue td:first-child { background-color:skyblue;}
+    #lightskyblue td:first-child { background-color:lightskyblue;}
+    #deepskyblue td:first-child { background-color:deepskyblue;}
+    #cornflowerblue td:first-child { background-color:cornflowerblue;}
+    #royalblue td:first-child { background-color:royalblue;}
+    #mediumslateblue td:first-child { background-color:mediumslateblue;}
+    #dodgerblue td:first-child { background-color:dodgerblue;}
+    #blue td:first-child { background-color:blue;}
+    #mediumblue td:first-child { background-color:mediumblue;}
+    #darkblue td:first-child { background-color:darkblue;}
+    #navy td:first-child { background-color:navy;}
+    #midnightblue td:first-child { background-color:midnightblue;}
+    #lightsalmon td:first-child { background-color:lightsalmon;}
+    #orange td:first-child { background-color:orange;}
+    #darkorange td:first-child { background-color:darkorange;}
+    #coral td:first-child { background-color:coral;}
+    #tomato td:first-child { background-color:tomato;}
+    #orangered td:first-child { background-color:orangered;}
+    #aquamarine td:first-child { background-color:aquamarine;}
+    #mediumspringgreen td:first-child { background-color:mediumspringgreen;}
+    #springgreen td:first-child { background-color:springgreen;}
+    #palegreen td:first-child { background-color:palegreen;}
+    #greenyellow td:first-child { background-color:greenyellow;}
+    #chartreuse td:first-child { background-color:chartreuse;}
+    #lawngreen td:first-child { background-color:lawngreen;}
+    #lime td:first-child { background-color:lime;}
+    #lightgreen td:first-child { background-color:lightgreen;}
+    #yellowgreen td:first-child { background-color:yellowgreen;}
+    #limegreen td:first-child { background-color:limegreen;}
+    #mediumseagreen td:first-child { background-color:mediumseagreen;}
+    #darkseagreen td:first-child { background-color:darkseagreen;}
+    #forestgreen td:first-child { background-color:forestgreen;}
+    #seagreen td:first-child { background-color:seagreen;}
+    #green td:first-child { background-color:green;}
+    #olivedrab td:first-child { background-color:olivedrab;}
+    #olive td:first-child { background-color:olive;}
+    #darkolivegreen td:first-child { background-color:darkolivegreen;}
+    #darkgreen td:first-child { background-color:darkgreen;}
+    #mediumaquamarine td:first-child { background-color:mediumaquamarine;}
+    #turquoise td:first-child { background-color:turquoise;}
+    #lightseagreen td:first-child { background-color:lightseagreen;}
+    #darkcyan td:first-child { background-color:darkcyan;}
+    #teal td:first-child { background-color:teal;}
+    #lavender td:first-child { background-color:lavender;}
+    #thistle td:first-child { background-color:thistle;}
+    #plum td:first-child { background-color:plum;}
+    #violet td:first-child { background-color:violet;}
+    #fuchsia td:first-child { background-color:fuchsia;}
+    #magenta td:first-child { background-color:magenta;}
+    #orchid td:first-child { background-color:orchid;}
+    #mediumorchid td:first-child { background-color:mediumorchid;}
+    #darkorchid td:first-child { background-color:darkorchid;}
+    #blueviolet td:first-child { background-color:blueviolet;}
+    #darkviolet td:first-child { background-color:darkviolet;}
+    #mediumpurple td:first-child { background-color:mediumpurple;}
+    #slateblue td:first-child { background-color:slateblue;}
+    #purple td:first-child { background-color:purple;}
+    #darkmagenta td:first-child { background-color:darkmagenta;}
+    #darkslateblue td:first-child { background-color:darkslateblue;}
+    #indigo td:first-child { background-color:indigo;}
+    #honeydew td:first-child { background-color:honeydew;}
+    #mintcream td:first-child { background-color:mintcream;}
+    #azure td:first-child { background-color:azure;}
+    #aliceblue td:first-child { background-color:aliceblue;}
+    #GhostWhite td:first-child { background-color:GhostWhite;}
+    #whitesmoke td:first-child { background-color:whitesmoke;}
+    #lavenderblush td:first-child { background-color:lavenderblush;}
+    #mistyrose td:first-child { background-color:mistyrose;}
+    #antiquewhite td:first-child { background-color:antiquewhite;}
+    #seashell td:first-child { background-color:seashell;}
+    #snow td:first-child { background-color:snow;}
+    #white td:first-child { background-color:white;}
+    #beige td:first-child { background-color:beige;}
+    #linen td:first-child { background-color:linen;}
+    #oldlace td:first-child { background-color:oldlace;}
+    #floralwhite td:first-child { background-color:floralwhite;}
+    #ivory td:first-child { background-color:ivory;}
+    #gainsboro td:first-child { background-color:gainsboro;}
+    #lightgrey td:first-child { background-color:lightgrey;}
+    #silver td:first-child { background-color:silver; }
+    #darkgray td:first-child { background-color:darkgray;}
+    #gray td:first-child { background-color:gray;}
+    #dimgray td:first-child { background-color:dimgray;}
+    #darkslategray td:first-child { background-color:darkslategray;}
+    #lightslategray td:first-child { background-color:lightslategray;}
+    #slategray td:first-child { background-color:slategray;}
+    #cornsilk td:first-child { background-color:cornsilk;}
+    #blanchedalmond td:first-child { background-color:blanchedalmond;}
+    #bisque td:first-child { background-color:bisque;}
+    #navajowhite td:first-child { background-color:navajowhite;}
+    #wheat td:first-child { background-color:wheat;}
+    #sandybrown td:first-child { background-color:sandybrown;}
+    #goldenrod td:first-child { background-color:goldenrod;}
+    #peru td:first-child { background-color:peru;}
+    #chocolate td:first-child { background-color:chocolate;}
+    #maroon td:first-child { background-color:maroon;}
+    #saddlebrown td:first-child { background-color:saddlebrown;}
+    #brown td:first-child { background-color:brown;}
+    #sienna td:first-child { background-color:sienna;}
+    #darkred td:first-child { background-color:darkred;}
+    #burlywood td:first-child { background-color:burlywood;}
+    #tan td:first-child { background-color:tan;}
+    #rosybrown td:first-child { background-color:rosybrown;}
+    #black td:first-child { background-color:black;}
+    #chrome td:first-child { background-color:chrome;}
+    #orange td:first-child { background-color:orange;}
+    </style>
+</head>
+<body>
+    <h2>웹 안전색상표</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>컬러</th>
+                <th>색상명</th>
+                <th>RGB</th>
+                <th>HSL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="indianred">
+                <td></td>
+                <td>indianred</td>
+                <td>#cd5c5c</td>
+                <td>0, 53%, 58%</td>
+            </tr>
+            <tr id="darksalmon">
+                <td></td>
+                <td>darksalmon</td>
+                <td>#e9967a</td>
+                <td>15, 72%, 70%</td>
+            </tr>
+            <tr id="lightcoral">
+                <td></td>
+                <td>lightcoral</td>
+                <td>#f08080</td>
+                <td>0, 79%, 72%</td>
+            </tr>
+            <tr id="salmon">
+                <td></td>
+                <td>salmon</td>
+                <td>#fa8072</td>
+                <td>6, 93%, 71%</td>
+            </tr>
+            <tr id="orangered">
+                <td></td>
+                <td>orangered</td>
+                <td>#ff4500</td>
+                <td>16, 100%, 50%</td>
+            </tr>
+            <tr id="red">
+                <td></td>
+                <td>red</td>
+                <td>#ff0000</td>
+                <td>0, 100%, 50%</td>
+            </tr>
+            <tr id="crimson">
+                <td></td>
+                <td>crimson</td>
+                <td>#dc143c</td>
+                <td>348, 83%, 47%</td>
+            </tr>
+            <tr id="firebrick">
+                <td></td>
+                <td>firebrick</td>
+                <td>#b22222</td>
+                <td>0, 68%, 42%</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

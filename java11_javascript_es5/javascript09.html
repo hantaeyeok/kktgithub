@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 09</title>
+    <style>
+    .open_btn { display:block; width: 200px; height: 40px; line-height: 40px; 
+    clear:both; text-align: center; border:3px solid #333; font-size:18px; 
+    border-radius:27px; cursor: pointer; }    
+    #layer_popup_ck1 { display:none; }
+    .popup1 { width: 100vw; height: 100vh; position:fixed; top: 0; left: 0; z-index:9999; 
+    display:none; }
+    .popup1 * { margin: 0; padding: 0; }
+    .pop_box { position:relative; width: 400px; height: 340px; margin: 0 auto; 
+        margin-top: 240px; border:3px solid #333; }
+    .pop_tit { clear:both; width: 100%; line-height:48px; font-size:24px; 
+        background-color:deepskyblue; color:#fff; height: 48px; }
+    .tit { display:block; width: 350px; float:left; text-indent: 18px; }    
+    .close_btn { display:block; float:right; width: 50px; cursor: pointer; text-align: center; }
+    .pop_con { clear:both; width: 400px; height: 280px; box-sizing: border-box;
+    padding: 20px;  }
+
+    #layer_popup_ck1:checked + .popup1 { display:block; }
+    #layer_popup_ck1:not(:checked) + .popup1 { display:none; }
+    </style>
+</head>
+<body>
+    <h1>BOM(Browser Object Model)</h1>
+    <p>브라우저의 제어를 위한 내장 객체에는 window(창), screen(화면), 
+        location(URL), history(방문페이지정보), navigator(브라우저엔진), 
+        document 객체 등이 있습니다.</p>
+    <hr>
+    <button id="btn1" onclick="open1('http://www.google.com')">새 창으로</button>    
+    <button id="btn2">닫기</button>
+    <button id="btn3">인쇄</button>
+    <hr>
+    <h2>자식창과 부모창의 데이터 전달</h2>
+    <div id="form1">
+        <form name="aFrmName">
+            <input type="text" name="aName" id="aName" value="홍길동"><br><br>
+            <input type="button" value="팝업창 열기" onclick="openChild()">&nbsp;
+        </form>
+    </div>
+    <script>
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var win1;
+    function open1(url) {    
+        var win_option = "width=400, height=300, top=100, left=200,";
+        win_option += "scrollbar=no, menubar=no, status=no, toolbar=no";  
+        win_option += "location=no";  
+        win1 = window.open(url, "win1", win_option);    
+    }
+    btn2.addEventListener("click", function(){
+        self.close();
+    });
+    btn3.addEventListener("click", function(){
+        window.print();
+    });
+    </script>
+    <script>
+    var childWindow;    // 자식창을 저장하기 위한 변수
+    var aName = "";
+    function openChild() {
+        aName = document.getElementById("aName").value;
+        var windowFeatures = "width=500, height=300, top=200, left=200, popup";          // 생성한 자식창을 변수에 저장
+        // 자식 창이 이미 열려 있는지 확인하고, 열려 있지 않다면 열기
+        if (!childWindow || childWindow.closed) {
+            childWindow = window.open('child1.html?data='+aName, 'childWindow', windowFeatures);
+        }
+    }
+    </script>
+    <hr>
+    <h2>Select 태그를 활용한 새 창 열기</h2>
+    <select name="sel" id="sel">
+        <option value="">선택안함</option>
+        <option value="https://www.naver.com">네이버</option>
+        <option value="https://www.daum.net">다음</option>
+        <option value="https://www.nate.com">네이트</option>
+        <option value="https://www.google.com">구글</option>
+    </select>
+    <script>
+    var sel = document.getElementById("sel");    
+    var win3;
+    var opt3 = "width=400, height=300, top=100, left=300, scrollbars=no, menubar=no, status=no, toolbar=no, location=no";
+    sel.addEventListener("change", function(){
+        if(sel.value!=""){
+            var win3 = window.open(sel.value,"selWindow", opt3);
+        }
+    });    
+    </script>
+    <hr>
+    <h2>레이어 팝업</h2>
+    <label for="layer_popup_ck1" class="open_btn">레이어 팝업 열기</label>
+    <input type="checkbox" class="hd_item" id="layer_popup_ck1">
+    <div class="popup1">
+        <div class="pop_box">
+            <h2 class="pop_tit">
+                <span class="tit">제목</span>
+                <label for="layer_popup_ck1" class="close_btn">X</label>
+            </h2>
+            <figure class="pop_con">
+                <img src="https://placehold.it/360x240/333" alt="팝업이미지">
+            </figure>
+        </div>
+    </div>
+    <hr>
+    <h2>사이트 이동하기</h2>
+    <div class="btn_box">
+        <button type="button" id="btn4">다음으로 이동</button>
+        <button type="button" id="btn5" onclick="googleHref()">구글로 이동</button>
+        <button type="button" id="btn6">네이버로 이동</button>
+        <button type="button" id="btn7">뒤로</button>
+        <button type="button" id="btn8">앞으로(이전)</button>
+        <button type="button" id="btn9">이전의 앞으로</button>
+    </div>
+    <script>
+    document.getElementById("btn4").addEventListener("click", function(){
+        location.replace("https://www.daum.net");   //사이트 이동시 뒤로 가기 할 수 없음
+    });
+    function googleHref(){
+        location.assign("https://www.google.com");
+    }  
+    document.getElementById("btn6").addEventListener("click", function(){
+        location.href = "https://www.naver.com";
+    }); 
+    document.getElementById("btn7").addEventListener("click", function(){
+        history.back();     //뒤로
+    });
+    document.getElementById("btn8").addEventListener("click", function(){
+        history.forward();  //앞으로
+    });
+    document.getElementById("btn9").addEventListener("click", function(){
+        history.go(-2); //뒤로 뒤로
+        //history.go(2);    //앞으로 앞으로
+    }); 
+    </script>
+    <hr>
+    <h2>navigator/screen 활용하기</h2>
+    <div class="btn_box">
+        <button type="button" id="btn11">브라우저 정보 알아내기</button>
+        <button type="button" id="btn12">현재 디바이스 판별</button>
+        <button type="button" id="btn13">화면 크기</button>
+        <button type="button" id="btn14">BOM 객체의 속성과 메소드</button>
+    </div>
+    <script>
+    var opt = "width=600, height=400, top=200, left=200, menubar=no, status=no, toolbar=no, location=no";
+    document.getElementById("btn11").addEventListener("click", function (){
+        window.open("child2.html","navigatorChild1",opt);
+    });
+    document.getElementById("btn12").addEventListener("click", function (){
+        window.open("child3.html","navigatorChild2",opt);
+    });
+    document.getElementById("btn13").addEventListener("click", function (){
+        window.open("child4.html","navigatorChild3",opt);
+    });
+    document.getElementById("btn14").addEventListener("click", function (){
+        window.open("child5.html","navigatorChild4","width=1000, height=800");
+    });     
+    </script>
+</body>
+</html>

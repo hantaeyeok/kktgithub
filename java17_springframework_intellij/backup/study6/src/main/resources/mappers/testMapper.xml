@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+    <select id="testList" resultType="kr.co.study1.domain.Test">
+        select * from test
+    </select>
+    <select id="testDetail" resultType="kr.co.study1.domain.Test">
+        select * from test where no=#{no}
+    </select>
+    <select id="testCount" resultType="integer">
+        select count(*) from test
+    </select>
+    <insert id="testInsert">
+        insert into test values (default, #{name}, #{email}, #{tel})
+    </insert>
+    <update id="testUpdate">
+        update test set name=#{name}, email=#{email}, tel=#{tel} where no=#{no}
+    </update>
+    <delete id="testDelete">
+        delete from test where no=#{no}
+    </delete>
+</mapper>

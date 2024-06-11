@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="*" crossorigin>
+    <title>자식창</title>
+</head>
+<body>
+    <form name="childFrmName">
+        <input type="text" id="childName" name="chlidName"><br><br>
+        <input type="button" value="창닫기" onclick="window.close()">
+    </form> 
+    <script>
+    var data = new URLSearchParams(window.location.search).get("data");    
+    var childName = document.getElementById("childName");
+    childName.value = data;    
+    </script>
+</body>
+</html>

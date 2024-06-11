@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS 설치 완료 보고서</title>
+    <style>
+    #tb1 th { border-top:3px solid #333;
+         border-bottom:3px solid #333; line-height:40px; }
+    #tb1 td { border-bottom:1px solid #333; line-height: 30px; 
+    text-align: center; }     
+    </style>
+</head>
+<body>
+	<nav id="gnb">
+		<ul>
+			<li>
+				<a href="report01.html">DBMS 설치 완료 보고서</a>
+			</li>
+			<li>
+				<a href="report02.jsp">DBMS 점검 보고서</a>
+			</li>
+			<li>
+				<a href="report03.jsp">데이터베이스 오브젝트 생성 완료 보고서</a>
+			</li>
+		</ul>
+	</nav>
+	<hr>
+    <h1 style="text-align:center;">DBMS 설치 완료 보고서</h1>
+    <!-- DBMS NAME | DBMS IP ADDRESS | DB Service | PORT Number | 
+    Table Space Name | DB Name | User ID | User PW | Role | -->
+    <table style="width:1200px;margin:20px auto" id="tb1">
+        <thead>
+            <tr>
+                <th>DBMS NAME</th><th>DBMS IP ADDRESS</th>
+                <th>DB Service</th><th>PORT Number</th>
+                <th>Table Space Name</th><th>DB Name</th>
+                <th>User ID</th><th>User PW</th><th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Oracle 21C</td><td>192.168.20.221</td>
+                <td>OracleServiceXE</td><td>1521</td>
+                <td>System</td><td>xe</td>
+                <td>system</td><td>1234</td><td>system</td>
+            </tr>
+            <tr>
+                <td>Oracle 21C</td><td>192.168.20.221</td>
+                <td>OracleServiceXE</td><td>1521</td>
+                <td>c##test123</td><td>xe</td>
+                <td>c##test123</td><td>1234</td><td>user</td>
+            </tr>
+            <tr>
+                <td>MySQL 8.0.26</td><td>192.168.20.221</td>
+                <td>MySQL80</td><td>3306</td>
+                <td>root</td><td>kh</td>
+                <td>root</td><td>1234</td><td>system</td>
+            </tr>
+            <tr>
+                <td>MySQL 8.0.26</td><td>192.168.20.221</td>
+                <td>MySQL80</td><td>3306</td>
+                <td>test1</td><td>-</td>
+                <td>test1</td><td>1234</td><td>user</td>
+            </tr>
+            <tr>
+                <td>MySQL 8.0.26</td><td>192.168.20.221</td>
+                <td>MySQL80</td><td>3306</td>
+                <td>test2</td><td>-</td>
+                <td>test2</td><td>1234</td><td>user</td>
+            </tr>
+            <tr>
+                <td>MariaDB 10.5.24</td><td>192.168.20.221</td>
+                <td>MariaDB</td><td>3308</td>
+                <td>root</td><td>temp</td>
+                <td>root</td><td>1234</td><td>system</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <div>
+    	<a href="index.jsp" style="display:block;clear:both;float:right;margin-right:120px;text-decoration:none;border-radius:20px; width:150px; line-height:40px; background:#333; color:#fff; text-align:center;margin-bottom:50px;">홈으로</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>자바스크립트 19 - GPS 활용하기</title>
+</head>
+<body>
+    <div id="data">GPS 연습</div>
+    <div id="coords">
+        위도 : <span id="lat"></span><br>
+        경도 : <span id="lon"></span><br>
+    </div>
+    <script>
+    function getLocation() {
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(position){
+                document.getElementById("lat").innerText = position.coords.latitude;
+                document.getElementById("lon").innerText = position.coords.longitude;
+            }, function(error){
+                console.error(error);
+            }, {
+                enableHighAccuracy:false,  //true:최상의 결과를 반환하지만, 응답시간이 느려지거나 전력소비가 증가
+                maximumAge:0, //이미 저장된 캐시의 수명시간을 지정, 0일 경우 기억된 캐시를 사용하지 않고 실제 현재 위치를 다시 검색
+                timeout:Infinity //현재 GPS 값에 대한 지속시간
+            });
+        } else {
+            alert("GPS를 지원하지 않습니다.");
+        }
+    }
+    getLocation();
+    </script>
+</body>
+</html>

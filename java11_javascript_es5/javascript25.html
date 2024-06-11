@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>자바스크립트 25 - 로컬 스토리지에 StorageEvent</title>
+</head>
+<body>
+<h3>로컬 스토리지에 StorageEvent</h3>
+<hr>
+품목명 : <input id="item" type="text" size="10">
+개수 : <input id="count" type="text" size="10">
+<button id="save" onclick="store()">저장</button>
+<button id="retrieve" onclick="retrieve()">검색</button><p>
+  로컬 스토리지의 변경 내용(storage 이벤트) : <br>
+  <textarea id="textarea" cols="60" rows="6"></textarea>
+
+<script>
+  window.addEventListener("storage", storageEventListener, false)   // (버블 단계)이벤트 등록
+
+    function storageEventListener(e) {
+        var eventDetail = "key:\t\t\t" + e.key + " \n" +
+              "oldValue:\t\t" + e.oldValue + " \n" +
+              "newValue:\t\t" + e.newValue + " \n" +
+              "storageArea:\t" + e.storageArea + " \n" +
+              "url:\t\t\t" + e.url;
+        document.getElementById("textarea").innerHTML = eventDetail;
+    }
+</script>
+
+<script>
+  var item = document.getElementById("item");
+  var count = document.getElementById("count");
+
+  function store() {
+    if(!window.sessionStorage) {
+          alert("세션 스토리지를 지원하지 않습니다.");
+          return;
+    }
+      sessionStorage.setItem(item.value, count.value);  // item.value는 '키'  count.value는 '값'
+  }
+
+  function retrieve() {
+    if(!window.sessionStorage) {
+      alert("세션 스토리지를 지원하지 않습니다.");
+      return;
+    }
+    var val =sessionStorage.getItem(item.value);
+    if(val == null) alert(item.value  +  "는 구입 리스트에 없습니다.");
+    else count.value = val;
+  }
+</script>
+
+</body> 
+</html>

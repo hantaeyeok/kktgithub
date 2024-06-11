@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 04</title>
+</head>
+<body>
+    <h1>자바스크립트의 객체</h1>
+    <p>자바스크립트는 내장 객체(BOM, DOM), 사용자 정의 객체로 구분합니다.</p>
+    <hr>
+    <div id="res1"></div>
+    <div id="res2"></div>
+    <div id="res3"></div>
+    <div id="res4"></div>
+    <hr>
+    <div id="res5"></div>
+    <h2>필드 제거 전</h2>
+    <div id="res6"></div>
+    <h2>필드 제거 후</h2>
+    <div id="res7"></div>
+    <script>
+    //재활용이 불가능한 사용자 정의 더미 객체
+    var man1 = {name:"김기태", style:"미남", point:100};
+    man1.nick = "김미남";   //항목 추가
+    man1.style = "신사";    //항목의 값 변경
+    //생성자(Constructor)를 활용한 객체 생성
+    function People(no, name, age, style, target){
+        this.no = no;
+        this.name = name;
+        this.age = age;
+        this.style = style;
+        this.print = function () {
+            var res = document.getElementById(target);
+            res.innerHTML = "<ul>";
+            res.innerHTML = res.innerHTML + "<li>번호 : "+this.no+"</li>";    
+            res.innerHTML = res.innerHTML + "<li>이름 : "+this.name+"</li>";    
+            res.innerHTML = res.innerHTML + "<li>나이 : "+this.age+"</li>";    
+            res.innerHTML = res.innerHTML + "<li>스타일 : "+this.style+"</li>";    
+            res.innerHTML = res.innerHTML + "</ul>";
+        }
+    }
+    //객체 생성
+    var st1 = new People(1, "이종우", 22, "잘생김주의", "res1");
+    var st2 = new People(2, "이종욱", 23, "못생김주의", "res2");
+    var st3 = new People(3, "이종원", 24, "느낌함", "res3");
+    var st4 = new People(4, "이종훈", 25, "노래잘함", "res4");
+    st1.print();
+    st2.print();
+    st3.print();
+    st4.print();
+    //항목(Field) 추가
+    st1.family = "전주이씨";
+    st2.family = "경주이씨";   
+    //메소드(Method) 추가
+    var html= "";
+    st1.toString = function() {
+        var res5 = document.getElementById("res5");
+        html = "<p>";
+        html = html + "<strong>본관 : "+this.family+"</strong>";    
+        html = html + "<em>이름 : "+this.name+"</em>";
+        html = html + "<em>나이 : "+this.age+"</em>";
+        html = html + "</p>";  
+        res5.innerHTML = html;  
+    }
+    st1.toString();
+    //항목 제거 전 순회
+    html = "";
+    for(var field in st1){
+        html += "<strong>"+field+"</strong> &nbsp; &nbsp; &nbsp;";
+    }
+    document.getElementById("res6").innerHTML = html;
+    //항목(Field) 제거
+    delete st1.family;
+    //항목 제거 후 순회
+    html = "";
+    for(var field in st1){
+        html += "<em>"+field+"</em> &nbsp; &nbsp; &nbsp;";
+    }
+    document.getElementById("res7").innerHTML = html;
+    </script>
+    
+</body>
+</html>

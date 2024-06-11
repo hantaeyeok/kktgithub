@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* https://googlefonts.github.io/korean/ */
+
+@font-face {
+    font-family:"nng";
+    src:local("※"),
+    url("./nanumgothic.eot?#iefix") format('embedded-opentype'),
+    url("./nanumgothic.woff") format('woff'),
+    url("./nanumgothic.woff2") format('woff2'),
+    url("./nanumgothic.otf") format('opentype'),
+    url("./nanumgothic.ttf") format('truetype'),
+    url("./nanumgothic.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'nts';
+    src:local("※"),
+    url("./noto.eot?#iefix") format('embedded-opentype'),
+    url("./noto.woff") format('woff'),
+    url("./noto.woff2") format('woff2'),
+    url("./noto.otf") format('opentype'),
+    url("./noto.ttf") format('truetype'),
+    url("./noto.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'nnp';
+    src:local("※"),
+    url("./nanumgothic.eot?#iefix") format('embedded-opentype'),
+    url("./nanumpen.woff") format('woff'),
+    url("./nanumpen.woff2") format('woff2'),
+    url("./nanumpen.otf") format('opentype'),
+    url("./nanumpen.ttf") format('truetype'),
+    url("./nanumpen.svg") format('svg');
+}
+

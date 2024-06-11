@@ -1,0 +1,28 @@
+package org.kh.dto;
+
+public class Datafile {
+	private String creation_time;
+	private String status;
+	private String enabled;
+	private int bytes;
+	private int blocks;
+	private int create_bytes;
+	private int block_size;
+	private String name;
+	private int con_id;
+	public Datafile() { }
+	public Datafile(String creation_time, String status, String enabled, int bytes, int blocks, int create_bytes,
+			int block_size, String name, int con_id) {
+		super();
+		this.creation_time = creation_time;
+		this.status = status;
+		this.enabled = enabled;
+		this.bytes = bytes;
+		this.blocks = blocks;
+		this.create_bytes = create_bytes;
+		this.block_size = block_size;
+		this.name = name;
+		this.con_id = con_id;
+	}
+	
+}

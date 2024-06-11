@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+    h3 { color:green; }  
+    
+    /*
+    기본 선택자 중에서 아이디>클래스>태그 순으로 우선순위가 정해져 있음.
+    #tb1 { color:deeppink; }
+    .table { color:brown; }  
+    table { color:navy; }
+
+    그러므로 우선순위는 ① #tb1   ② .table   ③ table 순이다. 
+
+    .wrap p { font-size:24px; }
+    .wrap p::first-line { color:red; }
+    .wrap p::first-letter { font-size:60px; }
+    .wrap p::selection { background-color:yellow; }
+
+    .ck + label { transition:0.8s; font-size:28px; color:black; }
+    .ck:checked + label { font-size:40px; color:blue; }
+    .ck:not(:checked) + label { font-size:14px; color:red; }
+    */
+    
+    .wrap { width:1200px; margin:20px auto; }
+
+
+    </style>
+
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div class="wrap">
+    <h1>CSS</h1>
+    <p>CSS(Cascading Style Sheet) 라고도 하며, 줄여서 스타일(Style)이라고도 한다.</p>
+    <p>Cascading(계단식) Style(모양) Sheet(기록패널)</p>
+    <hr>
+    <h2>1. CSS 적용 방법</h2>
+    <ul>
+        <li>
+            <h3>외부 스타일(External Style)</h3>
+            <p>별도의 css 파일을 생성하여 여러 HTML 문서에서 link 요소로 적용하는 방법</p>
+            <p>
+                <pre>
+                    &lt;link rel="stylesheet" href="서식파일이름.css"&gt;
+                </pre>
+            </p>
+        </li>
+        <li>
+            <h3>내부 스타일(Internal Style)</h3>
+            <p>현재 문서에 있는 요소(Element)에만 스타일을 적용하는 방법</p>
+            <p>현재 문서 내 style 요소의 안에 스타일 내용을 기재하는 방법</p>
+            <p>
+                <pre>
+                    &lt;style&gt;
+                    /* 내부 스타일 */    
+                    &lt;/style&gt;
+                </pre>
+            </p>
+        </li>
+        <li>
+            <h3>인라인 스타일(Inline Style)</h3>
+            <p>해당 요소에 직접 스타일을 적용하는 방법</p>
+            <p>해당 요소에 style 속성(attribute)에 직접 지정하는 방법으로서 
+                재사용성이 가장 좋지 않지만, 다른 스타일 지정 방식보다는 우선 순위가
+            가장 빠르다.</p>
+            <p>
+                <pre>
+                    &lt;h3 style="color:red"&gt;제목&lt;/h3&gt;
+                </pre>
+            </p>
+        </li>
+    </ul>
+    <hr>
+    <h2>2. 스타일 기본 문법</h2>
+    <p>
+        <img src="style_rule.png" alt="스타일 기본 문법">
+    </p>
+    <hr>
+    <h2>CSS 선택자(Selector)</h2>
+    <p>CSS 스타일을 부여할 대상 요소</p>
+    <table class="table" id="tb1" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>선택자 이름</th><th>선택자 문법</th><th>설명</th><th>예시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>전체 선택자</td><td>* { }</td><td>모든 요소(Element)를 스타일을 부여할 대상으로 선택</td><td>* { margin:0; padding:0; }</td>
+            </tr>
+            <tr>
+                <td>태그 선택자</td><td>tagname { } </td><td>특정 요소(Element)를 스타일 부여 대상으로 선택</td><td>h3 { color:blue }</td>
+            </tr>
+            <tr>
+                <td>클래스 선택자</td><td>.클래스명 { }</td><td>특정 클래스가 있는 요소(Element)를 스타일 부여 대상으로 선택</td><td>.dp1 { text-align:center; }</td>
+            </tr>
+            <tr>
+                <td>아이디 선택자</td><td>#아이디명 { }</td><td>특정 아이디가 지정된 요소(Element)를 스타일 부여 대상으로 선택</td><td>#hd { width:1200px; }</td>
+            </tr>
+            <tr>
+                <td>복수 선택자</td><td>선택자1, 선택자2 { }</td><td>여러 요소를 한 번에 스타일을 부여할 대상으로 선택</td><td>h1,h2,h3 { font-size:14px; }</td>
+            </tr>
+            <tr>
+                <td>속성 선택자</td><td>[속성명] { }</td><td>해당 속성(태그속성)이 존재하는 요소를 스타일 부여할 대상으로 선택</td><td>[href] { text-decoration:none; }</td>
+            </tr>
+            <tr>
+                <td>속성 일치 선택자</td><td>[속성명="값"] { }</td><td>해당 속성(태그속성)의 값이 지정한 값과 일치하는 요소를 스타일 부여할 대상으로 선택</td><td>[target="_blank"] { text-decoration:none; }</td>
+            </tr>
+            <tr>
+                <td>속성 접두 선택자</td><td>[속성명^="값"] { }</td><td>해당 속성(태그속성)의 값이 지정한 값으로 시작하는 요소를 스타일 부여할 대상으로 선택</td><td>img[src^="kim"] { border:3px; }</td>
+            </tr>
+            <tr>
+                <td>속성 접미 선택자</td><td>[속성명$="값"] { }</td><td>해당 속성(태그속성)의 값이 지정한 값으로 끝나는 요소를 스타일 부여할 대상으로 선택</td><td>[src$=".jpg"] { border:5px solid red; }</td>
+            </tr>
+            <tr>
+                <td>속성 포함 선택자</td><td>[속성명*="값"] { }<br></td><td>해당 속성(태그속성)의 값이 지정한 값을 포함하는 요소를 스타일 부여할 대상으로 선택</td><td>[src*="dall"] { border:5px solid red; }</td>
+            </tr>
+            <tr>
+                <td>부모자식 선택자</td><td>elem1 > elem2 { }<br></td><td>elem1의 안에 있는 elem2 자식 요소를 스타일 부여할 대상으로 선택</td><td>#lst > li {  }</td>
+            </tr>
+            <tr>
+                <td>조상후손 선택자</td><td>elem1 elem2 { }<br></td><td>elem1의 안에 있는 elem2 후손 요소를 스타일 부여할 대상으로 선택</td><td>#lst li {  }</td>
+            </tr>
+            <tr>
+                <td>동생(next) 선택자</td><td>elem1 + elem2 { }<br></td><td>elem1의 바로 다음에 나오는 elem2 동생 요소 하나만을 스타일 부여할 대상으로 선택</td><td>.first + li { }</td>
+            </tr>
+            <tr>
+                <td>동생들(nextAll) 선택자</td><td>elem1 ~ elem2 { }<br></td><td>elem1의 다음에 나오는 elem2 동생들 요소를 스타일 부여할 대상으로 선택</td><td>.first ~ li { }</td>
+            </tr>
+            <tr>
+                <td>자기 자신 선택자</td><td>elem1elem2 { }<br></td><td>elem1과 elem2가 모두 만족하는 요소를 스타일 부여할 대상으로 선택</td><td>.sub.mid { }</td>
+            </tr>
+            <tr>
+                <td>링크 선택자</td><td>:link { }<br></td><td>href 속성이 있는 요소를 스타일 부여할 대상으로 선택</td><td>a:link { }</td>
+            </tr>
+            <tr>
+                <td>방문 했던 요소 선택자</td><td>:visited { }<br></td><td>href 속성의 값이 방문했던 적이 있는 주소이면 스타일 부여할 대상으로 선택</td><td>a:visited { }</td>
+            </tr>
+            <tr>
+                <td>롤오버 선택자</td><td>:hover { }<br></td><td>해당 요소에 마우스 포인터를 올리면 그 요소를 스타일 부여할 대상으로 선택</td><td>.box:hover { }</td>
+            </tr>
+            <tr>
+                <td>셀렉트 선택자</td><td>:active { }<br></td><td>해당 요소에 마우스 포인터를 올리고 클릭하고 있으면, 그 요소를 스타일 부여할 대상으로 선택</td><td>.box:active { }</td>
+            </tr>
+            <tr>
+                <td>커서 선택자</td><td>:focus { }<br></td><td>해당 요소에 커서가 옮겨지면, 그 요소를 스타일 부여할 대상으로 선택</td><td>input:focus { }</td>
+            </tr>
+            <tr>
+                <td>체크 선택자</td><td>:checked { }<br></td><td>해당 체크박스나 라디오 버튼 요소에 체크를 하면, 그 요소를 스타일 부여할 대상으로 선택</td><td>input:checked { }</td>
+            </tr>
+            <tr>
+                <td>폼 유효성 선택자</td><td>:invalid { }<br></td><td>해당 폼 요소의 유효성 검사시 유효하지 않은 데이터 입력시에 그 요소를 스타일 부여할 대상으로 선택</td><td>input:invalid { }</td>
+            </tr>
+            <tr>
+                <td>사용 가능한 폼 요소 선택자</td><td>:enabled { }<br></td><td>해당 폼 요소 중에서 사용이 가능한 요소를 스타일 부여할 대상으로 선택</td><td>input:enabled { }</td>
+            </tr>
+            <tr>
+                <td>사용 불가능한 폼 요소 선택자</td><td>:disabled { }<br></td><td>해당 폼 요소 중에서 사용이 불가능한 요소를 스타일 부여할 대상으로 선택</td><td>input:disabled { }</td>
+            </tr>
+            <tr>
+                <td>첫째 선택자</td><td>elem:first-child { }<br></td><td>해당 요소 중에서 첫 번째 요소를 스타일 부여할 대상으로 선택</td><td>li:first-child { }</td>
+            </tr>
+            <tr>
+                <td>첫째 요소 선택자</td><td>elem:first-of-type { }<br></td><td>첫 번째 요소 중에서 해당 요소를 스타일 부여할 대상으로 선택</td><td>li:first-of-type { }</td>
+            </tr>
+            <tr>
+                <td>마지막 선택자</td><td>elem:last-child { }<br></td><td>해당 요소 중에서 마지막 번째 요소를 스타일 부여할 대상으로 선택</td><td>li:last-child { }</td>
+            </tr>
+            <tr>
+                <td>마지막 요소 선택자</td><td>elem:last-of-type { }<br></td><td>마지막 번째 요소 중에서 해당 요소를 스타일 부여할 대상으로 선택</td><td>li:last-of-type { }</td>
+            </tr>
+            <tr>
+                <td>특정 번째 선택자</td><td>elem:nth-child(위치숫자) { }<br></td><td>해당 요소 중에서 특정 번째 요소를 스타일 부여할 대상으로 선택</td><td>li:nth-child(2) { }<br>li:nth-child(2n)<br>li:nth-child(even)<br>li:nth-child(2n+1)<br>li:nth-child(odd)</td>
+            </tr>
+            <tr>
+                <td>특정 번째 요소 선택자</td><td>elem:nth-of-type(위치숫자) { }<br></td><td>특정 번째 요소 중에서 해당 요소를 스타일 부여할 대상으로 선택</td><td>li:nth-of-type(2) { }</td>
+            </tr>
+            <tr>
+                <td>하나 뿐인 요소 선택자</td><td>elem:only-child { }<br></td><td>특정 요소가 하나만 존재하는 요소를 스타일 부여할 대상으로 선택</td><td>li:only-child { }</td>
+            </tr>
+            <tr>
+                <td>자식이 없는 요소 선택자</td><td>elem:empty { }<br></td><td>해당 요소 중에서 비어 있는 요소를 스타일 부여할 대상으로 선택</td><td>li:empty { }</td>
+            </tr>
+            <tr>
+                <td>이전 영역 선택자</td><td>elem:before { }<br></td><td>해당 요소의 안쪽에서 그 앞을 스타일 부여할 대상으로 선택</td><td>li:before { content:"앞 "; }</td>
+            </tr>
+            <tr>
+                <td>다음 영역 선택자</td><td>elem:after { }<br></td><td>해당 요소의 안쪽에서 그 뒤를 스타일 부여할 대상으로 선택</td><td>li:after { content:"뒤 "; }</td>
+            </tr>
+            <tr>
+                <td>첫 줄 선택자</td><td>elem::first-line { }<br></td><td>해당 요소의 첫 번째 줄을 스타일 부여할 대상으로 선택</td><td>.wrap p::first-line { color:red; }</td>
+            </tr>
+            <tr>
+                <td>첫 글자 선택자</td><td>elem::first-letter { }<br></td><td>해당 요소의 첫 글자를 스타일 부여할 대상으로 선택</td><td>.wrap p::first-letter { font-size:60px; }</td>
+            </tr>
+            <tr>
+                <td>글자/문단 범위 선택자</td><td>elem::selection { }<br></td><td>해당 요소의 글자의 범위를 선택하면, 그 범위 안에 있는 글자를 스타일을 부여할 대상으로 선택</td><td>.wrap p::selection { background-color:yellow; }</td>
+            </tr>
+            <tr>
+                <td>부정 선택자</td><td>elem:not(조건) { }<br></td><td>해당 요소의 주어진 조건이 만족되지 않는 요소를 스타일을 부여할 대상으로 선택</td><td>.ck:not(:checked) + label { font-size:14px; color:red; }</td>
+            </tr>
+        </tbody>
+    </table> 
+
+    <h3 style="color:deepskyblue">스타일 선택자 사용 주의 사항</h3>
+    <ul>
+        <li><p>선택자의 우선 순위는 아이디 > 클래스 > 태그 순이다.</p></li>
+        <li><p>단계적으로 선택자를 기입하되, 단순한 선택자 부터 기입하고, 복잡한 선택자를 아래에 배치한다.</p></li>
+        <li><p>범위가 크거나 부모의 선택부터 하고, 그 다음에 범위가 작거나 세밀한 선택을 하도록 해야 한다.</p></li>
+        <li><p>아이디는 한 문서 내에서 중복되어서는 안된다.</p></li>
+        <li><p>같은 서식이 부여되는 경우는 가급적 클래스를 활용하여 같은 서식을 부여하도록 한다.</p></li>
+    </ul>
+    
+    <br><br><hr><br>
+
+    <h2>3. CSS 속성 - Background</h2>
+    <table class="table" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>속성명</th><th>도메인</th><th>설명</th><th>예시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>background-color</td><td>transparent | 컬러명 | RGB HEX(3/6) | RGB(0-255,0-255,0-255) | HSL(Hue,Sturation%,Lightness%)</td><td>배경색을 지정하는 속성</td><td>background-color:#000<br>background-color:#000000<br>background-color:black<br>background-color:rgb(0,0,0)<br>background-color:rgba(0,0,0,1)<br>background-color:hsl(240,0%,0%)<br>background-color:hsla(240,0%,0%,1)</td>                
+            </tr>
+            <tr>
+                <td>background-image</td><td>none | url(이미지경로)</td><td>배경 이미지를 지정하는 속성</td><td>background-image:url(./images/ive.png), url(./images/jungle.jpg)</td>                
+            </tr>
+            <tr>
+                <td>background-repeat</td><td>repeat | repeat-x | repeat-y | no-repeat</td><td>배경이미지의 반복 속성</td><td>background-image:url(./images/ive.png), url(./images/jungle.jpg)</td>                
+            </tr>
+            <tr>
+                <td>background-position</td><td>가로위치 세로위치로 지정하되, 0 0 | top | bottom | left | right | middle | 숫자(+/-)px/%</td><td>배경이미지 위치 지정 속성</td><td>background-position:left bottom<br>background-position:-200px -100px</td>                
+            </tr>
+            <tr>
+                <td>background-attachment</td><td>scroll | fixed | local</td><td>배경이미지 고정 유무 지정 속성</td><td>background-attachment:fixed</td>                
+            </tr>
+            <tr>
+                <td>background-origin</td><td>padding-box | border-box | content-box</td><td>배경이미지의 원점 기준 지정 속성</td><td>background-origin:content-box</td>                
+            </tr>
+            <tr>
+                <td>background-size</td><td>auto | 가로크기 세로크기 | cover | contain</td><td>배경이미지의 크기 지정 속성</td><td>background-size:100px 200px, 200px 400px</td>                
+            </tr>
+            <tr>
+                <td>background-clip</td><td>padding-box | border-box | content-box</td><td>배경이미지의 영역을 어디까지 표시할지 지정 속성</td><td>background-clip:border-box</td>                
+            </tr>
+            <tr>
+                <td>background</td><td>bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment</td><td>배경에 모든 세부속성을 한 꺼번에 지저하는 통합 속성</td><td>background-clip:border-box</td>                
+            </tr>
+            <tr>
+                <td>filter</td><td>blur(px) &| brightness(%) &| contrast(%) &| grayscale(%) &| invert(%) &| opcacity(%) &| saturate(%) &| sepia(%) &| drop-shadow(x y blur px) &| hue-rotate(deg)</td><td>배경이나 이미지에 필터 효과를 적용하는 속성</td><td>filter:blur(3px) hue-rotate(45deg) opacity(85%)</td>                
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br><hr><br>
+
+    <h2>4. CSS 속성 - 글자/문단 속성</h2>
+    <table class="table" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>속성명</th><th>도메인</th><th>설명</th><th>예시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@font-face</td><td>@font-face { font-family:"폰트별칭"; src:url(폰트파일이름을포함한웹폰트의경로); }</td><td>웹페이지에서 적용할 폰트를 규정하는 규칙</td><td>@font-face { font-family:"ntg"; url(./font/notosans.woff); }</td>                
+            </tr>
+            <tr>
+                <td>font-famliy</td><td>font-family:"폰트별칭"[, 대체폰트1, 기본웹폰트];</td><td>폰트 규칙(@font-face) 에서 규정한 폰트를 적용하는 속성. 기본웹폰트에는 serif(명조), sans-serif(고딕), cursive(궁서), fantasy(장식), monospace(장평같음)</td><td>.con { font-family:"ntg", sans-serif;  }</td>                
+            </tr>
+            <tr>
+                <td>color</td><td>color:색상명 | HEX(3/6) | rgb | rgba | hsl | hsla</td><td>글자색을 지정하는 속성으로 16진수 HEX code와 여러 색 함수를 활용할 수 있음.</td><td>.con { color:deepskyblue;  }<br>.con strong { color:#333; }</td>                
+            </tr>
+            <tr>
+                <td>font-size</td><td>font-size: initial | xx-small | x-small | small | medium | large | x-large | xx-large | px, cm, em, %, rem 단위</td><td>글자크기를 지정하는 속성으로 크기를 나타내는 키워드 또는 크기단위로 지정할 수 있음.</td><td>.con { font-size:14px;  }<br>.con strong { font-size:1.5em; }</td>                
+            </tr>
+            <tr>
+                <td>font-weight</td><td>font-weight: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900</td><td>글자 두께를 지정하는 속성으로 크기를 100부터 900까지 100단위로 지정할 수 있으며, 해당 키워드도 가능함.</td><td>.con { font-size:14px;  }<br>.con strong { font-size:1.5em; }</td>                
+            </tr>
+            <tr>
+                <td>font-style</td><td>font-style: normal | italic | oblique</td><td>기울임꼴을 지정하는 속성</td><td>.con { font-style:italic;  }<br>.con strong { font-style:normal; }</td>                
+            </tr>
+            <tr>
+                <td>font-variant</td><td>font-variant: normal | small-caps</td><td>대소문자가 있는 알파벳 계열에서 대소문자의 크기가 서로 달라서 대문자를 소문자 크기로 변경하기 위한 속성</td><td>.con { font-variant:small-caps;  }<br>.con strong { font-variant:normal; }</td>                
+            </tr>
+            <tr>
+                <td>font-stretch</td><td>font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded</td><td>글자의 장평(높이와 폭의 비율) 지정하기 위한 속성</td><td>.con { font-stretch:condensed;  }<br>.con strong { font-stretch:expanded; }</td>                
+            </tr>
+            <tr>
+                <td>line-height</td><td>line-height: normal | 숫자 | px, % 단위</td><td>한 행의 높이를 지정하기 위한 속성으로 블록요소에 지정</td><td>.con { line-height:2;  }<br>.con strong { line-height:30px; }</td>                
+            </tr>            
+            <tr>
+                <td>word-spacing</td><td>word-spacing: normal | px,pt,cm,em 단위</td><td>어간(단어와 단어 사이의 간격)을 지정하기 위한 속성</td><td>.con { word-spacing:10px;  }<br>.con strong { word-spacing:normal; }</td>                
+            </tr>
+            <tr>
+                <td>letter-spacing</td><td>letter-spacing: normal | px,pt,cm,em 단위</td><td>자간(글자와 글자 사이의 간격)을 지정하기 위한 속성</td><td>.con { letter-spacing:10px;  }<br>.con strong { letter-spacing:-2px; }</td>                
+            </tr>
+            <tr>
+                <td>text-align</td><td>text-align: left | right | center | justify</td><td>글자 정렬을 의미하며, 블록요소에 지정하는 속성</td><td>.con { text-align:center;  }<br>.con strong { text-align:left; }</td>                
+            </tr>
+            <tr>
+                <td>text-decoration</td><td>text-decoration: none | underline | overline | line-through</td><td>글자나 특정 단어에 줄을 적용할 때 지정하는 속성</td><td>.con { text-decoration:none;  }<br>.con strong { text-decoration:underline; }</td>                
+            </tr>
+            <tr>
+                <td>text-indent</td><td>text-indent: %, px, pt, cm, em 단위</td><td>들여쓰기(+)/내어쓰기(-)를 지정하는 속성</td><td>.con1 { text-indent:20px;  }<br>.con2 { text-indent:-20px; }</td>                
+            </tr>
+            <tr>
+                <td>text-transform</td><td>text-transform: none | uppercase | lowercase | capitalize</td><td>영문계열의 문자를 대/소문자로 변환해주는 속성</td><td>.con1 { text-transform:uppercase;  }<br>.con2 { text-transform:capitalize; }</td>                
+            </tr>
+            <tr>
+                <td>text-orientation</td><td>text-orientation: mixed | upright | sideways | sideways-right | use-glyph-orientation</td><td>문단의 글자 읽는 진행방향을 설정해주는 속성</td><td>.con1 { text-orientation:upright;  }<br>.con2 { text-orientation:sideways; }</td>                
+            </tr>
+            <tr>
+                <td>direction</td><td>direction: ltr | rtl</td><td>글자의 진행 방향을 지정하는 속성</td><td>.con1 { direction: rtl; }</td>                
+            </tr>
+            <tr>
+                <td>writing-mode</td><td>writing-mode: horizontal-tb | sideways-lr | sideways-rl | vertical-rl | vertical-lr</td><td>글자의 표시 방향을 지정하는 속성</td><td>.con1 { writing-mode: sideways-rl; }</td>                
+            </tr>
+            <tr>
+                <td>word-break</td><td>word-break: normal | break-all | keep-all | break-word</td><td>줄 끝에 도달했을 때 단어가 어떻게 끊어져야 하는지를 지정하는 속성</td><td>.con1 { word-break:break-all;  }<br>.con2 { word-break:keep-all; }</td>                
+            </tr>
+            <tr>
+                <td>word-wrap</td><td>word-wrap: normal | break-word</td><td>긴 단어를 나누어 다음 줄로 넘길 수 있도록 지정하는 속성</td><td>.con1 { word-break:break-word;  }<br>.con2 { word-break:normal; }</td>                
+            </tr>
+            <tr>
+                <td>white-space</td><td>white-space: normal | nowrap | pre | pre-line | pre-wrap</td><td>요소 내부의 공백을 처리하는 방법을 지정하는 속성</td><td>.con1 { white-space:nowrap;  }<br>.con2 { white-space:pre; }</td>                
+            </tr>
+            <tr>
+                <td>text-overflow</td><td>text-overflow: clip | ellipsis | string</td><td>영역의 크기에 비해 흘러 넘치는 텍스트를 어떻게 처리할지 지정하는 속성</td><td>.con1 { text-overflow:clip;  }<br>.con2 { text-overflow:ellipsis; }</td>                
+            </tr>
+            <tr>
+                <td>text-shadow</td><td>text-shadow: none | h-shadow v-shadow blur-radius color</td><td>텍스트에 그림자를 지정하는 속성</td><td>.con1 { text-shadow:2px 2px 8px #ff0000;  }<br>.con2 { text-shadow:-3px -3px 4px #00ff00; }</td>                
+            </tr>
+        </tbody>
+    </table>  
+    
+    <br><br><hr><br>
+
+    <h2>5. CSS 속성 - 출력 및 크기에 영향을 주는 속성(Boxing Properties)</h2>
+    <table class="table" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>속성명</th><th>도메인</th><th>설명</th><th>예시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>display</td><td>display : block | inline | inline-block | none</td><td>콘텐츠의 출력 방식을 지정하는 속성</td><td>display:block;</td>                
+            </tr>
+            <tr>
+                <td>opacity</td><td>opacity : 0~1 숫자</td><td>콘텐츠 요소의 불투명도를 지정하는 속성</td><td>opcity:0.5;</td>                
+            </tr>
+            <tr>
+                <td>visibility</td><td>visibility : visible | hidden | collapse</td><td>콘텐츠의 보일지 숨길지를 지정하는 속성</td><td>visibility:hidden<br>display:none은 출력을 하지 않으므로 크기가 설정되지 않지만,<br>visibility:hidden은 보이지 않을 뿐 크기가 지정되어 그 자리를 차지하고 있음.</td>                
+            </tr>
+            <tr>
+                <td>width</td><td>width : auto | %, px, cm, vw 단위</td><td>콘텐츠 요소의 너비를 지정하는 속성</td><td>width:100%;</td>                
+            </tr>
+            <tr>
+                <td>height</td><td>height : auto | %, px, cm, vh 단위</td><td>콘텐츠 요소의 높이를 지정하는 속성</td><td>height:100vh;</td>                
+            </tr>
+            <tr>
+                <td>margin</td><td>margin: auto | %, px, cm 단위 </td><td>박스의 바깥 여백를 지정하는 속성</td><td>margin:25px;<br>margin:20px auto;<br>margin:10px 20px 30px 40px;</td>                
+            </tr>
+            <tr>
+                <td>margin-top</td><td>margin-top: auto | %, px, cm 단위 </td><td>박스 바깥의 위 여백를 지정하는 통합 속성</td><td>margin-top:25px;</td>                
+            </tr>
+            <tr>
+                <td>margin-right</td><td>margin-right: auto | %, px, cm 단위 </td><td>박스 바깥의 오른쪽 여백를 지정하는 세부 속성</td><td>margin-right:40%;</td>                
+            </tr>
+            <tr>
+                <td>margin-bottom</td><td>margin-bottom: auto | %, px, cm 단위 </td><td>박스 바깥의 아래 여백를 지정하는 세부 속성</td><td>margin-bottom:10px;</td>                
+            </tr>
+            <tr>
+                <td>margin-left</td><td>margin-left: auto | %, px, cm 단위 </td><td>박스 바깥의 왼쪽 여백를 지정하는 세부 속성</td><td>margin-left:40px;</td>                
+            </tr>
+            <tr>
+                <td>padding</td><td>padding: auto | %, px, cm, em(rem) 단위 </td><td>박스의 안 여백를 지정하는 통합 속성</td><td>padding:25px;<br>padding:20px auto;<br>padding:10px 20px 30px 40px;</td>                
+            </tr>
+            <tr>
+                <td>padding-top</td><td>padding-top: auto | %, px, cm, em(rem) 단위 </td><td>박스 안의 위 여백를 지정하는 세부 속성</td><td>padding-top:1rem;</td>                
+            </tr>
+            <tr>
+                <td>padding-right</td><td>padding-right: auto | %, px, cm, em(rem) 단위 </td><td>박스 안의 오른쪽 여백를 지정하는 세부 속성</td><td>padding-right:10px;</td>                
+            </tr>
+            <tr>
+                <td>padding-bottom</td><td>padding-bottom: auto | %, px, cm, em(rem) 단위 </td><td>박스 안의 아래 여백를 지정하는 세부 속성</td><td>padding-bottom:5%;</td>                
+            </tr>
+            <tr>
+                <td>padding-left</td><td>padding-left: auto | %, px, cm, em(rem) 단위 </td><td>박스 안의 왼쪽 여백를 지정하는 속성</td><td>padding-left:14px; </td>                
+            </tr>
+            <tr>
+                <td>border</td><td>border: px/pt크기 선모양 선색상</td><td>박스의 테두리를 지정하는 통합 속성</td><td>border:2px solid #333;<br>border:2px solid #333, 4px dashed #f00;</td>                
+            </tr>
+            <tr>
+                <td>border-width</td><td>border-width: px/pt크기</td><td>박스의 테두리 두께를 지정하는 세부 속성</td><td>border-width:2px;<br>border-width:2px 4px;</td>                
+            </tr>
+            <tr>
+                <td>border-style</td><td>border-style: none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset</td><td>박스의 테두리 선 모양을 지정하는 세부 속성</td><td>border-style:solid;<br>border-style:solid dotted dashed hidden;</td>                
+            </tr>
+            <tr>
+                <td>border-color</td><td>border-color: 컬러명 | RGB HEX(3/6) | RGB() | RGBA() | HSL() | HSLA()</td><td>박스의 테두리 선 색상을 지정하는 세부 속성</td><td>border-color:red;<br>border-color:navy blue gold orange;</td>                
+            </tr>
+            <tr>
+                <td>border-top</td><td>border-top: px/pt크기 선모양 선색상</td><td>박스의 위 테두리를 지정하는 세부 속성</td><td>border-top:2px solid #333;</td>                
+            </tr>
+            <tr>
+                <td>border-right</td><td>border-right: px/pt크기 선모양 선색상</td><td>박스의 오른쪽 테두리를 지정하는 세부 속성</td><td>border-right:2px solid #333;</td>                
+            </tr>
+            <tr>
+                <td>border-bottom</td><td>border-bottom: px/pt크기 선모양 선색상</td><td>박스의 아래 테두리를 지정하는 세부 속성</td><td>border-bottom:2px solid #333;</td>                
+            </tr>
+            <tr>
+                <td>border-left</td><td>border-left: px/pt크기 선모양 선색상</td><td>박스의 왼쪽 테두리를 지정하는 세부 속성</td><td>border-left:2px solid #333;</td>                
+            </tr>
+            <tr>
+                <td>border 세세속성</td><td> border-방향-width/style/color</td><td>박스의 테두리를 방향과 그 방향의 테두리 두께, 모양, 색상을 하나 하나 세부적으로 지정하는 세세속성</td><td>border-left-style:solid;</td>                
+            </tr>
+            <tr>
+                <td>border-raduis</td><td>border-radius: px, %, em 단위 숫자</td><td>박스의 모서리 둥글기를 지정하는 속성</td><td>border-radius:10px;<br>border-radius:10px 30px;<br>border-radius:10px 20px 30px 40px;</td>                
+            </tr>
+            <tr>
+                <td>box-sizing</td><td>box-sizing: content-box | border-box</td><td>박스에 지정된 크기를 어디까지의 값으로 계산할지 설정하는 속성</td><td>border-box:border-box;</td>                
+            </tr>
+            <tr>
+                <td>overflow</td><td>overflow: visible | hidden | auto | scroll</td><td>지정된 박스크기를 벗어난 흘러 넘친 콘텐츠를 어떻게 처리할지 설정하는 속성</td><td>overflow:auto;</td>                
+            </tr>
+            <tr>
+                <td>overflow-x</td><td>overflow-x: visible | hidden | auto | scroll</td><td>지정된 박스 가로크기를 벗어난 흘러 넘친 콘텐츠를 어떻게 처리할지 설정하는 속성</td><td>overflow-x:hidden;</td>                
+            </tr>
+            <tr>
+                <td>overflow-x</td><td>overflow-y: visible | hidden | auto | scroll</td><td>지정된 박스 세로크기를 벗어난 흘러 넘친 콘텐츠를 어떻게 처리할지 설정하는 속성</td><td>overflow-y:scroll;</td>                
+            </tr>
+        </tbody>
+    </table>        
+
+    <br><br><hr><br>
+
+    <h2>6. CSS 속성 - 배치와 관련된 속성(Locational Properties)</h2>
+    <table class="table" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>속성명</th><th>도메인</th><th>설명</th><th>예시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>position</td><td>position : static | absolute | relative | fixed | sticky</td><td>콘텐츠 배치 방법을 지정하는 속성</td><td>position:relative;</td>                
+            </tr>
+            <tr>
+                <td>float</td><td>float : none | left | right </td><td>한 행에 여러 콘텐츠를 배치할 경우 그 흐름의 방향을 지정하는 속성</td><td>float:left;</td>                
+            </tr>
+            <tr>
+                <td>clear</td><td>clear : none | left | right | both</td><td> 흐름의 방향을 지정하는 float 속성을 해체할 경우 설정하는 속성</td><td>clear:both;</td>                
+            </tr>
+            <tr>
+                <td>top</td><td>top : auto | px, %, em, vh 단위 숫자</td><td> 맨 위로 부터 떨어진 위치를 지정하는 속성</td><td>top:50px;</td>                
+            </tr>
+            <tr>
+                <td>bottom</td><td>bottom : auto | px, %, em, vh 단위 숫자</td><td>맨 아래 바닥으로 부터 떨어진 위치를 지정하는 속성</td><td>bottom:15px;</td>                
+            </tr>
+            <tr>
+                <td>left</td><td>left : auto | px, %, em, vw 단위 숫자</td><td>맨 왼쪽 시작부터 떨어진 위치를 지정하는 속성</td><td>left:3%;</td>                
+            </tr>
+            <tr>
+                <td>right</td><td>right : auto | px, %, em, vw 단위 숫자</td><td>맨 오른쪽 끝 부터 떨어진 위치를 지정하는 속성</td><td>right:2%;</td>                
+            </tr>
+            <tr>
+                <td>z-index</td><td>z-index : auto | 숫자</td><td>콘텐츠들이 겹칠 경우 레이어(우선순위)번호를 지정하는 속성</td><td>z-index:99;</td>                
+            </tr>
+        </tbody>
+    </table>
+    
+    <p>※ position이 static이거나 relative인 경우는 margin, float, clear 속성을 활용하여 배치한다.</p>
+    <p>※ position이 absolute이거나 fixed인 경우는 left/right 중에서 하나의 속성만 이용하여 가로의 위치를 설정하고, top/bottom 중에서 하나의 속성을 이용하여 세로의 위치를 설정한다.</p>
+    <p>※ position이 absolute이거나 fixed인 경우는 여러 콘텐츠를 겹칠 수 있어 겹칠 경우 z-index의 값을 조절하여 지정하되, 앞으로 올라올 콘텐츠에는 z-index의 값을 큰수로 한다.</p>
+    <p>※ position이 absolute이면, body 요소를 기준으로 기준점이 잡히기 때문에 위치기준이 문서의 처음의 맨 위 상단으로 하므로,
+        부모 요소에 relative를 적용하면, 부모를 기준으로 기준점을 지정할 수 있다.
+    </p>
+
+    <br><br><hr><br>
+
+    <h2>7. CSS 속성 - 기타 속성</h2>
+    <table class="table" border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>속성명</th><th>도메인</th><th>설명</th><th>예시</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>list-style</td><td>list-style : none | list-style-type list-style-position list-style-image</td><td>목록의 기호를 설정하는 속성</td><td>list-style:none</td>                
+            </tr>
+            <tr>
+                <td>list-style-type</td><td>list-style-type : none | disc | armenian | circle | decimal | georgian | hebrew | hiragana | katakana | lower-alpha | lower-greek | lower-latin | lower-roman | square | upper-alpha | upper-greek | upper-latin | upper-roman</td><td>목록 기호의 종류를 지정하는 속성</td><td>list-style-type: disc;</td>                
+            </tr>
+            <tr>
+                <td>list-style-position</td><td>list-style-position: inside | outside</td><td>목록 기호의 위치를 설정하는 속성</td><td>list-style-position: inside</td>                
+            </tr>
+            <tr>
+                <td>list-style-image</td><td>list-style-image: none | url</td><td> 목록 기호의 이미지를 지정하는 속성</td><td>top:50px;</td>                
+            </tr>
+            <tr>
+                <td>cursor</td><td>cursor : url(마우스포인터파일이름), auto | default | alias | all-scroll | auto | cell | col-resize | context-menu | crosshair | copy | e-resize | ew-resize | grab | grabbing | help | move | n-resize | ne-resize | nesw-resize | ns-resize | nw-resize | nwse-resize | no-drop | none | not-allowed | pointer | progress | row-resize | s-resize | se-resize | sw-resize | text | vertical-text | w-resize | wait | zoom-in | zoom-out</td><td>마우스 포인터 모양을 지정하는 속성</td><td>cursor:pointer;</td>                
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br><hr><br>
+
+    
+</div>
+</body>
+</html>

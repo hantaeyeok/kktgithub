@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>자바스크립트 18 - 날씨 API - openweather</title>
+    <script>
+        function parseWeather() {
+            loadJSON(function (response) {
+                var jsonData = JSON.parse(response);
+                document.getElementById("todaysWeather").innerHTML = jsonData["list"][0]["weather"][0]["main"];
+            });
+        }
+        function loadJSON(callback) //url의 json 데이터 불러오는 함수
+        {   //json 데이터 정렬하기 http://json.parser.online.fr
+            var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Seoul,KR&cnt=7&APPID=047ea91a02e19c4e493ceb04d81879f6";
+            var request = new XMLHttpRequest();
+            request.overrideMimeType("application/json");
+            request.open('GET', url, true);
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == "200") {
+                    callback(request.responseText);
+                }
+            };
+            request.send(null);
+        }
+        window.onload = function () {
+            parseWeather();
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        setTimeout(function (){
+            var wed = document.getElementById("todaysWeather").innerText;
+	var img = document.querySelector("#weatherPic img");
+            console.log(wed.trim().toLocaleLowerCase());
+            if (wed.toLocaleLowerCase() == 'clear') {
+                document.getElementById("weatherTxt").innerText = "날씨 : 맑음";
+                img.src = "icon_01.gif";
+            } else if(wed.toLocaleLowerCase() == 'rain') {
+                document.getElementById("weatherTxt").innerText = "날씨 : 비";
+                img.src = "icon_19.gif";
+            } else if(wed.toLocaleLowerCase() == 'few clouds') {
+                document.getElementById("weatherTxt").innerText = "날씨 : 구름조금";
+                img.src = "icon_03.gif";
+            } else if(wed.toLocaleLowerCase() == 'snow') {
+                document.getElementById("weatherTxt").innerText = "날씨 : 눈";
+                img.src = "icon_23.gif";
+            } else {
+                document.getElementById("weatherTxt").innerText = "날씨 : 흐림";
+                img.src = "icon_16.gif";
+            }
+        }, 400);
+    });
+/* 날씨 변수
+few clouds
+broken clouds
+overcast clouds
+scattered clouds
+rain
+snow
+clear
+sky is clear
+heavy intensity rain
+light rain
+moderate rain
+thunderstorm
+mist ....
+*/
+    </script>
+</head>
+<body>
+    <div id="todaysWeather" style="display:none;"></div>
+    <div id="weatherTxt"></div>
+    <div id="weatherPic">
+        <img src="" alt="">
+    </div>
+</body>
+</html>

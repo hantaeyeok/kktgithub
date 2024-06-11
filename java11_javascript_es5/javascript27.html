@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>자바스크립트 27 - JSON 불러오기</title>
+    <style>
+    * { margin: 0; padding: 0; }
+    ul { list-style: none; }    
+    a { text-decoration: none;}
+    .wrap { clear: both; margin: 10px auto; }
+    .lst { width: 960px; margin:0 auto; }
+    .lst li { float:left; margin:10px; }
+    .lst li a { display:block; }
+    .lst li img { display:block; width:300px; height:auto; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h2 class="page_tit">Document 객체</h2>
+    <ul id="lst1" class="lst">
+        
+    </ul>
+    <div id="data"></div>
+</div>
+<!-- <script src="data.json"></script> -->
+<script>
+//아이디가 lst1인 구성요소에 li*10>a>img 를 자동추가 될수 있도록 하시오.
+var lst1 = document.getElementById("lst1");
+var txt="";
+//lst1.innerHTML = txt;
+request = new XMLHttpRequest();
+request.open('GET', 'data.json', true);
+request.onload = function() {
+  if (request.status >= 200 && request.status < 400){
+    //성공
+    data = JSON.parse(request.responseText);
+    console.log("파일을 연결하고, 읽는데 성공하였습니다.");
+    txt+="<li>";
+    txt+="<a href=''>";
+    txt+="<img src='./source/img"+data.Girl.src+".jpg' alt='"+data.Girl.alt+"' title='"+data.Girl.title+"'>";
+    txt+="</a>";
+    txt+="</li>";
+  } else {
+    //파일 에러가 있을 경우
+    console.log("파일을 제대로 읽어오지 못했습니다.");
+  }
+};
+request.onerror = function() {
+  //연결 에러가 발생할 경우
+  console.log("연결 에러가 발생하였습니다.");
+};
+request.send();
+lst1.innerHTML = txt+"<h1>출력 결과</h1>";
+</script>
+</body>
+</html>

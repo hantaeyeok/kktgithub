@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화면크기</title>
+</head>
+<body>
+    <div id="size">
+
+    </div>
+    <button type="button" id="btn1" onclick="sizing()">창 크기 조절</button> 
+    <script>
+    var size = document.getElementById("size");
+    var w = screen.availWidth;  //화면 폭
+    var h = screen.availHeight; //화면 높이
+    size.innerHTML = "<h2>화면 폭 : "+w+"</h2><h2>화면 높이 : "+h+"</h2>";
+    function sizing() { //창의 크기를 화면에 크기에 맞추어 풀스크린으로
+        window.innerWidth = w;
+        window.innerHeight = h;
+    }
+    </script>
+</body>
+</html>

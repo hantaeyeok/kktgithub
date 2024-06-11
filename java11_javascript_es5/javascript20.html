@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>자바스크립트 20 - 구글지도 실습</title>
+	<style>
+    #map_canvas { margin-bottom:40px; }
+    #contact p { text-align:left;	padding-left:30px; line-height:30px; margin-top:25px;
+        padding-right:25px; }
+    </style>
+
+<!--여기부터 --> <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+ <script> 
+//36.3491563,127.3776857
+function initialize() {
+  var myLatlng = new google.maps.LatLng(37.5679212,126.9830358);
+  var mapOptions = {
+    zoom: 17,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: '현재위치'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+ </script>
+<!-- 여기까지 -->
+</head>
+<body onload="initialize()"><!-- body 태그에 onload이벤트 등록 -->
+<div id="content">
+	<div class="content_wrap">
+		<section class="row" id="contact">
+			<h2 class="sub_title1">CONTACT</h2>
+			<article class="full_col h600" style="margin-bottom:50px;">
+			<!-- API 지도 삽입 -->
+				<div id="map_canvas" style="width:1011px; height:600px"></div>
+			</article>
+		</section>
+	</div>
+</body>
+</html>

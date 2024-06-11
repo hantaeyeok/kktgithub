@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.breadcrumb { clear:both; border-bottom:2px solid #777; 
+padding-top: 24px; padding-bottom: 24px; text-align: right; 
+box-sizing:border-box;  padding-right: 40px;   }
+.breadcrumb p * { padding:0px 7px; color:#333; font-weight:bold; }
+.breadcrumb p a:after { content:">"; padding-left: 14px; }
+
+button { outline: none; border: none; }
+
+.form-layout { clear:both; width:600px; margin: 10px auto; }
+.form-layout li { line-height: 60px; }
+.form-layout li label, .form-layout li input { 
+    display:inline-block; height: 40px; line-height: 40px; 
+    font-size:18px; }
+.form-layout li input { width: 360px; padding-left: 18px; }
+.form-layout li label { width: 150px; text-align: center; }
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디바이스 판별</title>
+</head>
+<body>
+    <script>
+    //Andriod, IPhone, iPad, iPod, webOS, BlackBerry, IEMobile, Opera
+    var user = navigator.userAgent;
+    var device = "";
+    if(user.indexOf("iPhone") > -1){
+        device = "아이폰";
+    } else if(user.indexOf("Android") > -1) {
+        device = "안드로이드 계열 디바이스";
+    } else if(user.indexOf("iPad") > -1) {
+        device = "아이패드";
+    } else if(user.indexOf("iPod") > -1) {
+        device = "아이팟";
+    } else {
+        device = "기타 기기";
+    }   
+    document.write("<h2>기기종류 : "+device+"</h2>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+@charset "UTF-8";
+/* https://googlefonts.github.io/korean/ */
+
+@font-face {
+    font-family:"nng";
+    src:local("※"),
+    url("./nanumgothic.eot?#iefix") format('embedded-opentype'),
+    url("./nanumgothic.woff") format('woff'),
+    url("./nanumgothic.woff2") format('woff2'),
+    url("./nanumgothic.otf") format('opentype'),
+    url("./nanumgothic.ttf") format('truetype'),
+    url("./nanumgothic.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'nts';
+    src:local("※"),
+    url("./noto.eot?#iefix") format('embedded-opentype'),
+    url("./noto.woff") format('woff'),
+    url("./noto.woff2") format('woff2'),
+    url("./noto.otf") format('opentype'),
+    url("./noto.ttf") format('truetype'),
+    url("./noto.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'nnp';
+    src:local("※"),
+    url("./nanumgothic.eot?#iefix") format('embedded-opentype'),
+    url("./nanumpen.woff") format('woff'),
+    url("./nanumpen.woff2") format('woff2'),
+    url("./nanumpen.otf") format('opentype'),
+    url("./nanumpen.ttf") format('truetype'),
+    url("./nanumpen.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'ntf';
+    font-weight:200;
+    src:local("※"),
+    url("./NotoSerifKR-ExtraLight.eot?#iefix") format('embedded-opentype'),
+    url("./NotoSerifKR-ExtraLight.woff") format('woff'),
+    url("./NotoSerifKR-ExtraLight.woff2") format('woff2'),
+    url("./NotoSerifKR-ExtraLight.otf") format('opentype'),
+    url("./NotoSerifKR-ExtraLight.ttf") format('truetype'),
+    url("./NotoSerifKR-ExtraLight.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'ntf';
+    font-weight:300;
+    src:local("※"),
+    url("./NotoSerifKR-Light.eot?#iefix") format('embedded-opentype'),
+    url("./NotoSerifKR-Light.woff") format('woff'),
+    url("./NotoSerifKR-Light.woff2") format('woff2'),
+    url("./NotoSerifKR-Light.otf") format('opentype'),
+    url("./NotoSerifKR-Light.ttf") format('truetype'),
+    url("./NotoSerifKR-Light.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'ntf';
+    font-weight: 400;
+    src:local("※"),
+    url("./NotoSerifKR-Medium.eot?#iefix") format('embedded-opentype'),
+    url("./NotoSerifKR-Medium.woff") format('woff'),
+    url("./NotoSerifKR-Medium.woff2") format('woff2'),
+    url("./NotoSerifKR-Medium.otf") format('opentype'),
+    url("./NotoSerifKR-Medium.ttf") format('truetype'),
+    url("./NotoSerifKR-Medium.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'ntf';
+    font-weight: 500;
+    src:local("※"),
+    url("./NotoSerifKR-Regular.eot?#iefix") format('embedded-opentype'),
+    url("./NotoSerifKR-Regular.woff") format('woff'),
+    url("./NotoSerifKR-Regular.woff2") format('woff2'),
+    url("./NotoSerifKR-Regular.otf") format('opentype'),
+    url("./NotoSerifKR-Regular.ttf") format('truetype'),
+    url("./NotoSerifKR-Regular.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'ntf';
+    font-weight: 600;
+    src:local("※"),
+    url("./NotoSerifKR-SemiBold.eot?#iefix") format('embedded-opentype'),
+    url("./NotoSerifKR-SemiBold.woff") format('woff'),
+    url("./NotoSerifKR-SemiBold.woff2") format('woff2'),
+    url("./NotoSerifKR-SemiBold.otf") format('opentype'),
+    url("./NotoSerifKR-SemiBold.ttf") format('truetype'),
+    url("./NotoSerifKR-SemiBold.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'ntf';
+    font-weight: 700;
+    src:local("※"),
+    url("./NotoSerifKR-Bold.eot?#iefix") format('embedded-opentype'),
+    url("./NotoSerifKR-Bold.woff") format('woff'),
+    url("./NotoSerifKR-Bold.woff2") format('woff2'),
+    url("./NotoSerifKR-Bold.otf") format('opentype'),
+    url("./NotoSerifKR-Bold.ttf") format('truetype'),
+    url("./NotoSerifKR-Bold.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'ntf';
+    font-weight: 800;
+    src:local("※"),
+    url("./NotoSerifKR-Black.eot?#iefix") format('embedded-opentype'),
+    url("./NotoSerifKR-Black.woff") format('woff'),
+    url("./NotoSerifKR-Black.woff2") format('woff2'),
+    url("./NotoSerifKR-Black.otf") format('opentype'),
+    url("./NotoSerifKR-Black.ttf") format('truetype'),
+    url("./NotoSerifKR-Black.svg") format('svg');
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  }
+  
+  .icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }

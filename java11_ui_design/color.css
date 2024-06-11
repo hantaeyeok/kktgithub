@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.TURQUOISE { background-color: #00be9c; }   
+.EMERLALD { background-color:#1fcf6d;}
+.PETERRIVER { background-color: #2c97df; }
+.AMETHYST { background-color: #9c56b8; }
+.WETASPHALT { background-color: #334960; }
+.GREENSEA { background-color: #01a185; }
+.NEPHRITIS { background-color:#1aaf5d; }
+.BELIZEHOLE { background-color:#227fbc; }
+.WISTERIA { background-color:#8f3fb0; }
+.MIDNIGHTBLUE { background-color: #2c3e52; }
+.SUNFLOWER { background-color: #f3c500; }
+.CARROT { background-color:#e87e04;}
+.ALIZARIN { background-color: #ea4b35; }
+.CLOUDS { background-color: #ecf0f1; }
+.CONCRETE { background-color: #95a5a5;}
+.ORANGE { background-color:#f59c00; }
+.PUMPSKIN { background-color: #d55400;}
+.POMECRANATE { background-color: #c33825; }
+.SILVER { background-color: #bec3c7;}
+.ASBESTOS { background-color: #7e8c8d; }
+
+.turquoise { background-color: #00be9c; }   
+.emerlald { background-color:#1fcf6d;}
+.peterriver { background-color: #2c97df; }
+.amethyst { background-color: #9c56b8; }
+.wetasphalt { background-color: #334960; }
+.greensea { background-color: #01a185; }
+.nephritis { background-color:#1aaf5d; }
+.belizehole { background-color:#227fbc; }
+.wisteria { background-color:#8f3fb0; }
+.midnightblue { background-color: #2c3e52; }
+.sunflower { background-color: #f3c500; }
+.carrot { background-color:#e87e04;}
+.alizarin { background-color: #ea4b35; }
+.clouds { background-color: #ecf0f1; }
+.concrete { background-color: #95a5a5;}
+.orange { background-color:#f59c00; }
+.pumpskin { background-color: #d55400;}
+.pomecranate { background-color: #c33825; }
+.silver { background-color: #bec3c7;}
+.asbestos { background-color: #7e8c8d; }
+
+.tur { background-color: #00be9c; }   
+.eme { background-color:#1fcf6d;}
+.pet { background-color: #2c97df; }
+.ame { background-color: #9c56b8; }
+.wet { background-color: #334960; }
+.gre { background-color: #01a185; }
+.nep { background-color:#1aaf5d; }
+.bel { background-color:#227fbc; }
+.wis { background-color:#8f3fb0; }
+.mid { background-color: #2c3e52; }
+.sun { background-color: #f3c500; }
+.car { background-color:#e87e04;}
+.ali { background-color: #ea4b35; }
+.clo { background-color: #ecf0f1; }
+.con { background-color: #95a5a5;}
+.ora { background-color:#f59c00; }
+.pum { background-color: #d55400;}
+.pom { background-color: #c33825; }
+.sil { background-color: #bec3c7;}
+.asb { background-color: #7e8c8d; }
+
+.out-tur { border-color: #00be9c; }   
+.out-eme { border-color:#1fcf6d;}
+.out-pet { border-color: #2c97df; }
+.out-ame { border-color: #9c56b8; }
+.out-wet { border-color: #334960; }
+.out-gre { border-color: #01a185; }
+.out-nep { border-color:#1aaf5d; }
+.out-bel { border-color:#227fbc; }
+.out-wis { border-color:#8f3fb0; }
+.out-mid { border-color: #2c3e52; }
+.out-sun { border-color: #f3c500; }
+.out-car { border-color:#e87e04;}
+.out-ali { border-color: #ea4b35; }
+.out-clo { border-color: #ecf0f1; }
+.out-con { border-color: #95a5a5;}
+.out-ora { border-color:#f59c00; }
+.out-pum { border-color: #d55400;}
+.out-pom { border-color: #c33825; }
+.out-sil { border-color: #bec3c7;}
+.out-asb { border-color: #7e8c8d; }
+
+.txt-tur { color: #00be9c; }   
+.txt-eme { color:#1fcf6d;}
+.txt-pet { color: #2c97df; }
+.txt-ame { color: #9c56b8; }
+.txt-wet { color: #334960; }
+.txt-gre { color: #01a185; }
+.txt-nep { color:#1aaf5d; }
+.txt-bel { color:#227fbc; }
+.txt-wis { color:#8f3fb0; }
+.txt-mid { color: #2c3e52; }
+.txt-sun { color: #f3c500; }
+.txt-car { color:#e87e04;}
+.txt-ali { color: #ea4b35; }
+.txt-clo { color: #ecf0f1; }
+.txt-con { color: #95a5a5;}
+.txt-ora { color:#f59c00; }
+.txt-pum { color: #d55400;}
+.txt-pom { color: #c33825; }
+.txt-sil { color: #bec3c7;}
+.txt-asb { color: #7e8c8d; }
+
+.gra-tur { background: linear-gradient(to bottom,  #00a38d 0%,#007c63 100%); }   
+.gra-eme { color:#1fcf6d;}
+.gra-pet { color: #2c97df; }
+.gra-ame { background: linear-gradient(to bottom,  #9c56b8 0%,#8438a5 100%); }
+.gra-wet { color: #334960; }
+.gra-gre { color: #01a185; }
+.gra-nep { color:#1aaf5d; }
+.gra-bel { color:#227fbc; }
+.gra-wis { color:#8f3fb0; }
+.gra-mid { color: #2c3e52; }
+.gra-sun { color: #f3c500; }
+.gra-car { color:#e87e04;}
+.gra-ali { color: #ea4b35; }
+.gra-clo { color: #ecf0f1; }
+.gra-con { color: #95a5a5;}
+.gra-ora { color:#f59c00; }
+.gra-pum { color: #d55400;}
+.gra-pom { color: #c33825; }
+.gra-sil { color: #bec3c7;}
+.gra-asb { color: #7e8c8d; }
+

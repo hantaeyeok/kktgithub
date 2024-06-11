@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컬러 스타일</title>
+    <link rel="stylesheet" href="color.css">
+    <style>
+    .container { clear:both; width: 1200px; margin:30px auto; }
+    .container::after { content:""; display:block; clear:both; }
+    .btn { text-decoration:none; outline:none; border:none; color:#fff; 
+    display:inline-block; padding:0.75rem 2rem; border-radius:8px; 
+    margin:5px 20px;    cursor:pointer; } 
+    .out-btn { text-decoration:none; 
+    display:inline-block; padding:0.75rem 2rem; border-radius:8px; 
+    margin:5px 20px;    cursor:pointer; border-style:solid; border-width:3px;
+    background-color:#fff; font-size:14px; font-weight:800; }
+    
+    .menu ul {list-style: none; }
+    .menu ul li { float:left; width:200px; line-height:32px; }
+    .menu ul li a { display:block; text-align:center; text-decoration:none;
+    color:#fff; font-weight:700; border-right:1px solid #6c4170; 
+    border-left:1px solid #fcdbff; 
+    background: linear-gradient(to bottom,  #9c56b8 0%,#8438a5 100%);
+    }
+
+    .tab-box { clear:both; width:1200px; height:332px; margin:30px auto; }
+    .tab-btn-group { clear:both; height: 32px; }
+    .tab-btn { display:block; float:left; width:100px; height:32px; line-height: 32px; 
+    text-align: center; color:#333; border-style:solid; border-width:3px;
+    margin:0; padding:0; box-sizing:border-box; border-top-left-radius:8px; border-top-right-radius:8px; }
+    .tab-btn.activate { border:none; }
+    </style>
+</head>
+<body>
+    <h1>컬러 스타일</h1>
+    <hr>
+    <div class="container btn-group">
+        <a href="" class="btn tur">버튼</a>
+        <button class="btn eme">버튼</button>
+        <input type="button" class="btn pet" value="버튼">
+        <a href="" class="btn ame">버튼</a>
+        <button class="btn wet">버튼</button>
+        <input type="button" class="btn gre" value="버튼">
+        <a href="" class="btn sun">버튼</a>
+        <button class="btn car">버튼</button>
+        <input type="button" class="btn ali" value="버튼">
+    </div>
+    <div class="container btn-group">
+        <a href="" class="out-btn out-tur txt-tur">버튼</a>
+        <button class="out-btn out-eme txt-eme">버튼</button>
+        <input type="button" class="out-btn out-pet txt-pet" value="버튼">
+        <a href="" class="out-btn out-ame txt-ame">버튼</a>
+        <button class="out-btn out-wet txt-wet">버튼</button>
+        <input type="button" class="out-btn out-gre txt-gre" value="버튼">
+        <a href="" class="out-btn out-sun txt-sun">버튼</a>
+        <button class="out-btn out-car txt-car">버튼</button>
+        <input type="button" class="out-btn out-ali txt-ali" value="버튼">
+    </div>
+    <div class="container btn-group">
+        <nav class="menu">
+            <ul>
+                <li><a href="" class="">메뉴1</a></li>
+                <li><a href="" class="">메뉴2</a></li>
+                <li><a href="" class="">메뉴3</a></li>
+                <li><a href="" class="">메뉴4</a></li>
+                <li><a href="" class="">메뉴5</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container tab-box">
+        <div class="tab-btn-group">
+            <label class="tab-btn pet activate">탭버튼1</label>
+            <label class="tab-btn out-pet">탭버튼2</label>
+            <label class="tab-btn out-pet">탭버튼3</label>
+            <label class="tab-btn out-pet">탭버튼4</label>
+        </div>
+        <div class="tab-area" style="width:400px;height:300px;border-left:3px solid #2c97df;border-right:3px solid #2c97df; border-bottom:3px solid #2c97df;box-sizing:border-box;">
+        </div>
+    </div>
+    <div class="container msg-group">
+
+    </div>
+</body>
+</html>

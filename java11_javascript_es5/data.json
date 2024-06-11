@@ -1,0 +1,8 @@
+{
+    "Girl":[
+        {"src":"./source/img1.jpg","alt":"아이즈원공식이미지","title":"아이즈원이미지1"},
+        {"src":"./source/img2.jpg","alt":"아이즈원공식이미지2","title":"아이즈원이미지2"},
+        {"src":"./source/img3.jpg","alt":"러블리즈공식이미지","title":"러블리즈이미지"},
+        {"src":"./source/img4.jpg","alt":"러블리즈공식이미지2","title":"러블리즈이미지2"}
+    ]
+}

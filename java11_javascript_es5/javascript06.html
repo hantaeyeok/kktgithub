@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 06</title>
+    <style>
+    #point { height: 40px; clear:both; background-color:red; 
+    overflow-x:visible; }    
+    #point .grid_box { width: 420px; clear:both; height: 40px; }
+    #point .grid { display:block; width: 40px; height: 40px; 
+    border:1px solid #333; float:left; box-sizing:border-box; }
+    #pan { clear:both; }
+    </style>
+</head>
+<body>
+    <h1>조건문</h1>
+    <hr>
+    <p>자바스크립트의 조건문에는 if문, switch문 등의 조건 분기문이 있습니다.</p>
+    <hr>
+    <div class="wrap">
+        <ul class="lst">
+            <li class="jumsu">80</li>
+            <li class="jumsu">75</li>
+            <li class="jumsu">90</li>
+            <li class="jumsu">85</li>
+            <li class="jumsu">95</li>
+        </ul>
+    </div>
+    <div id="tot"></div>
+    <div class="wrap">
+        <span id="avg"></span>
+        <div id="point">
+            <div class="grid_box">
+                <span class="grid"></span><span class="grid"></span>
+                <span class="grid"></span><span class="grid"></span>
+                <span class="grid"></span><span class="grid"></span>
+                <span class="grid"></span><span class="grid"></span>
+                <span class="grid"></span><span class="grid"></span>
+            </div>
+        </div>
+    </div>
+    <div id="pan"></div><div id="hak"></div><div id="remark"></div>
+    <div id="sisang"></div>
+    <script>
+    var score = document.getElementsByClassName("jumsu"); //score[0]~score[4]
+    //var score = document.querySelector(".lst .jumsu");
+    var arr = [0, 0, 0, 0, 0];    //var arr = new Array(5);
+    var tot=0, avg=0.0, pan="";
+    var hak="", remark="", sisang="";
+    for(var i=0;i<score.length;i++){
+        arr[i] = parseInt(score[i].innerHTML);
+        console.log("점수"+i+":"+arr[i]);
+        tot += arr[i];  //총점 누적 계산
+    }
+    avg = tot / score.length;   //평균 계산
+    
+    //판정 계산 : 모든 과목의 점수가 60점 이상이면, "합격", 아니면, "불합격"
+    if(arr[0]>=60 && arr[1]>=60 && arr[2]>=60 && arr[3]>=60 && arr[4]>=60) {
+        pan = "합격";
+    } else {
+        pan = "불합격";
+    }
+
+    /*
+    pan = "합격";
+    for(var i=0;i<score.length;i++){
+        if(arr[i]<60) pan = "불합격";
+    }
+    */
+
+    //학점 계산 : 평균이 90점 이상이면, "A", 80점 이상이면, "B", 70점 이상이면, "C", 60점 이상이면, "D", 60점 미만이면, "F"
+    
+    if(avg>=90) {
+        hak = "A";
+    } else if(avg>=80) {
+        hak = "B";
+    } else if(avg>=70) {
+        hak = "C";
+    } else if(avg>=60) {
+        hak = "D";   
+    } else {
+        hak = "F";
+    }
+
+    //참고사항(remark) 계산
+     /* 학점이 "A"이면, "고득점자", "B"이면, "일반",
+    "C"이면, "노력", "D", "재평가", "F", "재평가"    */
+    switch(hak){
+        case "A":
+            remark = "고득점자";            break;
+        case "B":
+            remark = "일반";            break;    
+        case "C":
+            remark = "노력";            break;    
+        default:
+            remark = "재평가";    
+    }
+
+
+    //시상내용 계산
+    //시상내용 : 한 과목이라도 90점 이상이면, "과목우수"이고, 아니면, "해당없음"
+    if(arr[0]>=90 || arr[1]>=90 || arr[2]>=90 || arr[3]>=90 || arr[4]>=90){
+        sisang = "과목우수";
+    } else {
+        sisang = "해당없음";
+    }
+
+    /*
+    sisang = "해당없음";
+    for(var i=0;i<score.length;i++){
+        if(arr[i]>=90) sisang = "과목우수";
+    }
+    */
+
+    document.getElementById("tot").innerHTML = "총점 : "+tot;
+    document.getElementById("avg").innerHTML = "평균 : "+avg;
+    document.getElementById("pan").innerHTML = "판정 : "+pan;
+    document.getElementById("hak").innerHTML = "학점 : "+hak;
+    document.getElementById("remark").innerHTML = "참고사항 : "+remark;
+    document.getElementById("sisang").innerHTML = "시상내역 : "+sisang;
+    document.getElementById("point").style.width = avg*4+"px";
+    </script>
+</body>
+</html>

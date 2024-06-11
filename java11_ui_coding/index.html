@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가산동 소개 메인</title>
+    <!-- 메타포 -->
+    <!-- 바로가기 또는 파비콘 -->
+    <!-- 오픈그래프 -->
+    <!-- 폰트 로딩 -->
+    <!-- 외부 스타일 로딩 -->
+    <!-- 외부 js 라이브러리 로딩 -->
+    <link rel="stylesheet" href="normalize2.css">
+    <link rel="stylesheet" href="common.css">
+    <style>
+    .item_lst { height: 320px; overflow: hidden; }
+    </style>
+</head>
+<body>
+    <header id="hd" class="clr-fix">
+        <div class="hd_wrap">
+            <a href="" class="logo"><img src="https://placehold.it/60x60/333" alt="로고"></a>
+            <nav id="tnb2">
+                <p><a href="login.html">로그인</a><a href="join.html">회원가입</a><a href="map.html">오시는 길</a></p>
+            </nav>
+        </div>
+        <div class="hd_wrap2">
+            <nav id="gnb2">
+                <ul class="menu clr-fix">
+                    <li class="item1">
+                        <a href="" class="dp1">마이페이지</a>
+                        <ul class="sub">
+                            <li><a href="login.html" class="dp2">로그인</a></li>
+                            <li><a href="mypage.html" class="dp2">나의정보</a></li>
+                            <li><a href="term.html" class="dp2">회원약관</a></li>
+                            <li><a href="policy.html" class="dp2">개인정보처리방침</a></li>
+                            <li><a href="join.html" class="dp2">회원가입</a></li>
+                        </ul>
+                    </li>
+                    <li class="item2">
+                        <a href="" class="dp1">지역소개</a>
+                        <ul class="sub">
+                            <li><a href="intro.html?data=local1" class="dp2">지명 유래</a></li>
+                            <li><a href="intro.html?data=local2" class="dp2">지역 특징 및 시설안내</a></li>
+                            <li><a href="intro.html?data=local3" class="dp2">연혁</a></li>
+                            <li><a href="intro.html?data=local4" class="dp2">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li class="item3">
+                        <a href="" class="dp1">이용안내</a>
+                        <ul class="sub">
+                            <li><a href="guide1.html" class="dp2">교통편 안내</a></li>
+                            <li><a href="guide2.html" class="dp2">주요 빌딩 안내</a></li>
+                            <li><a href="guide3.html" class="dp2">주요 협회 단체</a></li>
+                            <li><a href="guide4.html" class="dp2">맛집 안내</a></li>
+                            <li><a href="guide5.html" class="dp2">숙박시설 안내</a></li>
+                        </ul>
+                    </li>
+                    <li class="item4">
+                        <a href="" class="dp1">커뮤니티</a>
+                        <ul class="sub">
+                            <li><a href="notice.html" class="dp2">공지사항</a></li>
+                            <li><a href="qna.html" class="dp2">묻고 답하기</a></li>
+                            <li><a href="databank.html" class="dp2">자료실</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="contents" class="clr-fix">
+        <figure id="vs">
+            <ul class="img_box">
+                <li class="item1">
+                    <img src="https://placehold.it/1800x300/369" alt="배너1">
+                    <a href="" class="more_btn">더 보기</a>
+                </li>
+                <li class="item2">
+                    <img src="https://placehold.it/1800x300/936" alt="배너2">
+                    <a href="" class="more_btn">더 보기</a>
+                </li>
+                <li class="item3">
+                    <img src="https://placehold.it/1800x300/693" alt="배너3">
+                    <a href="" class="more_btn">더 보기</a>
+                </li>
+                <li class="item4">
+                    <img src="https://placehold.it/1800x300/963" alt="배너4">
+                    <a href="" class="more_btn">더 보기</a>
+                </li>
+            </ul>
+        </figure>
+        <script src="jquery-1.12.3.js"></script>
+        <script src="main.js"></script>
+        <section class="page" id="page1">
+            <h2 class="page_title">페이지 제목1 - 썸네일 목록</h2>
+            <div class="page_wrap">
+                <!-- ul.item_lst>li*10>a>img.thumb+h3.item_tit{아이템 제목$}+p.item_com{아이템 설명$} -->
+                <ul class="item_lst clr-fix">
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/333" alt="아이템1" class="thumb">
+                            </div>
+                            <h3 class="item_tit">아이템 제목1 아이템 제목1 아이템 제목1 아이템 제목1 아이템 제목1 아이템 제목1</h3>
+                            <p class="item_com">아이템 설명1</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/300x180/369" alt="아이템2" class="thumb">
+                            </div>
+                            <h3 class="item_tit">아이템 제목2</h3>
+                            <p class="item_com">아이템 설명2</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/220x180/639" alt="아이템3" class="thumb">
+                            </div>
+                            <h3 class="item_tit">아이템 제목3</h3>
+                            <p class="item_com">아이템 설명3</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/936" alt="아이템4" class="thumb">
+                            </div>    
+                            <h3 class="item_tit">아이템 제목4</h3>
+                            <p class="item_com">아이템 설명4</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/339" alt="아이템5" class="thumb">
+                            </div>
+                            <h3 class="item_tit">아이템 제목5</h3>
+                            <p class="item_com">아이템 설명5</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/963" alt="아이템6" class="thumb">
+                            </div>    
+                            <h3 class="item_tit">아이템 제목6</h3>
+                            <p class="item_com">아이템 설명6</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/906" alt="아이템7" class="thumb">
+                            </div>    
+                            <h3 class="item_tit">아이템 제목7</h3>
+                            <p class="item_com">아이템 설명7</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/960" alt="아이템8" class="thumb">
+                            </div>    
+                            <h3 class="item_tit">아이템 제목8</h3>
+                            <p class="item_com">아이템 설명8</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/690" alt="아이템9" class="thumb">
+                            </div>
+                            <h3 class="item_tit">아이템 제목9</h3>
+                            <p class="item_com">아이템 설명9</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="img_fr">
+                                <img src="https://placehold.it/240x180/993" alt="아이템10" class="thumb">
+                            </div>
+                            <h3 class="item_tit">아이템 제목10</h3>
+                            <p class="item_com">아이템 설명10</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="page" id="page2">
+            <h2 class="page_title">페이지 제목2 - 테이블</h2>
+            <div class="page_wrap">
+                <a href="" class="detail">+</a>
+                <table class="tb1">
+                    <thead>
+                        <tr>
+                            <th>필드명1</th>
+                            <th>필드명2</th>
+                            <th>필드명3</th>
+                            <th>필드명4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="page" id="page3">
+            <h2 class="page_title">페이지 제목3 - 아이콘 목록</h2>
+            <div class="page_wrap">
+                <ul class="icon_lst">
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon1.png" alt="아이콘1"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon2.png" alt="아이콘2"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon3.png" alt="아이콘3"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon4.png" alt="아이콘4"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon5.png" alt="아이콘5"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon6.png" alt="아이콘6"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon7.png" alt="아이콘7"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="icon_fr"><img src="boxIcon8.png" alt="아이콘8"></div>
+                            <h3 class="icon_tit">아이콘 제목</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="page" id="page4">
+            <h2 class="page_title">페이지 제목4 - 정적 그리드</h2>
+            <div class="page_wrap">
+                <ul class="grid clr-fix">
+                    <li class="col4">
+                        <div class="box">col4</div>
+                    </li>
+                    <li class="col4">
+                        <div class="box">col4</div>
+                    </li>
+                    <li class="col4 last">
+                        <div class="box">col4</div>
+                    </li>
+                    <li class="col3">
+                        <div class="box">col3</div>
+                    </li>
+                    <li class="col3">
+                        <div class="box">col3</div>
+                    </li>
+                    <li class="col3">
+                        <div class="box">col3</div>
+                    </li>
+                    <li class="col3 last">
+                        <div class="box">col3</div>
+                    </li>
+                    <li class="col5">
+                        <div class="box">col5</div>
+                    </li>
+                    <li class="col3">
+                        <div class="box">col3</div>
+                    </li>
+                    <li class="col4 last">
+                        <div class="box">col4</div>
+                    </li>
+                    <li class="col6">
+                        <div class="box">col6</div>
+                    </li>
+                    <li class="col6 last">
+                        <div class="box">col6</div>
+                    </li>
+                    <li class="col12">
+                        <div class="box">col12</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="page" id="page5">
+            <h2 class="page_title">페이지 제목5 - 동적 그리드</h2>
+
+            <ul class="grid2 clr-fix">
+                <li class="can4">
+                    <div class="box">col-4</div>
+                </li>
+                <li class="can4">
+                    <div class="box">col-4</div>
+                </li>
+                <li class="can4 last">
+                    <div class="box">col-4</div>
+                </li>
+                <li class="can3">
+                    <div class="box">col-3</div>
+                </li>
+                <li class="can3">
+                    <div class="box">col-3</div>
+                </li>
+                <li class="can3">
+                    <div class="box">col-3</div>
+                </li>
+                <li class="can3 last">
+                    <div class="box">col-3</div>
+                </li>
+                <li class="can5">
+                    <div class="box">col-5</div>
+                </li>
+                <li class="can3">
+                    <div class="box">col-3</div>
+                </li>
+                <li class="can4 last">
+                    <div class="box">col-4</div>
+                </li>
+                <li class="can6">
+                    <div class="box">col-6</div>
+                </li>
+                <li class="can6 last">
+                    <div class="box">col-6</div>
+                </li>
+                <li class="can12">
+                    <div class="box">col-12</div>
+                </li>
+            </ul>
+
+        </section>
+
+        <section class="page" id="page6">
+            <h2 class="page_title">페이지 제목6 - 절대 좌표 그리드</h2>
+
+            <ul class="grid3 clr-fix">
+                <li id="item1" class="box1">
+                    <div class="box">item1</div>
+                </li>
+                <li id="item2" class="box1">
+                    <div class="box">item2</div>
+                </li>
+                <li id="item3" class="box2">
+                    <div class="box">item3</div>
+                </li>
+                <li id="item4" class="box2">
+                    <div class="box">item4</div>
+                </li>
+                <li id="item5" class="box2">
+                    <div class="box">item5</div>
+                </li>
+                <li id="item6" class="box2">
+                    <div class="box">item6</div>
+                </li>
+                <li id="item7" class="box2">
+                    <div class="box">item7</div>
+                </li>
+            </ul>
+
+        </section>
+    </main>
+
+    <footer id="ft" class="clr-fix">
+        <nav id="fnb">
+            <ul class="fl">
+                <li><a href="term.html">회원약관</a></li>
+                <li><a href="policy.html">개인정보처리방침</a></li>
+                <li><a href="map.html">오시는길</a></li>
+                <li><a href="contact.html">관리자 문의</a></li>
+            </ul>
+            <ul class="fr">
+                <li><a href="intro.html?data=local1">지역소개</a></li>
+                <li><a href="guide1.html">이용안내</a></li>
+                <li><a href="notice.html">커뮤니티</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <div class="copy">
+            <p class="copyright">Copyrigh 2024. KiM Gi Tae. All Rights Reserved.</p>
+            <p class="addr">#1204, 128-14, Block 6, Gasan-dong, Geumcheon-gu, Seoul-city</p>
+            <p class="tel">Tel. 010-2858-4307, Fax. 02-2488-7954, Email : kkt09072@google.com
+                <a href="https://www.google.com/maps/search/%EA%B0%80%EC%82%B0%EB%8F%99+128-14+%EC%A7%80%EB%8F%84?entry=ttu" target="_blank">오시는 길</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>자바스크립트 18 - 날씨 어플리케이션(사이트)에서 특정 영역만 표시하기</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+    #weather { width:505px; height:540px; position:relative; margin:3em auto; 
+    overflow:hidden; border:1px solid #333; }    
+    </style>
+</head>
+<body>
+<br>
+<div id="weather">
+    <div style="position:absolute; top:-245px; left:0px" id="weather_frame">
+        <iframe src="https://web.kma.go.kr/weather/main.jsp" width="512" height="785" scrolling="no" frameborder="0"></iframe>
+    </div>
+</div>        
+</body>
+</html>

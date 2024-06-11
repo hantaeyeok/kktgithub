@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가산동 소개</title>
+    <!-- 메타포 -->
+    <!-- 바로가기 또는 파비콘 -->
+    <!-- 오픈그래프 -->
+    <!-- 폰트 로딩 -->
+    <!-- 외부 스타일 로딩 -->
+    <!-- 외부 js 라이브러리 로딩 -->
+    <link rel="stylesheet" type="text/css" href="http://s1.daumcdn.net/svc/attach/U03/cssjs/mapapidoc/1421136453605/service.min.css">
+    <script type="text/javascript" src="http://dmaps.daum.net/map_js_init/v3.js"></script>
+	<script type="text/javascript" src="http://s1.daumcdn.net/svc/original/U03/cssjs/jquery/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="http://s1.daumcdn.net/svc/original/U0301/cssjs/JSON-js/fc535e9cc8/json2.min.js"></script>
+    <link rel="stylesheet" href="normalize2.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="sub_common.css">
+
+	<style>
+    body { background-color: #fff; }    
+    .ra_item { display:none; }
+    .tab_con_box { display:none; }
+    #ra1:checked ~ .tab_con_wrap #tab_con_box1 { display:block; }
+    #ra2:checked ~ .tab_con_wrap #tab_con_box2 { display:block; }
+    #ra3:checked ~ .tab_con_wrap #tab_con_box3 { display:block; }
+    #ra4:checked ~ .tab_con_wrap #tab_con_box4 { display:block; }
+
+    #tab2 { position:relative; width: 600px; height: 350px; 
+    clear:both; margin: 10px auto;  }
+    .btn_box .ra_btn { display:inline-block; width: 120px; 
+    height: 40px; line-height: 40px; text-align: center; background-color:#333;
+    color:#fff; border-radius:10px 10px 0px 0px; }
+    #ra1:checked ~ .btn_box label:first-child { background-color: deepskyblue; }
+    #ra2:checked ~ .btn_box label:nth-child(2) { background-color: deepskyblue; }
+    #ra3:checked ~ .btn_box label:nth-child(3) { background-color: deepskyblue; }
+    #ra4:checked ~ .btn_box label:last-child { background-color: deepskyblue; }
+    </style>
+</head>
+<body>
+    <header id="hd" class="clr-fix">
+        <div class="hd_wrap">
+            <a href="" class="logo"><img src="https://placehold.it/60x60/333" alt="로고"></a>
+            <nav id="tnb2">
+                <p><a href="login.html">로그인</a><a href="join.html">회원가입</a><a href="map.html">오시는 길</a></p>
+            </nav>
+        </div>
+        <div class="hd_wrap2">
+            <nav id="gnb2">
+                <ul class="menu clr-fix">
+                    <li class="item1">
+                        <a href="" class="dp1">마이페이지</a>
+                        <ul class="sub">
+                            <li><a href="login.html" class="dp2">로그인</a></li>
+                            <li><a href="mypage.html" class="dp2">나의정보</a></li>
+                            <li><a href="term.html" class="dp2">회원약관</a></li>
+                            <li><a href="policy.html" class="dp2">개인정보처리방침</a></li>
+                            <li><a href="join.html" class="dp2">회원가입</a></li>
+                        </ul>
+                    </li>
+                    <li class="item2">
+                        <a href="" class="dp1">지역소개</a>
+                        <ul class="sub">
+                            <li><a href="intro.html?data=local1" class="dp2">지명 유래</a></li>
+                            <li><a href="intro.html?data=local2" class="dp2">지역 특징 및 시설안내</a></li>
+                            <li><a href="intro.html?data=local3" class="dp2">연혁</a></li>
+                            <li><a href="intro.html?data=local4" class="dp2">오시는 길</a></li>
+                        </ul>
+                    </li>
+                    <li class="item3">
+                        <a href="" class="dp1">이용안내</a>
+                        <ul class="sub">
+                            <li><a href="guide1.html" class="dp2">교통편 안내</a></li>
+                            <li><a href="guide2.html" class="dp2">주요 빌딩 안내</a></li>
+                            <li><a href="guide3.html" class="dp2">주요 협회 단체</a></li>
+                            <li><a href="guide4.html" class="dp2">맛집 안내</a></li>
+                            <li><a href="guide5.html" class="dp2">숙박시설 안내</a></li>
+                        </ul>
+                    </li>
+                    <li class="item4">
+                        <a href="" class="dp1">커뮤니티</a>
+                        <ul class="sub">
+                            <li><a href="notice.html" class="dp2">공지사항</a></li>
+                            <li><a href="qna.html" class="dp2">묻고 답하기</a></li>
+                            <li><a href="databank.html" class="dp2">자료실</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="contents" class="clr-fix">
+        <figure id="vs">
+            <img src="https://placehold.it/1800x300/369" alt="배너1">
+        </figure>
+        <section class="page" id="page1">
+            <div class="breadcrumb">
+                <p>
+                    <a href="">홈</a><a href="">커뮤니티</a><span>공지사항</span>
+                </p>
+            </div>
+            <hr>
+            <h2 class="page_title">공지사항 목록</h2>
+            <div class="page_wrap clr-fix" style="padding-bottom: 90px;">
+                <table class="tb1">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성일</th>
+                            <th>작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                        <tr>
+                            <td>컬럼데이터1</td>
+                            <td>컬럼데이터2</td>
+                            <td>컬럼데이터3</td>
+                            <td>컬럼데이터4</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn-group">
+                    <a href="notice_ins.html" class="btn primary">글 쓰기</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="ft" class="clr-fix">
+        <nav id="fnb">
+            <ul class="fl">
+                <li><a href="term.html">회원약관</a></li>
+                <li><a href="policy.html">개인정보처리방침</a></li>
+                <li><a href="map.html">오시는길</a></li>
+                <li><a href="contact.html">관리자 문의</a></li>
+            </ul>
+            <ul class="fr">
+                <li><a href="intro.html?data=local1">지역소개</a></li>
+                <li><a href="guide1.html">이용안내</a></li>
+                <li><a href="notice.html">커뮤니티</a></li>
+            </ul>
+        </nav>
+        <hr>
+        <div class="copy">
+            <p class="copyright">Copyrigh 2024. KiM Gi Tae. All Rights Reserved.</p>
+            <p class="addr">#1204, 128-14, Block 6, Gasan-dong, Geumcheon-gu, Seoul-city</p>
+            <p class="tel">Tel. 010-2858-4307, Fax. 02-2488-7954, Email : kkt09072@google.com
+                <a href="https://www.google.com/maps/search/%EA%B0%80%EC%82%B0%EB%8F%99+128-14+%EC%A7%80%EB%8F%84?entry=ttu" target="_blank">오시는 길</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

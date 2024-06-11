@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 브라우저 정보 알아내기</title>
+</head>
+<body>
+    <script>
+    document.write("<h2>웹 브라우저 정보</h2>");
+    //브라우저에서 userAgent(clientHit:Chrome만) 중에서 반드시 포함해야 하는 단어
+    //Firefox => Firefox/xyz, Chrome => Chrome/xyz, Safari => Safari/xyz, Opera => Opera/xyz
+    var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome');
+    var isEdge = navigator.userAgent.toLowerCase().indexOf('edge');
+    var isIE = navigator.userAgent.toLowerCase().indexOf('trident');
+    var browser = "";
+
+    if(isEdge > -1) {
+        browser = "엣지";
+    } else if(isChrome > -1) {
+        browser = "크롬";
+    } else if(isIE > -1) {
+        browser = "인터넷 익스플로러";
+    } else {
+        browser = "타 브라우저";
+    }
+
+    var str = "<ul>";
+    str += "<li>브라우저 이름 : "+navigator.appName+"</li>";    
+    str += "<li>브라우저 코드 : "+navigator.appCodeName+"</li>";
+    str += "<li>플랫폼 정보 : "+navigator.platform+"</li>";
+    str += "<li>사용자 정보 : "+navigator.userAgent+"</li>";
+    str += "<li>브라우저 버전 : "+navigator.appVersion+"</li>";
+    str += "<li>브라우저 종류 : "+browser+"</li>";
+    str += "</ul>";
+    document.write(str);
+    </script>
+</body>
+</html>

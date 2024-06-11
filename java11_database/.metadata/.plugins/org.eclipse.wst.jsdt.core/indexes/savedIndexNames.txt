@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\kim\database\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3594346345.index
+1172476963.index
+3596955540.index
+1967543057.index
+479335008.index
+3640289202.index
+3477087526.index

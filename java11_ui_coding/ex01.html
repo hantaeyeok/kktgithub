@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .wrap { width:300px; margin:30px auto; padding: 30px; }    
+    .speech-bubble {
+	position: relative;
+	background: #00aabb;
+	border-radius: .4em;
+    padding: 40px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #00aabb;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}    
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="speech-bubble">Bubbly
+            CSS speech bubbles made easy!</div>   
+    </div>
+</body>
+</html>

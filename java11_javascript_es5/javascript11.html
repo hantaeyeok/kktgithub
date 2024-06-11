@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 11</title>
+    <style>
+    * { margin: 0; padding: 0; }
+    input[type="button"] { background-color: #999; border:0; outline:0; 
+        background-color: #666; color:#fff; width: 50px; height: 36px; 
+        line-height: 36px; outline:0; border:0; 
+        border-radius:5px; text-align:center; margin:5px; font-size:18px; 
+        font-weight: bold; box-shadow:1px 1px 5px #000, 1px 1px 4px #111, 1px 1px 3px #222, 1px 1px 2px #333; 
+        text-shadow:-1px -1px 1px #666; cursor:pointer; }
+    input.blue_btn { background-color: #1bbfaf; color:#fff; }
+    input.clear_btn { background-color:deepskyblue; }   
+    input.long_btn { background-color:rgb(179, 11, 11); color:#fff; width: 180px; }   
+    input.green_btn { background-color: lawngreen; 
+        background: linear-gradient(to bottom, #b6e026 0%,#abdc28 100%); } 
+    #expression { display:block; width: 220px; height: 48px; margin-top:10px; margin-left: 5px;
+    font-size:24px; padding-left: 10px; padding-right: 16px; 
+    text-align: right; border-width:3px; border-color:#555; border-style: inset; }
+    #display { display:block; width: 230px; height: 48px; margin-top:10px; 
+        margin-bottom: 10px; margin-left: 5px; background-color:#000; color:#fff; 
+        font-size:24px; padding-left: 10px; padding-right: 10px; line-height: 48px;
+        text-align: right; }
+    #calculator { width: 260px;  margin: 10px auto; border:3px solid #999; 
+    border-radius:16px; background-color:#212226; 
+    background: linear-gradient(to bottom, #212226 0%,#161619 100%); padding: 10px; 
+    box-shadow:1px 1px 1px #222, 2px 2px 1px #333, 3px 3px 1px #444, 4px 4px 1px #555, 5px 5px 1px #666, 6px 6px 1px #777, 7px 7px 1px #888, 8px 8px 1px #999, 9px 9px 1px #888, 10px 10px 1px #777, 11px 11px 1px #666, 12px 12px 1px #555;}
+    @font-face {
+        font-family: 'digital';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff') format('woff');
+        font-weight: normal;
+        font-style:normal;
+    }
+    #expression, #display { font-family: 'digital'; font-style: italic; }
+    .tit { text-align: center;  padding: 30px; }
+    </style>
+</head>
+<body>
+    <h1 class="tit">전자계산기</h1>
+    <hr>
+    <form id="calculator">
+        <input type="text" id="expression">
+        <div id="display"></div>
+        <hr>
+        <div class="btn_area">
+            <input type="button" value="7" onclick="compute('7')" />
+            <input type="button" value="8" onclick="compute('8')" />
+            <input type="button" value="9" onclick="compute('9')" />
+            <input type="button" value="AC" id="ac" class="clear_btn" />
+            <input type="button" value="4" onclick="compute('4')" />
+            <input type="button" value="5" onclick="compute('5')" />
+            <input type="button" value="6" onclick="compute('6')" />
+            <input type="button" value="/" onclick="compute('/')" class="blue_btn" />
+            <input type="button" value="1" onclick="compute('1')" />
+            <input type="button" value="2" onclick="compute('2')" />
+            <input type="button" value="3" onclick="compute('3')" />
+            <input type="button" value="*" onclick="compute('*')" class="blue_btn" />
+            <input type="button" value="." onclick="compute('.')" />
+            <input type="button" value="0" onclick="compute('0')" />
+            <input type="button" value="+" onclick="compute('+')" class="blue_btn" />
+            <input type="button" value="-" onclick="compute('-')" class="blue_btn" />
+        </div>
+        <input type="button" value="=" onclick="result()" id="equal" class="long_btn" />
+        <input type="button" value="OFF" onclick="off()" id="onoff" class="green_btn"/>
+    </form>
+    <script>
+        var ac = document.getElementById("ac");
+        var expression = document.getElementById("expression");
+        var display = document.getElementById("display");
+        function compute(ch){ //문자열 결합
+            expression.value = expression.value + ch;
+        }    
+        var ac = document.getElementById("ac");
+        ac.addEventListener("click", function(){
+            expression.value=""; 
+            display.innerHTML=""; 
+        });
+        function clear() { //원래내용 다시 초기화
+            expression.value=""; 
+            display.innerHTML=""; 
+        }
+        var result = function(){ //문자열을 계산식으로 변환
+            var data = eval(expression.value);
+            display.innerHTML = data;
+        }
+        var onoff = document.getElementById("onoff");
+        var off = function(){ self.close(); } //현재 창이 닫힘
+        </script>
+</body>
+</html>

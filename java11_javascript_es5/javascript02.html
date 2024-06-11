@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 02</title>
+    <style>
+    * { margin: 0; padding: 0; }
+    body { width:100%; overflow-x:hidden; }
+    a { text-decoration: none; }
+    .title { text-align: center; padding-top: 2rem; 
+        padding-bottom: 0.8rem; }
+    .btn-group, .activity, .rule { clear:both; width: 1280px; 
+        margin: 20px auto; }    
+    .btn-group:after, .activity:after, .rule:after { content:""; 
+    display:block; width: 100%; clear: both; }
+    .rule { padding-bottom: 24px; border-bottom:2px solid #333; }
+
+    .btn-group button, .btn-group a { display:inline-block; 
+        min-width:140px; height: 40px; line-height: 40px; text-align: center; 
+    outline: none; border:3px solid #333; color:#333; font-size:18px; 
+    margin:8px; border-radius:22px; box-sizing: border-box; cursor:pointer; }
+    .btn-group button:hover, .btn-group a:hover { background-color: deepskyblue;
+    color:#fff; }
+
+    .activity { min-height:200px; margin-bottom:100px; }
+    </style>
+</head>
+<body>
+    <h1 class="title">자바스크립트의 출력 방향과 메시지창</h1>
+    <hr>
+    <div class="rule">
+        <h2 class="title">스크립트의 적용 방식</h2>
+        <ul>
+            <li>인라인 스크립트 : 해당 태그에 직접 스크립트를 기입하는 방식</li>
+            <li>내부 스크립트 : 해당 문서에 script 태그를 기입하여 스크립팅하는 방식</li>
+            <li>외부 스크립트 : 별도의 .js 파일을 작성하여 여러 문서에서 script 태그로 삽입하는 방식</li>
+        </ul>
+    </div>
+    <div class="rule">
+        <h2 class="title">스크립트의 출력 방향</h2>
+        <ul>
+            <li>문서에 출력 : document.write()</li>
+            <li>요소에 출력 : document.getElementById().innerHTML </li>
+            <li>콘솔에 출력 : console.log()</li>
+        </ul>
+    </div>
+    <div class="rule">
+        <h2 class="title">메시지창</h2>
+        <ul>
+            <li>알림창 : alert("메시지")</li>
+            <li>확인창 : confirm("메시지") </li>
+            <li>입력창 : prompt("메시지")</li>
+        </ul>
+    </div>
+    <div class="btn-group">
+        <button id="btn1" type="button" onclick="fnc1()">문서에 출력</button>
+        <button id="btn2" type="button" onclick="fnc2()">요소에 출력</button>
+        <button id="btn3" type="button" onclick="fnc3()">콘솔에 출력</button>
+        <button id="btn4" type="button" onclick="fnc4()">알림창 출력</button>
+        <button id="btn5" type="button" onclick="fnc5()">확인창 출력</button>
+        <button id="btn6" type="button" onclick="fnc6()">입력창 출력</button>
+        <a href="javascript:;" id="btn7" onclick="fnc7()">링크버튼1</a>
+        <a href="javascript:none;" id="btn8" onclick="fnc8()">링크버튼2</a>
+    </div>
+    <div class="activity">
+        <div id="res1"></div>
+        <div id="res2"></div>
+        <div id="res3"></div>
+    </div>
+    <script>
+    var fnc1 = function() { document.write("<h2>문서에 출력</h2>"); };    
+    var fnc2 = function() { 
+        document.getElementById("res1").innerHTML = "<h2>요소에 출력</h2>" };    
+    var fnc3 = function() { console.log("콘솔에 출력"); };
+    var fnc4 = function() { alert("알림창\n출력"); };
+    var fnc5 = function() { 
+        var res2 = document.getElementById("res2");
+        if(confirm("확인창\n확인")){
+            res2.innerHTML = "<em>확인 OK~!</em>";
+        } else {
+            res2.innerHTML = "<ins>취소 NOH~!</ins>";
+        }    
+    };
+    var fnc6 = function(){
+        var name = prompt("이름 입력 : ");
+        var age = parseInt(prompt("나이 입력 : "));
+        var iq = parseFloat(prompt("아이큐 입력 : "));
+        var res3 = document.getElementById("res3");
+        res3.style.color = "red";
+        var tag = "<ul>";
+        tag = tag + "<li>이름 : "+name+"</li>";     
+        tag = tag + "<li>나이 : "+age+"</li>";
+        tag = tag + "<li>아이큐 : "+iq+"</li>";
+        tag = tag + "</ul>";
+        res3.innerHTML = tag; 
+    }
+    var fnc7 = function() { 
+        alert("인라인 이벤트인 링크버튼을 누르셨습니다."); };
+    var fnc8 = function() { window.open("javascript01.html"); }
+    </script>
+</body>
+</html>

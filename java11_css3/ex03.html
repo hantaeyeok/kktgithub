@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경</title>
+    <style>
+    * { margin: 0; padding: 0; }
+    .page { clear:both; width: 100vw; height: 100vh; 
+        border-bottom:50px solid rgba(240,240,240,0.6); 
+        border-top:50px solid rgba(18,18,18,0.6); box-sizing:border-box; 
+        padding:5rem; }
+    /* clear-fix */
+    .page::after { content:""; display:block; width: 100%; clear:both; }    
+    .page_title { padding-top:0.5rem; padding-bottom:0.25rem; 
+        text-align:center; font-size:60px; }
+    .comment { padding:2rem 10rem; font-size:20px; }    
+    #page1 { background-color:deepskyblue; }
+    #page2 { background: linear-gradient(to bottom,  #a90329 0%,#54000c 100%); }
+    #page2 .page_title { color:#fff; }
+    #page3 { background-color: transparent; /* 배경투명 */ }
+    #page4 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+    background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+    background-position:center bottom; }
+    #page5 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+    background-size:auto,auto; background-repeat:no-repeat, repeat;  }
+    #page6 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+     background-repeat:no-repeat, repeat-y;  background-color:deeppink; }
+    #page7 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+    background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+    background-position:center bottom; background-attachment:fixed, scroll; }
+    #page8 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+    background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+    background-position:center bottom; background-attachment:fixed, scroll; 
+    background-origin:content-box; }
+    #page9 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+    background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+    background-position:center bottom; background-attachment:fixed, scroll; 
+    background-origin:content-box; background-clip: content-box; }
+    #page10 { background-image:url("./img/jen1.png"), url("./img/bg_section0_v3.jpg"); 
+    background-size:300px auto, cover; background-repeat:no-repeat; 
+    background-position:center bottom; }
+
+    .tit_box { clear:both; }
+    .tit_box:after { content:""; display:block; width:100%; clear:both; }
+    .tit { display:block; width:400px; height:40px; margin:5px 80px; border:3px solid transparent; 
+    font-size:30px; float:left; }
+    .img_box { background-image:url("./img/jen1.png"); 
+    background-size:cover; width:400px; height:600px; float:left; 
+    margin:80px; 
+    border:3px solid #333; }
+
+    #page11 .img_box.item1 { filter:blur(0px); }
+    #page11 .img_box.item2 { filter:blur(5px); }
+    #page11 .img_box.item3 { filter:blur(20px); }
+
+    #page12 .img_box.item1 { filter:brightness(100%); }
+    #page12 .img_box.item2 { filter:brightness(150%); }
+    #page12 .img_box.item3 { filter:brightness(50%); }
+
+    #page13 .img_box.item1 { filter:contrast(100%); }
+    #page13 .img_box.item2 { filter:contrast(150%); }
+    #page13 .img_box.item3 { filter:contrast(50%); }
+
+    #page14 .img_box.item1 { filter:grayscale(0%); }
+    #page14 .img_box.item2 { filter:grayscale(100%); }
+    #page14 .img_box.item3 { filter:grayscale(50%); }
+
+    #page15 .img_box.item1 { filter:invert(0%); }
+    #page15 .img_box.item2 { filter:invert(100%); }
+    #page15 .img_box.item3 { filter:invert(70%); }
+
+    #page16 .img_box.item1 { filter:opacity(100%); }
+    #page16 .img_box.item2 { filter:opacity(30%); }
+    #page16 .img_box.item3 { filter:opacity(70%); }
+
+    #page17 .img_box.item1 { filter:saturate(100%); }
+    #page17 .img_box.item2 { filter:saturate(30%); }
+    #page17 .img_box.item3 { filter:saturate(160%); }
+
+    #page18 .img_box.item1 { filter:sepia(0%); }
+    #page18 .img_box.item2 { filter:sepia(50%); }
+    #page18 .img_box.item3 { filter:sepia(100%); }
+    
+    #page19 .img_box.item1 { background-color:none; }
+    #page19 .img_box.item2 { filter:drop-shadow(-5px -5px 50px blue); }
+    #page19 .img_box.item3 { filter:drop-shadow(0px -20px 100px red); }   
+
+    #page20 .img_box.item1 { background-color:none; }
+    #page20 .img_box.item2 { filter:hue-rotate(180deg) }
+    #page20 .img_box.item3 { filter:hue-rotate(45deg); }   
+    </style>
+</head>
+<body>
+    <section class="page" id="page1">
+        <h2 class="page_title">제목1</h2>
+        <p class="comment">#page1 { background-color:deepskyblue; }</p>
+    </section>
+    <section class="page" id="page2">
+        <h2 class="page_title">제목2</h2>
+        <p class="comment" style="color:#fff">#page2 { background: linear-gradient(to bottom,  #a90329 0%,#54000c 100%); }</p>
+    </section>
+    <section class="page" id="page3">
+        <h2 class="page_title">제목3</h2>
+        <p class="comment">#page3 { background-color: transparent; /* 배경투명 */ }</p>
+    </section>
+    <section class="page" id="page4">
+        <h2 class="page_title">제목4</h2>
+        <p class="comment">#page4 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+            background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+            background-position:center bottom; }</p>
+    </section>
+    <section class="page" id="page5">
+        <h2 class="page_title">제목5</h2>
+        <p class="comment">#page5 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+            background-size:auto,auto; background-repeat:no-repeat, repeat;  }</p>
+    </section>
+    <section class="page" id="page6">
+        <h2 class="page_title">제목6</h2>
+        <p class="comment">#page6 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+            background-repeat:no-repeat, repeat-y;  background-color:deeppink; }</p>
+    </section>
+    <section class="page" id="page7">
+        <h2 class="page_title">제목7</h2>
+        <p class="comment">#page7 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+            background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+            background-position:center bottom; background-attachment:fixed, scroll; }</p>
+    </section>
+    <section class="page" id="page8">
+        <h2 class="page_title">제목8</h2>
+        <p class="comment">#page8 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+            background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+            background-position:center bottom; background-attachment:fixed, scroll; 
+            background-origin:content-box; }
+            </p>
+    </section>
+    <section class="page" id="page9">
+        <h2 class="page_title">제목9</h2>
+        <p class="comment">#page9 { background-image:url("./img/jen1.png"), url("./img/bts.jpg"); 
+            background-size:auto auto, 100% auto; background-repeat:no-repeat; 
+            background-position:center bottom; background-attachment:fixed, scroll; 
+            background-origin:content-box; background-clip: content-box; }
+            </p>
+    </section>
+    <section class="page" id="page10">
+        <h2 class="page_title">제목10</h2>
+        <p class="comment">#page10 { background-image:url("./img/jen1.png"), url("./img/bg_section0_v3.jpg"); 
+            background-size:300px auto, cover; background-repeat:no-repeat; 
+            background-position:center bottom; }</p>
+    </section>
+    <section class="page" id="page11">
+        <h2 class="page_title">Blur 필터</h2>
+        <p class="comment">흐림 효과</p>
+        <div class="tit_box">
+            <h3 class="tit">blur(0px)</h3>
+            <h3 class="tit">blur(5px)</h3>
+            <h3 class="tit">blur(20px)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page12">
+        <h2 class="page_title">Brightness</h2>
+        <p class="comment">명도</p>
+        <div class="tit_box">
+            <h3 class="tit">brightness(100%)</h3>
+            <h3 class="tit">brightness(150%)</h3>
+            <h3 class="tit">brightness(50%)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page13">
+        <h2 class="page_title">Contrast</h2>
+        <p class="comment">빛 노출정도</p>
+        <div class="tit_box">
+            <h3 class="tit">contrast(100%)</h3>
+            <h3 class="tit">contrast(150%)</h3>
+            <h3 class="tit">contrast(50%)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page14">
+        <h2 class="page_title">Grayscale</h2>
+        <p class="comment">회색조</p>
+        <div class="tit_box">
+            <h3 class="tit">grayscale(0%)</h3>
+            <h3 class="tit">grayscale(100%)</h3>
+            <h3 class="tit">grayscale(50%)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page15">
+        <h2 class="page_title">Invert</h2>
+        <p class="comment">색상 반전</p>
+        <div class="tit_box">
+            <h3 class="tit">invert(0%)</h3>
+            <h3 class="tit">invert(100%)</h3>
+            <h3 class="tit">invert(70%)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page16">
+        <h2 class="page_title">Opacity</h2>
+        <p class="comment">불투명도</p>
+        <div class="tit_box">
+            <h3 class="tit">opacity(100%)</h3>
+            <h3 class="tit">opacity(30%)</h3>
+            <h3 class="tit">opacity(70%)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page17">
+        <h2 class="page_title">Saturate</h2>
+        <p class="comment">채도보정</p>
+        <div class="tit_box">
+            <h3 class="tit">saturate(100%)</h3>
+            <h3 class="tit">saturate(30%)</h3>
+            <h3 class="tit">saturate(70%)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page18">
+        <h2 class="page_title">Sepia</h2>
+        <p class="comment">세피아톤</p>
+        <div class="tit_box">
+            <h3 class="tit">sepia(0%)</h3>
+            <h3 class="tit">sepia(50%)</h3>
+            <h3 class="tit">sepia(100%)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page19">
+        <h2 class="page_title">Drop Shadow</h2>
+        <p class="comment">그림자 효과(+:외곽,-:내부)</p>
+        <div class="tit_box">
+            <h3 class="tit">미적용</h3>
+            <h3 class="tit">drop-shadow(-5px -5px 50px blue)</h3>
+            <h3 class="tit">drop-shadow(0px -20px 100px red)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+    <section class="page" id="page20">
+        <h2 class="page_title">hue-rotate</h2>
+        <p class="comment">색상변경</p>
+        <div class="tit_box">
+            <h3 class="tit">미적용</h3>
+            <h3 class="tit">hue-rotate(180deg)</h3>
+            <h3 class="tit">hue-rotate(45deg)</h3>
+        </div>
+        <div class="img_box item1"></div>
+        <div class="img_box item2"></div>
+        <div class="img_box item3"></div>
+    </section>
+</body>
+</html>

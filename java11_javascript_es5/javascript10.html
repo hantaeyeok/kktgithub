@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체의 제어</title>
+    <style>
+    * { margin: 0; padding: 0; }
+    body { width:100%; overflow-x:hidden; color:#000; }
+    .title { padding-top: 2rem; text-align: center; padding-bottom: 0.5rem; }
+    .table { width: 960px; margin: 10px auto; }
+    #btn1, #imgFile { display:block; width: 150px; text-align: center; line-height: 36px; 
+    margin: 8px auto; clear:both; font-size:16px; font-weight:bold; }
+    .wrap { clear:both; width: 100%; height:auto; min-height:100px; margin-top: 30px; 
+        display: flex; justify-content: center;   align-items: center;  }
+    #result { width:200px; height:400px; background-color:yellow; color:red; 
+    font-size:20px; text-align:right; font-weight:bold; 
+    border:3px solid #000;  display: flex; justify-content:right;  align-items:center; }
+    .btn_wrap { clear:both; width: 960px; margin:0 auto; padding-top: 30px; padding-bottom: 100px; }
+    </style>
+</head>
+<body>
+    <h1 class="title">DOM 객체의 제어</h1>
+    <hr>
+    <form name="ui">
+        <table class="table" cellspacing="25">
+            <tbody>
+                <tr>
+                    <th>너비 : </th>
+                    <td><input type="text" size="9" name="w" id="w" value="200">px</td>
+                    <th>높이 : </th>
+                    <td><input type="text" size="9" name="h" id="h" value="400">px</td>
+                </tr>
+                <tr>
+                    <th>글자크기 : </th>
+                    <td><input type="text" size="9" name="font_size" id="font_size" value="20">px</td>
+                    <th>굵기 : </th>
+                    <td>보통 
+                        <input type="radio" name="font_weight" id="font_weight1" value="normal"> &nbsp; &nbsp;
+                        굵게 
+                        <input type="radio" name="font_weight" id="font_weight2" value="bold" checked>
+                    </td>
+                </tr>
+                <tr>
+                    <th>글자색 : </th>
+                    <td><input type="text" size="9" name="color" id="color" value="red"></td>
+                    <th>배경색 : </th>
+                    <td><input type="text" size="9" name="bg_color" id="bg_color" value="yellow"></td>
+                </tr>
+                <tr>
+                    <th>가로정렬 : </th>
+                    <td colspan="3">왼쪽 
+                        <input type="radio" name="h_align" id="h_align1" value="left"> &nbsp; &nbsp;
+                        가운데 
+                        <input type="radio" name="h_align" id="h_align2" value="center"> &nbsp; &nbsp;
+                        오른쪽 
+                        <input type="radio" name="h_align" id="h_align3" value="right" checked>
+                    </td>
+                </tr>
+                <tr>
+                    <th>세로정렬 : </th>
+                    <td colspan="3">위 
+                        <input type="radio" name="v_align" id="v_align1" value="flex-start"> &nbsp; &nbsp;
+                        가운데 
+                        <input type="radio" name="v_align" id="v_align2" value="center" checked> &nbsp; &nbsp;
+                        아래 
+                        <input type="radio" name="v_align" id="v_align3" value="flex-end">
+                    </td>            
+                </tr>
+                <tr>
+                    <th>출력 문자열 : </th>
+                    <td colspan="3">
+                        <input type="text" size="80" maxlength="40" name="txt" id="txt" value="Hello World">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"><button type="button" id="btn1">적용하기</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <div class="wrap" id="canvas">
+        <div id="result">
+            Hello World
+        </div>
+    </div>
+    <script>
+    var txt = document.getElementById("txt");
+    var result = document.getElementById("result");    
+    function fnc1() {
+        result.innerHTML = txt.value;
+        result.style.width = document.getElementById("w").value + "px";
+        result.style.height = document.getElementById("h").value + "px";
+        result.style.fontSize = document.getElementById("font_size").value+"px";
+        result.style.fontWeight = document.ui.font_weight.value;
+        result.style.color = document.getElementById("color").value;
+        result.style.backgroundColor = document.getElementById("bg_color").value;
+        result.style.justifyContent = document.ui.h_align.value;
+        result.style.alignItems = document.ui.v_align.value;
+    }   
+    document.getElementById("btn1").addEventListener("click", function() { fnc1(); }); 
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <div class="btn_wrap">
+        <button id="imgFile">이미지로 저장</button>
+    </div>
+    <script>
+    $(document).ready(function(){
+        $("#imgFile").on("click", function(){
+            html2canvas($('#result')[0]).then(function(canvas){
+                var img = document.createElement("a");
+                img.download = "test.png";
+                img.href=canvas.toDataURL();
+                document.body.appendChild(img);
+                img.click();
+            });
+        });
+    });    
+    </script>
+</body>
+</html>

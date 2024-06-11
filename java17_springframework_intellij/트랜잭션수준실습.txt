@@ -1,0 +1,66 @@
+• autocommit 설정값 확인
+show variables like 'autocommit%';
+
+• autocommit 설정 또는 해제
+SET AUTOCOMMIT = TRUE;  --> 설정
+SET AUTOCOMMIT = FALSE; --> 해제
+
+• 트랜잭션의 격리 수준(Isolation level) - 세션에 따른 격리 수준 레벨
+- READ UNCOMMITTED(커밋되지 않은 읽기) - 해당 세션에서만 커밋되지 않은 것을 읽게 하는 수준
+- READ COMMITTED(커밋된 읽기) - 외부 세션에서만 적용되며, 세션 관계없이 커밋된 것만 읽게 하는 수준
+- REPEATABLE READ(반복 가능한 읽기) - 한 세션에서 읽고 있을 경우 다른 세션에서도 읽을 수 있는 수준
+- SERIALIZABLE(직렬화 가능) - 한 세션에서 읽고 있을 경우 다른 세션에서는 읽을 수 없는 수준
+
+• 트랜잭션의 격리 수준(Isolation level) 확인
+show variables like 'tx_isolation';
+
+• 트랜잭션 격리 수준 변경
+set tx_isolation = 'READ-UNCOMMITTED';
+
+insert into emp values(1001, 'kim');
+
+select * from emp;
+	+--------+------------+
+	| emp_no | first_name |
+	+--------+------------+
+	|   1001 | kim        |
+	+--------+------------+
+
+다른 세션에서도 실행해보면,
+select * from emp;
+	Empty set (0.000 sec)
+
+
+rollback;
+
+select * from emp;
+	Empty set (0.000 sec)
+
+BEGIN;
+
+insert into emp values(1001, 'kim');
+
+select * from emp;
+	+--------+------------+
+	| emp_no | first_name |
+	+--------+------------+
+	|   1001 | kim        |
+	+--------+------------+
+
+commit;
+
+다른 세션에서도 실행해보면,
+select * from emp;
+	+--------+------------+
+	| emp_no | first_name |
+	+--------+------------+
+	|   1001 | kim        |
+	+--------+------------+
+
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>결제하기</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/axios/dist/axios.min.js"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function mypayment() {
+        let myAmount = Number(document.getElementById("amount").value);
+        let pname = document.getElementById("pname").value;
+        let email = document.getElementById("email").value;
+        let bname = document.getElementById("bname").value;
+        let btel = document.getElementById("btel").value;
+        let baddr = document.getElementById("baddr").value;
+        let bpostcode = document.getElementById("bpostcode").value;
+
+        const IMP = window.IMP; // 생략 가능
+        IMP.init("가맹점식별코드"); // Example: imp00000000
+        IMP.request_pay(
+          {
+            // param
+            pg: "kakaopay",
+            pay_method: "card",
+            name: pname,
+            amount: myAmount,
+            buyer_email: email,
+            buyer_name: bname,
+            buyer_tel: btel,
+            buyer_addr: baddr,
+            buyer_postcode: bpostcode,
+            m_redirect_url: "", // 모바일 결제후 리다이렉트될 주소!!
+          },
+          async (rsp) => {
+            // callback
+            if (rsp.success) {
+              // 결제 성공시
+              await axios.post(
+                "결제 성공시 컨트롤러 요청 주소",
+                {
+                  query: `
+                      mutation {
+                        buyTicket(impUid: "${rsp.imp_uid}", amount: ${rsp.paid_amount},pay_method:"${rsp.pay_method}") {
+                          id
+                          count
+                          money
+                          method
+                        }
+                      }
+                    `,
+                },
+                {
+                  headers: {
+                    authorization:
+                      "Bearer 액세스토큰",
+                  },
+                }
+              );
+            } else {
+              // 결제 실패시
+            }
+          }
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <fieldset>
+        <legend>결제 정보</legend>
+        상품명 : <input type="text" name="pname" id="pname"><br>
+        결제자 이메일 : <input type="email" name="email" id="email"><br> 
+        결제자 이름 :  <input type="text" name="bname" id="bname"><br>
+        결제자 연락처 : <input type="tel" name="btel" id="btel"><br>
+        결제자 주소 : <input type="text" name="baddr" id="baddr"><br>
+        결제자 우편번호 : <input type="text" name="bpostcode" id="bpostcode"><br>
+        결제할 금액: <input type="text" name="amount" id="amount" /><br>
+    </fieldset>
+    <button onclick="mypayment()">결제하기</button>
+  </body>
+</html>

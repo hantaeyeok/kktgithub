@@ -1,0 +1,79 @@
+Apache Commons IO 주요 기능(commons-io-버전.jar)
+자바의 IO기능을 개발하는데 도움을 주는 유틸리티 라이브러리 commons-fileupload에서 내부적으로 사용합니다.
+FileUtils 클래스 : 대용량 파일의 여러 조작 메서드를 제공합니다.
+FilenameUtils : 해당 파일명의 여러 조작 메서드를 제공합니다.
+FileSystemUtils 클래스 : 대용량 저장 장치를 제어하는 여러 메서드를 제공합니다.
+
+
+Apache Commons Beanutils 주요 기능(commons-beanutils-버전.jar)
+Java에서 제공되는 Reflection/Introspection APIs를 쉽게 사용할수 있게 한 wrapper 역할을 수행하며, 스트러츠의 ActionServlet에서 동적으로 폼빈생성시 사용합니다.
+BeanUtils 클래스 : 객체의 정보, 멤버 필드 값의 Getter/Setter의 등 을 쉽게 바인딩 할 수 있는 클래스입니다.
+PropertyUtils 클래스 : 객체의 멤버 필드에 대한 직접 접근이 가능하도록 한 클래스입니다.
+ConvertUtils 클래스 : 객체의 멤버 필드에 대한 타입을 변경하는 클래스입니다.
+
+
+Apache Commons Lang 주요 기능(commons-lang-버전.jar)
+java.lang의 클래스들을 위한 부가 기능을 제공 StringUtil, FileUtil등의 유틸 클래스들 사용합니다.
+tringUtils 클래스 : 문자열 조작을 위한 다양한 메서드를 제공합니다. 예를 들어, 문자열이 비어있는지 여부를 확인하거나, 공백을 제거하거나, 문자열을 반전시키는 등의 작업을 수행할 수 있습니다.
+DateUtils 클래스 : 날짜 및 시간 관련 작업을 지원합니다. 날짜 포맷 변환, 날짜 간의 차이 계산, 날짜 증가 또는 감소 등의 작업이 가능합니다.
+ArrayUtils 클래스 : 배열 조작을 위한 메서드를 제공합니다. 배열을 합치거나, 복제하거나, 특정 값으로 채우는 등의 작업을 수행할 수 있습니다.
+ObjectUtils 클래스 : 객체 비교 및 null 처리를 보다 쉽게 할 수 있는 메서드를 제공합니다.
+RandomStringUtils 클래스 : 무작위 문자열을 생성하는 메서드를 제공합니다. 예를 들어, 특정 길이의 무작위 알파벳 문자열을 생성할 수 있습니다.
+
+Apache Commons Collections 주요 기능(commons-collections-버전.jar)
+Java에서 기본적으로 제공하는 Collection 을 상속하여 확장한 인터페이스와 클래스로 Bag, 기타 여러 Map, Trie 등의 제네릭 인터페이스/클래스로 구성됩니다.
+Bag : 컬렉션이 보유한 객체에 대한 개수를 유지하는 클래스
+Bag, SortedBag, MultiSet, IterableMap, IterableSortedMap, BoundedMap, BidiMap, SortedBidiMap, MultiValuedMap, OrderedMap, OrderedBidiMap, Trie 등으로 구성됩니다.
+
+Apache Commons DBCP 주요 기능(commons-dbcp-버전.jar)
+Database connection pooling 서비스 제공하며,  데이터소스를 org.apache.commons.dbcp.BasicDataSource를 사용 
+
+Apache Commons DBUtils 주요 기능(commons-dbutils-버전.jar)
+Java에서 기본적으로 제공하는 Connection, Statement, ResultSet 등을 쉽게 사용하기 위해 추가된 라이브러리입니다.
+
+Apache Commons FileUpload 주요 기능(commons-fileupload-버전.jar)
+서블릿이나 웹애플리케이션에서 파일업로드를 쉽고 빠르게 해주는 file upload관련 패키지로서 스트러츠 FormFile에서 사용합니다.
+
+Apache Commons Logging 주요 기능(commons-logging-버전.jar)
+자체적으로 로깅 기능을 구현하고 있지는 않으며, 로깅 요청을 Log4J나 자바1.4로깅 API와 같이 이미 존재하는 로깅 API에 전달하는 다리 역할을 하는 라이브러리로서  Log4J를 사용하든 자바 1.4의 로깅 API를 사용하든지에 상관없이 동일한 방식으로 로깅 코드를 작성할 수 있게 하는 라이브러리입니다.
+
+Apache Commons Validator 주요 기능(commons-validator-버전.jar)
+XML로 validator와 validation rule을 정의하여 사용할 수 있는 라이브러리입니다.
+
+Apache Commons HTTPClient 주요 기능(commons-httpclient-버전.jar)
+클라이언트에서 HTTP프로토콜의 사용을 편하게 해주기 위한 라이브러리로서 RSS수집이나 블로그 트랙백등에서 사용됩니다.
+
+Apache Commons Digester 주요 기능(commons-digester-버전.jar)
+XML to Java객체간 매핑 유틸리티로서 스트러츠 Action 서블릿 설정파일과 액션 클래스 매핑시 주로 사용됩니다.
+
+Apache Commons Configuration 주요 기능(commons-configuration-버전.jar) 
+XML, properties 파일 등 다양한 데이터로 부터 설정관련 파일을 읽어들일수 있는 기능을 제공합니다.
+
+Activation 주요 기능(activation.jar)
+JavaBeans(TM) Activation Framework으로 JavaMail(TM) API에서 MIME data타입을 관리합니다.
+
+JavaMail 주요 기능(javax-mail-버전.jar, javax-mail-api-버전.jar)
+플랫폼과 프로토콜에 독립적인 메일과 메시지 API제공하는 라이브러리입니다.
+
+Java Quartz 주요 기능(quartz-버전.jar)
+유닉스 또는 리눅스 서버의 cron작업과 같이 특정시간이나 특정 주기를 가지고 수행하는 스케쥴 작업 지원  각종 스케쥴 작업에서 사용합니다.
+
+Xalan 주요 기능(xalan-버전.jar)
+XML을 Html, text, 따른 XML로 변환을 위한 XSLT프로세서  설정파일 관리에서 사용합니다.
+
+Google JSON 주요 기능(gson-버전.jar)
+구글에서 제공하는 자바 라이브러리로서 json 타입에 데이터를 로딩하거나 조작, 객체 생성 등에 활용됩니다.
+
+JSON 주요 기능(json-버전.jar, json-제작일.jar, json-parser-버전.jar, ezmorph-버전.jar)
+자바에서 웹 자바스크립트 공통 데이터 객체 타입인 json 을 다루기 위한 라이브러리입니다.
+
+Crypto 주요 기능(crypto.jar)
+자바의 데이터를 암호화, 복호화 하는 Cipher 형태의 클래스를 제공하는 라이브러리입니다.
+
+Java Soup 주요 기능(jsoup-버전.jar)
+JAVA 오픈 라이브러리중 하나로 HTML에 있는 데이터를 파싱해주는 역할을 하며, 자바 기반의 웹 크롤링에 많이 사용됩니다.
+
+Guava(Guava: Google Core Libraries For Java) 주요 기능(guava-버전.jar)
+구글이 작성한 자바 오픈소스 라이브러리로서 컬렉션 초기화 제공, 함수형 스타일 프로그래밍 제공, 멀티맵/바이맵 제공, 해시코드와 비교자 제공 등 기존의 자바에서 없던 기능부분을 제공합니다.
+
+

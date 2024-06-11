@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내비게이션</title>
+    <link rel="stylesheet" href="normalize2.css">
+    <style>
+    * { margin: 0; padding: 0; }    
+    body { width: 100%; overflow-x:hidden; }
+    ul { list-style: none; }
+    a { text-decoration: none; }
+    .wrap { min-height:250px; }
+    .blank { width: 100%; clear: both; min-height:150px; }
+    .title { padding-top: 2rem; padding-bottom: 0.5rem; text-align: center; }
+    .lst { list-style:disc; margin-left: 20px; padding-left: 5px; }
+    .lst li { padding-top: 10px; padding-bottom: 5px; }
+    .lst a { color:#333; }
+    .clr-fix { clear:both; }
+    .clr-fix:after { content:""; display:block; width: 100%; clear:both; 
+    padding-bottom: 16px; }
+
+
+    /* 메인메뉴1 */
+    #gnb1 { clear:both; width: 800px; height:auto; margin:0 auto; }
+    #gnb1 li { text-align: center; float:left; 
+    background-color:#333; line-height: 32px; border-top:3px solid transparent;
+    border-bottom:3px solid transparent; 
+    border-left:1px solid #ececec; 
+    border-right:1px solid #111; }
+    #gnb1 li a { color:#fff; padding:22px;  }
+    #gnb1 li:hover { background-color: deepskyblue;
+         border-top:3px solid deeppink;  border-bottom:3px solid deeppink;}
+    </style>
+    <style>
+    /* 메인메뉴2 */    
+    .wrap { position:relative; }
+    #gnb2 { clear:both; width: 800px; position:absolute;
+    left:50%; margin-left: -400px; z-index:100; }
+    #gnb2 > .menu > li {  float:left; width: 25%; text-align: center; }   
+    #gnb2 a.dp1 { background-color:#333; color:#fff; display:block; 
+    line-height: 36px; }
+    #gnb2 li:hover a.dp1 { background-color:deepskyblue; }
+    #gnb2 .sub { display:none; }
+    #gnb2:hover .menu .sub { display:block; }
+    #gnb2 .menu li:hover .sub { background-color:#ccc; }
+    </style>
+    <style>
+    /* 메인메뉴3 */    
+    #gnb3 { clear:both; width: 800px; position:absolute;
+    left:50%; margin-left: -400px; z-index:100;  }
+    #gnb3 > .menu > li {  float:left; width: 25%; text-align: center; }   
+    #gnb3 a.dp1 { background-color:#333; color:#fff; display:block; 
+    line-height: 36px; }
+    #gnb3 li:hover a.dp1 { background-color:deepskyblue; }
+    #gnb3 .sub { display:none; }
+    #gnb3 .menu li:hover .sub { display:block; background-color:#ccc; }
+    </style>
+    <style>
+    /* 2단 메뉴 공통 */    
+    .sub li { line-height: 32px; }
+    .sub li a { color:#333; }
+    .sub li:hover a { text-decoration:underline; color:navy; }
+    </style>
+    <style>
+    /* 상단 메뉴 */
+    #tnb1 { float:right; margin-right: 80px; }    
+    #tnb1 li { float:left; margin:8px; }
+    #tnb1 li:after { content:"/"; padding-left: 15px; }
+    #tnb1 li a { color:#333; font-size:0.8rem; font-weight: bold; }
+    #tnb1 li a:hover { color:darkslategray; border-bottom:1px solid darkolivegreen; }
+
+    #tnb2 p { text-align: right; padding-right: 40px; }
+    #tnb2 p a { padding: 8px 14px; background-color: #333; color:#fff; 
+    border-radius:20px; margin:14px; font-size:0.85rem; }
+    #tnb2 p a:hover { background-color:deepskyblue; }
+
+    #tnb3 { width:300px; margin:20px auto; }
+    #tnb3 a { padding: 10px; font-weight: bold; color:#333; 
+    border-top:2px solid transparent; border-bottom:2px solid transparent; }
+    #tnb3 a:hover { color:deeppink; border-top:2px solid deeppink;  
+        border-bottom:2px solid deeppink; } 
+    </style>
+    <style>
+    /* 사이드 메뉴 */
+    #left1 { float:left; width: 240px; min-height:100vh;
+        box-sizing: border-box; }  
+    #lnb { margin-top: 100px; padding-left: 24px; }      
+    #lnb > .menu > li { line-height: 40px; }
+    #lnb a.dp1 { color:#333; font-size:16px; font-weight:900; }
+    #lnb li .sub { height:0; overflow:hidden; transition:0.8s; }
+    #lnb .sub li { padding-left: 28px; }
+    #lnb .sub li a.dp2 { color:#555; font-size:13px; font-weight: 600; }
+    #lnb li:hover .sub { height:130px; }
+    .contents { float:right; width:calc(100vw - 270px); 
+    box-sizing: border-box; min-height:100vh;         
+    border-left:1px solid #aaa;  }
+    #vs { clear:both; width: 100%; text-align: center; 
+        padding-top: 50px; padding-bottom: 50px; }
+    .breadcrumb { clear:both; border-bottom:2px solid #777; 
+    padding-top: 24px; padding-bottom: 24px; text-align: right; 
+    box-sizing:border-box;  padding-right: 40px;   }
+    .breadcrumb p * { padding:0px 7px; color:#333; font-weight:bold; }
+    .breadcrumb p a:after { content:">"; padding-left: 14px; }
+    </style>
+
+    <style>
+    /* 푸터 메뉴 */    
+    .contents2 { clear:both; width: 100%;   
+        box-sizing: border-box; min-height:50vh; }
+    .ft { clear:both; width: 100%; padding-top:3px; padding-bottom: 20px; 
+    }
+    #fnb { clear:both; width:100%; height:42px; line-height: 42px; 
+    border-bottom:1px solid #ccc; background-color:#333; }
+    #fnb:after { content:""; display:block; width: 100%; clear: both; }
+    #fnb ul li { float:left; padding:0px 10px; }
+    #fnb ul.fl { float:left; }
+    #fnb ul.fr { float:right; }
+    #fnb ul li a { color:#fff; font-size:16px; }
+    #fnb ul.fl li a:after { content:"|"; padding-left: 16px; }
+    #fnb ul.fr li a:before { content:"|"; padding-right: 16px; }
+    #fnb ul.fl li:hover a:after { content:"|"; padding-left: 16px; color:#fff; }
+    #fnb ul.fr li:hover a:before { content:"|"; padding-right: 16px; color:#fff;  }
+    #fnb ul.fl li:last-child a:after { content:""; }
+    #fnb ul.fr li:first-child a:before { content:""; }
+    #fnb ul li:hover a { color:deepskyblue; }
+    #fnb ul.fl li:hover::last-child a:after { content:""; }
+    #fnb ul.fr li:hover::first-child a:before { content:""; } 
+    .copy { padding:24px; line-height: 24px; }   
+    </style>
+    <style>
+    /* 퀵 메뉴 */
+    #quick { width:180px; height:400px; position:fixed;
+    right:50px; top:150px; z-index:9999; 
+    background-color:rgba(230,100,0,0.7); border-radius:24px 24px 0px 0px; 
+    text-align: center; }    
+    #quick:before { content:"Quick"; display:block; width: 100%; 
+    font-size:32px; line-height: 68px; border-bottom:2px solid #ececec; } 
+    .quick { clear:both; }
+    .quick li { line-height: 40px; border-top:1px solid rgba(230,100,0,0.8);
+        border-bottom:1px solid #999;  }
+    .quick li a { color:#333; font-weight: bold;  }    
+
+    </style>
+</head>
+<body>
+    <h1 class="title">내비게이션 만들기</h1>
+    <hr>
+    <ul class="lst">
+        <li><a href="">메인메뉴(GNB)</a></li>
+        <li><a href="">상단메뉴(TNB)</a></li>
+        <li><a href="">로컬메뉴(LNB)</a></li>
+        <li><a href="">하단링크(FNB)</a></li>
+        <li><a href="">퀵메뉴(Quick)</a></li>
+        <li><a href="">브레드크럼(BreadCrumb)</a></li>
+        <li><a href="">펼침메뉴</a></li>
+    </ul>
+    <hr>
+    <h2 class="title">메인메뉴1</h2>
+    <nav id="gnb1" class="clr-fix">
+        <ul class="menu clr-fix">
+            <li><a href="">메뉴1</a></li>
+            <li><a href="">메뉴2 메뉴2 메뉴2</a></li>
+            <li><a href="">메뉴3 메뉴3</a></li>
+            <li><a href="">메뉴4 메뉴4 메뉴4 메뉴4 메뉴4</a></li>
+            <li><a href="">메뉴5</a></li>
+        </ul>
+    </nav>
+    <hr>
+    <!-- nav#gnb2>ul.menu>li*4>a.dp1{메인$}+(ul.sub>li*5>a.dp2{서브$$}) -->
+    <h2 class="title">메인메뉴2</h2>
+    <div class="wrap clr-fix">
+        <nav id="gnb2" class="clr-fix">
+            <ul class="menu clr-fix">
+                <li class="item1">
+                    <a href="" class="dp1">메인1</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+                <li class="item2">
+                    <a href="" class="dp1">메인2</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+                <li class="item3">
+                    <a href="" class="dp1">메인3</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+                <li class="item4">
+                    <a href="" class="dp1">메인4</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>    
+    <hr>
+    <h2 class="title">메인메뉴3</h2>
+    <div class="wrap clr-fix">
+        <nav id="gnb3">
+            <ul class="menu">
+                <li>
+                    <a href="" class="dp1">메인1</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">메인2</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">메인3</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">메인4</a>
+                    <ul class="sub">
+                        <li><a href="" class="dp2">서브01</a></li>
+                        <li><a href="" class="dp2">서브02</a></li>
+                        <li><a href="" class="dp2">서브03</a></li>
+                        <li><a href="" class="dp2">서브04</a></li>
+                        <li><a href="" class="dp2">서브05</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+    <h2 class="title">상단메뉴1</h2>
+    <div class="wrap">
+        <nav id="tnb1">
+            <ul class="menu">
+                <li><a href="">상단메뉴1</a></li>
+                <li><a href="">상단메뉴2</a></li>
+                <li><a href="">상단메뉴3</a></li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+    <h2 class="title">상단메뉴2</h2>    
+    <div class="wrap">
+        <nav id="tnb2">
+            <p><a href="">상단메뉴1</a><a href="">상단메뉴2</a><a href="">상단메뉴3</a></p>
+        </nav>
+    </div>
+    <hr>
+    <h2 class="title">상단메뉴3</h2>    
+    <div class="wrap">
+        <nav id="tnb3">
+            <a href="">상단메뉴1</a>
+            <a href="">상단메뉴2</a>
+            <a href="">상단메뉴3</a>
+        </nav>
+    </div>
+    <hr>
+    <h2 class="title">로컬 메뉴와 브레드크럼</h2>
+    <hr>
+    <div class="wrap clr-fix">
+        <!-- aside#left1>nav#lnb>ul>li*3>a.dp1{메뉴$}+(ul.sub>li*4>a.dp2{서브$}) -->
+        <aside id="left1">
+            <nav id="lnb">
+                <ul class="menu">
+                    <li>
+                        <a href="" class="dp1">메뉴1</a>
+                        <ul class="sub">
+                            <li><a href="" class="dp2">서브11</a></li>
+                            <li><a href="" class="dp2">서브12</a></li>
+                            <li><a href="" class="dp2">서브13</a></li>
+                            <li><a href="" class="dp2">서브14</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="dp1">메뉴2</a>
+                        <ul class="sub">
+                            <li><a href="" class="dp2">서브21</a></li>
+                            <li><a href="" class="dp2">서브22</a></li>
+                            <li><a href="" class="dp2">서브23</a></li>
+                            <li><a href="" class="dp2">서브24</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="dp1">메뉴3</a>
+                        <ul class="sub">
+                            <li><a href="" class="dp2">서브31</a></li>
+                            <li><a href="" class="dp2">서브32</a></li>
+                            <li><a href="" class="dp2">서브33</a></li>
+                            <li><a href="" class="dp2">서브34</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="contents">
+            <figure id="vs">
+                <img src="https://placehold.it/960x280/333" alt="비주얼배너">
+            </figure>
+            <hr>
+            <div class="breadcrumb">
+                <p>
+                    <a href="">홈</a><a href="">메인메뉴</a><span>현재 페이지</span>
+                </p>
+            </div>
+            <h2 class="title">서브 페이지</h2>
+        </div>
+    </div>
+    <hr>
+    <h2 class="title">하단링크 - 푸터 내비게이션바</h2>
+    <hr>
+    <div class="wrap clr-fix">
+        <div class="contents2 clr-fix">
+            <h2 class="title">콘텐츠 영역</h2>
+        </div>
+        <hr>
+        <footer class="ft">
+            <!-- nav#fnb>(ul.fl>li*4>a{왼쪽$})+(ul.fr>li*3>a{오른쪽$}) -->
+            <nav id="fnb">
+                <ul class="fl">
+                    <li><a href="">왼쪽1</a></li>
+                    <li><a href="">왼쪽2</a></li>
+                    <li><a href="">왼쪽3</a></li>
+                    <li><a href="">왼쪽4</a></li>
+                </ul>
+                <ul class="fr">
+                    <li><a href="">오른쪽1</a></li>
+                    <li><a href="">오른쪽2</a></li>
+                    <li><a href="">오른쪽3</a></li>
+                </ul>
+            </nav>
+            <hr>
+            <div class="copy">
+                <p class="copyright">Copyrigh 2024. KiM Gi Tae. All Rights Reserved.</p>
+                <p class="addr">#1204, 128-14, Block 6, Gasan-dong, Geumcheon-gu, Seoul-city</p>
+                <p class="tel">Tel. 010-2858-4307, Fax. 02-2488-7954, Email : kkt09072@google.com
+                    <a href="https://www.google.com/maps/search/%EA%B0%80%EC%82%B0%EB%8F%99+128-14+%EC%A7%80%EB%8F%84?entry=ttu" target="_blank">오시는 길</a>
+                </p>
+            </div>
+        </footer>
+        <hr>
+        <h2 class="title">퀵 메뉴</h2>
+        <div class="wrap">
+            퀵 메뉴는 화면에 고정시켜 스크롤시에도 항상 보이도록 하는 메뉴입니다.
+        </div>
+    </div>
+    <div class="blank"></div>
+    <div class="quick_fr">
+        <nav id="quick">
+            <ul class="quick">
+                <li><a href="">퀵메뉴1</a></li>
+                <li><a href="">퀵메뉴2</a></li>
+                <li><a href="">퀵메뉴3</a></li>
+                <li><a href="">퀵메뉴4</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

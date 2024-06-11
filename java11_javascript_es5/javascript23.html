@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 23 - 영화 베스트</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <input id="date" placeholder="YYYYMMDD">
+    <button id="btn">데이터 가져오기</button>
+    
+    <script>
+        $('#btn').click(()=>{
+            let date = $('#date').val()
+            // 백틱 이용
+            let url = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=${date}`
+            
+            $.ajax({
+                url : url,
+                type : 'get',
+                success : (res)=>{
+                    console.log(res)
+                    let list = res.boxOfficeResult.weeklyBoxOfficeList
+                    
+                    // 테이블 생성 후 1행 랭킹, 제목, 개봉일자 
+                    let movieTable = document.createElement('table')
+                    let tr1 = document.createElement('tr')
+                    let ranking = document.createElement('td')
+                    let name = document.createElement('td')
+                    let date = document.createElement('td')
+                    
+                    ranking.innerText = '랭킹'
+                    name.innerText = '제목'
+                    date.innerText = '개봉일자'
+
+                    tr1.appendChild(ranking)
+                    tr1.appendChild(name)
+                    tr1.appendChild(date)
+                    movieTable.appendChild(tr1)
+
+                    document.getElementsByTagName('body')[0].appendChild(movieTable)
+
+                    // for문을 이용하여 랭킹,제목,개봉일자를 가져와 appendChild로 붙이기
+                    for (let i = 0; i<list.length; i++ ){
+                       let tr2 = document.createElement('tr')
+                       let rank = document.createElement('td')
+                       let movieNm = document.createElement('td')
+                       let openDt = document.createElement('td')
+
+                       rank.innerText = list[i].rank
+                       movieNm.innerText = list[i].movieNm
+                       openDt.innerText = list[i].openDt
+
+                       tr2.appendChild(rank)
+                       tr2.appendChild(movieNm)
+                       tr2.appendChild(openDt)
+
+                       movieTable.appendChild(tr2)
+
+                    }
+                },
+                error : ()=>{
+                    console.log('통신 실패')
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>
